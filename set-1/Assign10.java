@@ -6,7 +6,7 @@
  * @version 1.00 2018/8/3
  */
 
-package set;
+package set1;
 public class Assign10 {
 
     public static void main(String args[]){
