@@ -16,10 +16,11 @@ public class days {
 	int	week = (no_days % 30) / 7;
 	int	days = (no_days % 30) % 7;
 
-		System.out.println("Number of days equal to ");
+		System.out.println("Number of days i'e "+no_days);
+		System.out.println("EQUALS to");
 		System.out.println("Year --- Month --- Week --- Days");
 
-		System.out.println(year+" --- "+month+" --- "+week+" --- "+days);
+		System.out.println(year+"    ---   "+month+"   ---  "+week+"   ---  "+days);
 		}
 
 }

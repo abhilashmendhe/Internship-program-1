@@ -20,6 +20,9 @@ public class Assign10 {
     		System.out.println("millimeter to feets is "+ feets);
     		System.out.println("millimeter to inches is "+ inches);
     		System.out.println("millimeter to centimeter is "+ centimeter);
+
+    	//	System.out.println("Meter --- Feets --- Inches --- Centimeter");
+    	//	System.out.println((int)meter+" --- "+(int)(millimeter % 1000)/300+" --- "+(int)((millimeter % 1000)%300)/25+" --- "+centimeter);
     	}
 
 }
