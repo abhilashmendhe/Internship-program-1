@@ -10,7 +10,7 @@ package set1;
 public class Assign10 {
 
     public static void main(String args[]){
-    		int millimeter = 20;
+    		int millimeter = 2513;
     		/*double meter = (double) millimeter / 1000;
     		double feets = (double) millimeter / 300;
     		double inches = (double) millimeter / 25;
