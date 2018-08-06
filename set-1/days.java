@@ -10,11 +10,11 @@ package set1;
 public class days {
 
 	public static void main(String args[]){
-	int no_days = 50;
+	int no_days = 100;
 	int	year = no_days / 365;
-	int	month = no_days / 30;
-	int	week = (no_days % 30) / 7;
-	int	days = (no_days % 30) % 7;
+	int	month = (no_days % 365)/30;
+	int	week = ((no_days % 365) % 30) / 7;
+	int	days = (((no_days % 365) % 30) % 30) % 7;
 
 		System.out.println("Number of days i'e "+no_days);
 		System.out.println("EQUALS to");
