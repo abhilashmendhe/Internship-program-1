@@ -15,7 +15,7 @@ public class Triangle2 {
 		int b = 2;
 		int c = 2;
 
-		double p = (a+b+c)/2;
+		double p = (double)(a+b+c)/2;
 		double p1 = p - a;
 		double p2 = p - b;
 		double p3 = p - c;
