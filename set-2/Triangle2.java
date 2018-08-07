@@ -11,9 +11,9 @@ public class Triangle2 {
 
 	public static void main(String args[])
 	{
-		int a = 1;
+		int a = 2;
 		int b = 2;
-		int c = 3;
+		int c = 2;
 
 		double p = (a+b+c)/2;
 		double p1 = p - a;
