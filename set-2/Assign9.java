@@ -10,9 +10,9 @@ package set2;
 public class Assign9 {
 
 	public static void main(String args[]){
-		int m=3,n=4,p=10;
-		int x=7,y=8;
-		int a=11,b=12,c=13;
+		double m=5,n=6,p=7;
+		double x=8,y=9;
+		double a=2,b=3,c=4;
 
 
 		double compute1 = m + n + p;
@@ -20,6 +20,7 @@ public class Assign9 {
 		double compute3 = Math.pow(compute1,compute2);
 		System.out.println("Compute2 value is "+compute3);
 		double compute4 = Math.sqrt(compute3);
+				System.out.println("Compute4 value is "+compute4);
 		double compute5 = (double)(a+b+c)/(m+n);
 		System.out.println("Compute5 value is "+compute5);
 		double answer = compute4 / compute5;
