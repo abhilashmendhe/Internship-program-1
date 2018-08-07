@@ -11,7 +11,7 @@ public class Assign10 {
 
 	public static void main(String args[])
 	{
-		double b=2,c=4,A=5,B=6;
+		double b=3,c=-5,A=4,B=2;
 
 		double mod_b = Math.abs(b);
 
