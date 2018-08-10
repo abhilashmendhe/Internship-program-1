@@ -11,7 +11,7 @@ public class Assign8 {
 
    public static void main (String args[]){
 
-   		int b = 4, a = 7, c = 11;
+   		int b = 3, a = 4, c = 6;
 
   		double compute = (double)Math.pow(b,2) - ( 4 * a * c );
   		String ans = ( compute < 0 ) ? "Roots are Imaginary" :

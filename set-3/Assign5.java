@@ -11,7 +11,7 @@ public class Assign5 {
 
     public static void main(String args[])
     {
-    	int number = 124;
+    	int number = 7;
 
     	String ans = ( number % 2 == 0 )? "Is an EVEN number" : "Is an ODD number";
 

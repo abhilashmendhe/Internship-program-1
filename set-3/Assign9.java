@@ -12,7 +12,7 @@ public class Assign9 {
 
    	public static void main(String args[])
    	{
-   		double x1=12, x2=1, y1=6, y2=6;
+   		double x1=12, x2=1, y1=9, y2=6;
 
   		String ans = ( x1 == x2 && y1 == y2 ) ? "It's a point" : ( y1 == y2 ) ? "The line is parallel to X-axis" : "It's not parallel to X-axis";
 

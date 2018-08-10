@@ -10,7 +10,7 @@ package set3;
 public class Assign12 {
 
     public static void main(String args[]){
-    		int sal = -00000;
+    		int sal = 50000;
 
     		String ans = ( sal <= 0 ) ? "Someone's working for free and is in debt!!" : ( sal < 15000) ? "Peon" :
     					 ( sal >= 15001 && sal < 25000 ) ? "2nd Division Clerk" :

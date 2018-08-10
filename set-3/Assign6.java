@@ -11,7 +11,7 @@ public class Assign6 {
 
     public static void main(String args[]){
 
-    	 int x = 0 , y = 0;
+    	 int x = -1 , y = 4;
 
     	 String ans = ( x > 0 && y > 0)? "It's in First quadrant" :
     	 	          ( x < 0 && y > 0)? "It's in Second quadrant" :
