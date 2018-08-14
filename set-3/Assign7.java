@@ -11,7 +11,7 @@ public class Assign7 {
 
     public static void main(String args[]){
 
-    	int a = 3, b = 3, c = 3;
+    	int a = 1, b = 2, c = 3;
 
 		double p = (double)(a+b+c)/2;
 		double compute = (double)Math.sqrt( p * (p-a) * (p-b) * (p-c));
