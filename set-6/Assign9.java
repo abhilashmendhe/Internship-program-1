@@ -25,6 +25,7 @@ public class Assign9 {
 		double	disc = (b*b) - (4*a*c);
 	//	System.out.println(disc);
 			if ( disc > 0 ){
+				System.out.println("Roots are real");
 				double r1 = (- b + Math.sqrt(Math.abs(disc))) / (2*a);
 				double r2 = (- b - Math.sqrt(Math.abs(disc))) / (2*a);
 
@@ -32,6 +33,7 @@ public class Assign9 {
 				System.out.println("R2: "+ r2);
 				}
 			else if ( disc < 0 ){
+				System.out.println("Roots are imaginary");
 				double real = -b / (2*a);
 				double img = Math.sqrt(Math.abs(disc)) / (2*a);
 				System.out.println("R1: "+real+" + i"+img);
@@ -39,6 +41,7 @@ public class Assign9 {
 
 				}
 			else if ( disc == 0 ){
+				System.out.println("Roots are equal ");
 					double r1 = (- b)/ (2 * a);
 					double r2 = r1;
 //					System.out.println("R1: "+r1);

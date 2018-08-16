@@ -6,7 +6,7 @@
  * @version 1.00 2018/8/16
  */
 
-package set10;
+package set4;
 import java.util.*;
 public class Assign10 {
 
