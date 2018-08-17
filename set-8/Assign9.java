@@ -21,17 +21,17 @@ public class Assign9 {
     		s = s + i;
     	}
 
-   		double m = (double) s/n;
-   		System.out.println("mean "+m);
+   		double mean = (double) s/n;
+   		//System.out.println("mean "+mean);
    		for(int i=1; i<=n; i++)
    		{
-   		 t = t + Math.pow((m-i),2);
+   		 t = t + Math.pow((mean-i),2);
    		}
    		System.out.println(t);
-   		double u = (double) Math.sqrt(t/n);
-   		System.out.println("SD = "+u);
-   		double r1 = (double) m - u;
-   		double r2 = (double) m + u;
+   		double sd = (double) Math.sqrt(t/n);
+   		System.out.println("SD = "+sd);
+   		double r1 = (double) mean - sd;
+   		double r2 = (double) mean + sd;
 System.out.println(r1);
 System.out.println(r2);
    		for (int i=1; i<=n; i++)
