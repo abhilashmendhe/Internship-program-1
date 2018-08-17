@@ -15,11 +15,14 @@ public class Assign8 {
     	System.out.println("Enter number");
     	Scanner sc = new Scanner(System.in);
     	int n = sc.nextInt();
-    	int s = 0;
-    	for(int i=0; i<=n; i++)
+    	int n1=0,n2=1;
+    	System.out.print(n1+" "+n2);
+    	for(int i=3; i<=n; i++)
     	{
-			System.out.println(i);
-    		i = i + (++i);
+    		int fib = n1+n2;
+			System.out.print(" "+fib);
+    		n1 = n2;
+    		n2 = fib;
     	}
     }
 
