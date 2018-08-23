@@ -37,7 +37,8 @@ public class Assign9 {
     				System.out.print(o);
     			for(int p=2; p>=bottom-z; p--)
     			{
-    				System.out.print(--y);
+    				int g=p;
+    				System.out.print((g--)-a);
     			}
     			a = a + 1;
     			z=z-1;
