@@ -11,11 +11,12 @@ public class Assign4 {
 
   public static void main(String args[])
 {
-	for (int i = 1; i<=7; i++)
+	int n=7;
+	for (int i = 1; i<=n; i++)
 	{
-		for (int j = 1; j<=7; j++){
+		for (int j = 1; j<=n; j++){
 
-		if(j==i || j==(8-i))
+		if(j==i || j==(n-i))
 		{
 			System.out.print("*");
 		}
