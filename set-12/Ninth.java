@@ -11,24 +11,25 @@ public class Ninth {
 
     public static void main(String args[])
     {
-		int i=2;
-		int num = 10;
-		int n = 30;
-		int s = 0;
-		while(num>=1){
-		boolean f=true;
-		while(i<n)
-		{
-			if(n%i==0){
-				f=false;
-				break;
-			}
-		}
-		if(f)
-		{
-			System.out.println(i);
-		}
-		num--;
-		}
+    	int count=0;
+    	int num=10;
+    	int i=1;
+    	while(count<=num)
+    	{
+    		boolean f=true;
+    		for(int j=2; j<i; j++ )
+    		{
+    			if(i%j==0)
+    			{
+    				f=false;
+    				break;
+    			}
+    		}
+    		if(f){
+    			count++;
+    			System.out.print(" "+i);
+    		}
+    		i++;
+    	}
     }
 }
