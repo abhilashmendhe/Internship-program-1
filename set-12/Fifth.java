@@ -11,7 +11,7 @@ public class Fifth {
 
     public static void main(String args[])
     {
-    	int n=32;
+    	int n=12;
     	int rev=0;
 		int s=0;
     	while(n>0)
