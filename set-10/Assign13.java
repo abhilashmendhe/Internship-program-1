@@ -15,29 +15,31 @@ public class Assign13 {
     	System.out.println("Enter n");
     	Scanner sc = new Scanner(System.in);
     	int n = sc.nextInt();
-		boolean f = true;
-		double sum=0;
-    	for(double i=1; i<=n; i++)
-    	{
-    		double compute = 0;
-    		for(int j=2; j<i; j++)
-    		{
-    			if(i%j==0)
-    			{
-    				f=false;
-    				break;
-    			}
-    			else
-    			{
-    				f=true;
-    			}
-    		}
-    		if(f){
-    			compute += 1/i;
-    		}
-//    		System.out.print(" "+i);
-			sum += compute;
-    	}System.out.println(sum);
+		int count=1;
+		double a=1;
+		double compute = 0;
+		while(count<=n)
+		{
+
+			boolean f = true;
+			for(int i=2; i<a; i++)
+			{
+				if(a%i==0)
+				{
+					f=false;
+					break;
+				}
+
+			}
+			if(f){
+				//System.out.print(" "+a);
+				compute += (1/a);
+			count++;
+			}
+			a++;
+
+		}
+		System.out.println("Sum of following series is "+compute);
 
     }
 

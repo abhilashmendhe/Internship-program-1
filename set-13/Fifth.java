@@ -13,7 +13,7 @@ public class Fifth {
     {
     	int i=1;
     	int n1=10,n2=15;
-    	int n3=20;
+    	int n3=30;
 		int j=1;
 
 	int tmp=0;
