@@ -16,6 +16,7 @@ public class Sixth {
 	//	String res = sc.next();
 		int a=0,b=0;
 		int f=1;
+		boolean flag = false;
 		do
 		{
 			System.out.println("Enter choice");
@@ -69,8 +70,7 @@ public class Sixth {
 
 			}
 			System.out.println("Do you want to continue");
-			System.out.println("Enter 1 for 'yes' or 0 for 'no'");
-			f = sc.nextInt();
+			System.out.print("Enter 1 for 'yes' or 0 for 'no': ");f = sc.nextInt();
 
 		}while(f != 0);
     }
