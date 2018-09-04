@@ -23,20 +23,12 @@ public class Assign5 {
 		{
 			a[i] = sc.nextInt();
 		}
-
-		int j=0;
-		int count=1;
-		int big = a[j];
-		while(count<a.length)
+		int big = a[0];
+		for(int j=0; j<a.length; j++)
 		{
-			if(big > a[count])
+			if(big < a[j])
 			{
-				count++;
-			}
-			else
-			{
-				big = a[count];
-				count++;
+				big = a[j];
 			}
 		}
 		System.out.println("Biggest no. is "+big);

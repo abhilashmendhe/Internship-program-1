@@ -23,14 +23,13 @@ public class Assign9 {
     		a[i] = sc.nextInt();
     	}
 		int prime_count=0;
-		int count = 0;
-		while(count<a.length)
+		for(int k=0; k<a.length; k++)
 		{
 
 		boolean f = true;
-		for(int j=2; j<a[count]; j++)
+		for(int j=2; j<a[k]; j++)
 		{
-			if(a[count]%j==0)
+			if(a[k]%j==0)
 			{
 				f = false;
 				break;
@@ -40,7 +39,6 @@ public class Assign9 {
 			//System.out.print(" "+a[count]);
 			prime_count++;
 		}
-		count++;
 
 		}
 		System.out.println("Count of prime numbers in arrays are "+prime_count);
