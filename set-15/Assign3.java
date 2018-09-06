@@ -24,37 +24,21 @@ public class Assign3 {
 		System.out.println("Enter first element: "); int x = sc.nextInt();
 		System.out.println("Enter second element: "); int y = sc.nextInt();
 
-		boolean f1 = false;
-		boolean f2 = false;
-		int j,k;
-		for(j=0; j<a.length; j++)
+		int pos1=-1;
+		int pos2=-1;
+		for(int j=0; j<a.length; j++)
 		{
 			if(a[j] == x)
-			{
-				f1 = true;
-				break;
-			}
+				pos1 = j;
+			if(a[j] == y)
+				pos2 = j;
 		}
 
-		for(k=0; k<a.length; k++)
-		{
-			if(a[k] == y)
-			{
-				f2 = true;
-				break;
-			}
-		}
 
-		if(f1 && f2)
-		{
-			int tmp = a[j];
-			a[j] = a[k];
-			a[k] = tmp;
-		}
-		else
-		{
-			System.out.println("Wrong input!!1");
-		}
+			int tmp = a[pos1];
+			a[pos1] = a[pos2];
+			a[pos2] = tmp;
+
 
 		for(int i=0; i<a.length; i++)
 		{

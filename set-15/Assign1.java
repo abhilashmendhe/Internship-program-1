@@ -34,8 +34,7 @@ public class Assign1 {
  					a[k] = a[k+1];
  					a[k+1] = tmp;
  				}
-			System.out.print(" "+a[k]);
- 			}
+			}
 			System.out.println();
 
  			}

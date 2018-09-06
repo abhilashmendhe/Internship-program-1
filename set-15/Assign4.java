@@ -21,9 +21,10 @@ public class Assign4 {
     	{
     		a[i] = sc.nextInt();
     	}
+
     	int big = a[0];
     	int small = a[0];
-    	int pos1=0,pos2=0;
+    	int pos1=-1,pos2=-1;
     	int j,k;
     	for(j=0; j<a.length; j++)
     	{
@@ -32,6 +33,7 @@ public class Assign4 {
 
     		if(big==a[j]){
     			pos1 = j;
+    			break;
     		}
     	}
     	for(k=0; k<a.length; k++)
@@ -39,8 +41,10 @@ public class Assign4 {
     		if(a[k] < small)
     			small = a[k];
 
-    		if(small==a[k])
+    		if(small==a[k]){
     			pos2 = k;
+    			break;
+    		}
     	}
 
 
