@@ -28,29 +28,29 @@ public class Assign7 {
     	}
 
     	boolean f1 = true;
-		boolean f2 = false;
+		boolean f2 = true;
     	for(int i=0; i<mat.length; i++)
     	{
-    		for(int k=0; k<mat[0].length; k++)
-    		{
-    			i f((i==k) && (mat[i][k]==1))
-    			{
-					f2 = true;
-					break;
-    			}
+
     		for(int j=0; j<mat[0].length; j++)
     		{
-    			if((i!=j)&&(mat[i][j]!=0))
+    			if(i==j && mat[i][j]!=1)
     			{
-    				f1=false;
+    				f2 = false;
     				break;
     			}
-    		}
+
+    			if(i!=j && mat[i][j]!=0)
+    			{
+    					f1=false;
+    					break;
+
+    			}
 
     		}
     	}
 
-    	if(f1 && f2)
+    	if(f1&&f2)
     		System.out.println("Matrix is unit");
 		else
 			System.out.println("Matrix is not unit");

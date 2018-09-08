@@ -17,35 +17,31 @@ public class Assign9 {
     	int a[] = new int[n];
 
     	System.out.println("Insert elements in First Array");
-    	int i;
-    	for(i=0; i<a.length; i++)
+    	for(int i=0; i<a.length; i++)
     		a[i] = sc.nextInt();
 
 		System.out.print("Enter size of an Second array ");int m = sc.nextInt();
 		int b[] = new int[m];
+
     	System.out.println("Insert elements in Second Array");
-    	int j;
-    	for(j=0; j<b.length; j++)
+    	for(int j=0; j<b.length; j++)
     		b[j] = sc.nextInt();
 
 
 		int c[] = new int[n+m];
+
 		int pos=0;
-		int first_arr_pos = 0;
-    	int second_arr_pos = 0;
-		int k=0;
-		while(k<c.length)
-    	{
-    		//if(k<a.length+2 && k%2==0)
-    			c[k] = a[first_arr_pos++];
-			k++;
-  //  		else
-    			c[k] = b[second_arr_pos++];
+		for(int k=0; k<c.length; k++)
+		{
+			if(a.length>k)
+				c[pos++] = a[k];
+			if(b.length>k)
+				c[pos++] = b[k];
+		}
 
-   			System.out.print(" "+c[pos++]);
-    		k++;
-    	}
+		for(int i=0; i<c.length; i++)
+			System.out.print(" "+c[i]);
+
     }
-
 
 }

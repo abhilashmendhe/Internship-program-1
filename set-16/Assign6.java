@@ -17,7 +17,7 @@ public class Assign6 {
     	System.out.print("Enter col size of matrix: ");int c = sc.nextInt();
 
 		int mat[][] = new int[r][c];
-		boolean f = false;
+		boolean f = true;
     	if(r==c)
     	{
 
@@ -31,9 +31,9 @@ public class Assign6 {
     		for(int i=0; i<mat.length; i++)
     		{
     			for(int j=0; j<mat[0].length; j++)
-    			if((i!=j) && mat[i][j]==mat[j][i])
+    			if((i!=j) && mat[i][j]!=mat[j][i])
     			{
-    				f=true;
+    				f=false;
     				break;
     			}
     		}
