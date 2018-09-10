@@ -1,5 +1,5 @@
 /**
- * @(#)Assign4.java
+ * @(#)Assign6.java
  *
  *
  * @author
@@ -8,7 +8,7 @@
 
 package set17;
 import java.util.*;
-public class Assign4 {
+public class Assign6 {
 
     public static void main(String args[])
     {
@@ -31,19 +31,20 @@ public class Assign4 {
     			System.out.print(" "+mat[i][j]);
     		System.out.println();
     	}
-    	System.out.println("Elements above the principal diagonal matrix are");
+    	System.out.println("Elements below the principal diagonal matrix are");
     	for(int i=0; i<mat.length; i++)
     	{
     		for(int j=0; j<mat[0].length; j++)
     		{
     			if(i==j)
     			{
-    				for(int k=j+1; k<mat[0].length; k++)
+    				for(int k=0; k<j; k++)
     					System.out.print(" "+mat[i][k]);
     			}
     		}
     	}
 
     }
+
 
 }

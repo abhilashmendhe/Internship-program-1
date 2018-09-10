@@ -1,5 +1,5 @@
 /**
- * @(#)Assign4.java
+ * @(#)Assign5.java
  *
  *
  * @author
@@ -8,7 +8,7 @@
 
 package set17;
 import java.util.*;
-public class Assign4 {
+public class Assign5 {
 
     public static void main(String args[])
     {
@@ -45,5 +45,6 @@ public class Assign4 {
     	}
 
     }
+
 
 }
