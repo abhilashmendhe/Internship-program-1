@@ -18,7 +18,7 @@ public class Assign10 {
     	System.out.print("Enter col size of matrix: "); int c = sc.nextInt();
 
     	int mat[][] = new int[r][c];
-
+		System.out.println("Enter elements in matrix");
     	for(int i=0; i<mat.length; i++)
     	{
     		for(int j=0; j<mat[0].length; j++)
@@ -38,15 +38,15 @@ public class Assign10 {
     	System.out.println("Select a row to interchange with another row: ");int r1 = sc.nextInt();
     	System.out.println("Select another row to interchange with previous selected row: ");int r2 = sc.nextInt();
 
-    	for(int i=0; i<1; i++)
-    	{
+		if(r1<=r && r2<=r)
+		{
     		for(int j=0; j<mat[0].length; j++)
     		{
     			int tmp = mat[r1-1][j];
     			mat[r1-1][j] = mat[r2-1][j];
     			mat[r2-1][j] = tmp;
     		}
-    	}
+
 
     	System.out.println("Matrix after Interchanging the selected rows");
 
@@ -57,6 +57,10 @@ public class Assign10 {
 
     		System.out.println();
     	}
+		}
+		else
+			System.out.println("Please select valid rows to interchange, Entered row exeeds the row size of matrix");
+
     }
 
 }
