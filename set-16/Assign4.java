@@ -41,14 +41,24 @@ public class Assign4 {
     		for(int i=0; i<mat3.length; i++)
     		{
     			for(int j=0; j<mat3[0].length; j++)
-    				mat3[i][j] = mat1[i][j] * mat2[i][j];
+    			{
+    				int sum = 0;
+
+    				for(int k=0; k<c1; k++)
+    				sum += mat1[i][k] * mat2[k][j];
+
+    				mat3[i][j] = sum;
+    			}
+
     		}
+			System.out.println("\nMultiplication of two matrices is\n");
     		for(int i=0; i<mat3.length; i++)
     		{
     			for(int j=0; j<mat3[0].length; j++)
     				System.out.print(" "+mat3[i][j]);
-    				System.out.println();
+    			System.out.println();
     		}
+
     	}
     	else
     		System.out.println("Cannot do multiplication of two matrix");
