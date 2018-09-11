@@ -25,6 +25,15 @@ public class Assign9 {
     			mat[i][j] = sc.nextInt();
     	}
 
+		System.out.println("Elements of matrix before interchange of primary and secondry diagonal");
+    	for(int i=0; i<mat.length; i++)
+    	{
+    		for(int j=0; j<mat[0].length; j++)
+    			System.out.print(" "+mat[i][j]);
+    			System.out.println();
+    	}
+
+    	System.out.println("Elements of matrix after interchange of primary and secondry diagonal");
     	for(int i=0; i<mat.length; i++)
     	{
     		for(int j=0; j<mat[0].length; j++)
@@ -39,7 +48,7 @@ public class Assign9 {
     		}
     	}
 
-		System.out.println();
+
     	for(int i=0; i<mat.length; i++)
     	{
     		for(int j=0; j<mat[0].length; j++)

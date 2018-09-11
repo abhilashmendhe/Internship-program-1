@@ -31,18 +31,17 @@ public class Assign7 {
     			System.out.print(" "+mat[i][j]);
     		System.out.println();
     	}
-    	System.out.println("Elements above the secondry diagonal matrix are");
+    	System.out.println("Boudary elements of matrix are");
     	for(int i=0; i<mat.length; i++)
     	{
     		for(int j=0; j<mat[0].length; j++)
     		{
-    			if(mat.length-i-1==mat[0].length-i-1)
-    			{
-    				for(int k=0; k<mat[0].length-1-i; k++)
-    					System.out.print(" "+mat[i][k]);
-    			}
-    			break;
+    			if(i==0 || i==mat.length-1 || j==0 || j==mat[0].length-1)
+    				System.out.print(" "+mat[i][j]);
+    			else
+    				System.out.print("  ");
     		}
+    		System.out.println();
     	}
 
     }
