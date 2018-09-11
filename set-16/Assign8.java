@@ -41,9 +41,9 @@ public class Assign8 {
 			for(int j=0; j<mat[0].length; j++)
 			{
 				if(mat[i][j]==0)
-					count_zero += 1;
+					count_zero++;
 				else
-					count_non_zero += 1;
+					count_non_zero++;
 			}
 		}
 
