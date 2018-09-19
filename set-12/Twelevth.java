@@ -21,13 +21,10 @@ public class Twelevth {
     	while(i<=n)
     	{
     		if(i%2==0)
-    		{
     			compute += i/(x+i);
-    		}
     		else
-    		{
     			compute -= i/(x+i);
-    		}
+
     		i++;
     	}
     	System.out.println("Sum of the series is "+compute);

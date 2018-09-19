@@ -7,19 +7,21 @@
  */
 
 package set13;
+import java.util.*;
 public class Fifth {
 
     public static void main(String args[])
     {
-    	int i=1;
-    	int n1=10,n2=15;
-    	int n3=30;
+    	Scanner sc = new Scanner(System.in);
+    	System.out.print("Enter first number: ");int n1=sc.nextInt();
+    	System.out.print("\nEnter second number: ");int n2=sc.nextInt();
+
 		int j=1;
 
 	int tmp=0;
-    while(j<n1 && j<n2 && j<n3)
+    while(j<n1 && j<n2)
     {
-    	if(n1%j==0 && n2%j==0 && n3%j==0){
+    	if(n1%j==0 && n2%j==0){
 			tmp=j;
     	}
 		j++;

@@ -12,7 +12,7 @@ public class Ninth {
     public static void main(String args[])
     {
     	int count=0;
-    	int num=100;
+    	int num=10;
     	int i=1;
     	while(count<=num)
     	{

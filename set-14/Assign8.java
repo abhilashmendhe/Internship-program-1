@@ -27,13 +27,10 @@ public class Assign8 {
     	for(int j=0; j<a.length; j++)
     	{
     		if(a[j]%2==0)
-    		{
     			sum_even += a[j];
-    		}
     		else
-    		{
     			sum_odd += a[j];
-    		}
+
     	}
     	System.out.println("Sum of even numbers are "+sum_even);
     	System.out.println("Sum of odd numbers are "+sum_odd);

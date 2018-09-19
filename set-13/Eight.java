@@ -11,7 +11,7 @@ public class Eight {
 
     public static void main(String args[])
     {
-    	doubleq i=1,n=4;
+    	double i=1,n=4;
     	double sum=0;
     	do{
     		sum =sum + (1/i);

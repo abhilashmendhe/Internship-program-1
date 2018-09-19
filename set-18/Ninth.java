@@ -21,12 +21,14 @@ public class Ninth {
 
     static double getCI(int p, int n, int r)
     {
-    	double all = 0;
-
+    	double all = p;
+		double si = 0;
     	for(int i=1; i<=n; i++)
     	{
-    		double si = (double)(p*n*r)/100;
-    		all = p + si;
+    		si = (double)(all*n*r)/100;
+    		all += si;
+
+    	System.out.println(all);
     	}
     	return all;
     }

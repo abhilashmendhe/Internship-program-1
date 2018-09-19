@@ -27,17 +27,14 @@ public class Assign10 {
     	for(int j=0; j<a.length; j++)
     	{
     		if(a[j] > 0)
-    		{
     			count_positive++;
-    		}
+
     		else if(a[j] < 0)
-    		{
     			count_negative++;
-    		}
+
     		else
-    		{
     			count_zero++;
-    		}
+
     	}
     	System.out.println("Count of positve numbers: "+count_positive);
     	System.out.println("Count of negative numbers: "+count_negative);

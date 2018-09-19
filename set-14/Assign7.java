@@ -26,13 +26,10 @@ public class Assign7 {
     	for(int j=0; j<a.length; j++)
     	{
     		if(a[j]%2==0)
-    		{
     			count_even++;
-    		}
     		else
-    		{
     			count_odd++;
-    		}
+
     	}
     	System.out.println("Count of even numbers are "+count_even);
     	System.out.println("Count of odd numbers are "+count_odd);

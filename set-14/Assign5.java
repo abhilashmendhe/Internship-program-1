@@ -27,9 +27,8 @@ public class Assign5 {
 		for(int j=0; j<a.length; j++)
 		{
 			if(big < a[j])
-			{
 				big = a[j];
-			}
+
 		}
 		System.out.println("Biggest no. is "+big);
     }

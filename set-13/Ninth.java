@@ -12,19 +12,15 @@ public class Ninth {
     public static void main(String args[])
     {
     	double count=1;
-    	double i=1,n=5;
+    	double i=1,n=4;
 double sum = 0;
     	do
     	{
-    		if(i%2!=0)
-    		{
-    		//	System.out.print(" "+i);
-			sum += (1/Math.pow(i,2));
+    		sum += (1/Math.pow(i,2));
     		count++;
-    		}
-    		i++;
+    		i=i+2;
 
-    	}while(i<=n);
+    	}while(count<=n);
 
     	System.out.println(sum);
     }
