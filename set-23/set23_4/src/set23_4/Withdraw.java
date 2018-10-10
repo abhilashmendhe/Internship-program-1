@@ -3,23 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package set23_5;
+package set23_4;
 
 /**
  *
  * @author abhil
  */
-public class Deposit {
+public class Withdraw {
     
-    boolean isDeposit(int a, double bal, Customer s[])
+    boolean getWithdraw(int a, double bal, Customer s[])
     {
         boolean f = false;
         for(int i=0; i<s.length; i++)
         {
-            if(a==s[i].acc)
+            if(s[i].acc == a)
             {
-                s[i].bal += bal;
-                f = true;
+                s[i].bal -= bal;
             }
         }
         return f;

@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package set23_5;
+package set23_4;
 
 /**
  *
  * @author abhil
  */
 public class Customer {
-    
+
     String name;
     int acc;
     double bal;

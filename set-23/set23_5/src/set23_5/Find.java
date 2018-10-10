@@ -9,18 +9,18 @@ package set23_5;
  *
  * @author abhil
  */
-public class Withdraw {
+public class Find {
     
-    boolean getWithdraw(int a, double bal, Customer s[])
+    void getCustomer(Customer s[])
     {
-        boolean f = false;
         for(int i=0; i<s.length; i++)
         {
-            if(s[i].acc == a)
+            if(s[i].bal<5000)
             {
-                s[i].bal -= bal;
+                System.out.println("Name: "+s[i].name);
+                System.out.println("Acc. No. is "+s[i].acc);
+                System.out.println("Amount is "+s[i].bal);
             }
         }
-        return f;
     }
 }

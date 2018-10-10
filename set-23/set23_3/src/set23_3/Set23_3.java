@@ -22,10 +22,10 @@ public class Set23_3 {
         Point p3 = new Point();
         Point p4 = new Point();
         
-        p1.getData(3, 4);
-        p2.getData(3, 4);
-        p3.getData(3, 4);
-        p4.getData(3, 4);
+        p1.getData(1, 1);
+        p2.getData(6, 1);
+        p3.getData(1, 4);
+        p4.getData(6, 4);
         
         Parallel p = new Parallel();
         Boolean b1 = p.isParallel(p1, p2, p3, p4);
