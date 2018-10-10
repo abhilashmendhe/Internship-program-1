@@ -32,7 +32,7 @@ public class Set24_2 {
         
         System.out.print("Enter n: ");int n = sc.nextInt();
         int a[] = new int[n];
-        System.out.println("\nEnter elements in array");
+        System.out.println("\nlEnter elements in array");
         for(int i=0; i<a.length; i++)
             a[i] = sc.nextInt();
         double m4 = aa.getAvg(a);
