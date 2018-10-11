@@ -3,24 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package set24_9;
+package set24_13;
 
 /**
  *
  * @author abhil
  */
 import java.util.*;
-public class Set24_9 {
+public class Set24_13 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
         Scanner sc = new Scanner(System.in);
         int mat[][] = new int[3][3];
-        
         System.out.println("Enter elements in matrix");
         for(int i=0; i<mat.length; i++)
         {
@@ -28,14 +26,17 @@ public class Set24_9 {
                 mat[i][j] = sc.nextInt();
         }
         
-        Matrix matrix = new Matrix(mat);
+        Matrix m = new Matrix(mat);
+        Elements ele = new Elements();
         
-        Transform t = new Transform();
-                
-        Datakeeper dd = t.getNormTransnorm(matrix);
+        int retarr[] = ele.getPrincipalElements(m);
+        System.out.println("Principal Diagonal is");
+        for(int i=0; i<retarr.length; i++)
+            System.out.print(" "+retarr[i]);
         
-        System.out.println("Trace is "+dd.trace);
-        System.out.println("Noraml is "+dd.normal);
+        System.out.println();
+                    
+        
     }
     
 }

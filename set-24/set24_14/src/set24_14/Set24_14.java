@@ -3,39 +3,46 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package set24_9;
+package set24_14;
 
 /**
  *
  * @author abhil
  */
 import java.util.*;
-public class Set24_9 {
+public class Set24_14 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
         Scanner sc = new Scanner(System.in);
         int mat[][] = new int[3][3];
-        
         System.out.println("Enter elements in matrix");
+        
         for(int i=0; i<mat.length; i++)
         {
             for(int j=0; j<mat[0].length; j++)
                 mat[i][j] = sc.nextInt();
         }
         
-        Matrix matrix = new Matrix(mat);
+        Matrix m = new Matrix(mat);
+        Elements ele = new Elements();
+        int above[] = ele.getAboveSecondryDiagonlaElements(m);
+        int below[] = ele.getBelowSecondryDiagonlaElements(m);
+        System.out.println("Elements above secondry matrix");
+        for(int i=0; i<above.length; i++)
+            System.out.print(" "+above[i]);
         
-        Transform t = new Transform();
-                
-        Datakeeper dd = t.getNormTransnorm(matrix);
+        System.out.println();
         
-        System.out.println("Trace is "+dd.trace);
-        System.out.println("Noraml is "+dd.normal);
+        System.out.println("Elements below secondry matrix");
+        for(int i=0; i<below.length; i++)
+            System.out.print(" "+below[i]);
+    
+        System.out.println();
+        
     }
     
 }
