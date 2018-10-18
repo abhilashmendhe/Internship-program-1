@@ -17,7 +17,7 @@ public class Set25_5 {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Five firstarr = new Five(1, 1, 2, 3, 1);
+        Five firstarr = new Five(2, 2, 2, 2, 2);
         int firstarray[] = firstarr.getArray();
         
         Unique u = new Unique();
