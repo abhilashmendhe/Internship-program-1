@@ -3,26 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package set25_8;
+package set26_1;
 
 /**
  *
  * @author abhil
  */
-public class Set25_9 {
+public class Set26_1 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+   
+        Circumference c = new Circumference();
+        c.callSetPi(Math.PI);
+        c.getR(10);
+        c.getCircumference();
         
-        Two t = new Two();
-        t.getX(10);
-        t.getY(20);
-        int sum = t.Sum();
-        
-        System.out.println("Addition is "+sum);
+        Area a = new Area();
+        a.callSetPi(Math.PI);
+        a.getR(10);
+        a.getArea();
     }
     
 }
