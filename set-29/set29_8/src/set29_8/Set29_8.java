@@ -18,8 +18,8 @@ public class Set29_8 {
         // TODO code application logic here
         CI s = new CI();
         s.setVisible(true);
-        s.setSize(600,700);
-        s.setLocation(500,200);
+        s.setSize(390,580);
+        s.setLocation(600,200);
     
     }
     

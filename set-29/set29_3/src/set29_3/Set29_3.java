@@ -21,7 +21,7 @@ public class Set29_3 {
         Multiplication m = new Multiplication();
         m.setVisible(true);
         m.setLocation(500,300);
-        m.setSize(600,600);
+        m.setSize(600,450);
     }
     
 }

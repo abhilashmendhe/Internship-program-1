@@ -18,8 +18,8 @@ public class Set29_7 {
         // TODO code application logic here
         SI s = new SI();
         s.setVisible(true);
-        s.setSize(600,700);
-        s.setLocation(500,200);
+        s.setSize(390,580);
+        s.setLocation(600,200);
     }
     
 }

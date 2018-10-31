@@ -18,7 +18,7 @@ public class Set29_6 {
         // TODO code application logic here
         Arithmetic a = new Arithmetic();
         a.setVisible(true);
-        a.setSize(500,750);
+        a.setSize(550,650);
         a.setLocation(500,200);
     }
     

@@ -18,7 +18,7 @@ public class Set29_1 {
         // TODO code application logic here
         Addition a = new Addition();
         a.setVisible(true);
-        a.setSize(700, 600);
+        a.setSize(450, 600);
         a.setLocation(550,300);
     }
     

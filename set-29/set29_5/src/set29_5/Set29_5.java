@@ -18,8 +18,8 @@ public class Set29_5 {
         // TODO code application logic here
         Click c = new Click();
         c.setVisible(true);
-        c.setLocation(300,300);
-        c.setSize(800,400);
+        c.setLocation(700,300);
+        c.setSize(350,350);
     }
     
 }

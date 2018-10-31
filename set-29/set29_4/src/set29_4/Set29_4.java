@@ -18,8 +18,8 @@ public class Set29_4 {
         // TODO code application logic here
         Division m = new Division();
         m.setVisible(true);
-        m.setLocation(500,300);
-        m.setSize(600,600);
+        m.setLocation(600,200);
+        m.setSize(450,450);
     }
     
 }
