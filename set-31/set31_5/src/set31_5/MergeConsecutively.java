@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package set31_4;
+package set31_5;
 
 import javax.swing.JOptionPane;
 
@@ -11,10 +11,10 @@ import javax.swing.JOptionPane;
  *
  * @author abhil
  */
-public class MergeOneAfterAnother extends javax.swing.JFrame {
+public class MergeConsecutively extends javax.swing.JFrame {
 
     /**
-     * Creates new form MergeOneAfterAnother
+     * Creates new form MergeConsecutively
      */
     public int a[];
     public int b[];
@@ -24,8 +24,8 @@ public class MergeOneAfterAnother extends javax.swing.JFrame {
     public int tmp_b=0;
     public int m1=0;
     public int m2=0;
-    public MergeOneAfterAnother() {
-        super("Merged Array One After Another");
+    public MergeConsecutively() {
+        super("Merged Array Consecutively");
         initComponents();
     }
 
@@ -307,40 +307,12 @@ public class MergeOneAfterAnother extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        
-        String s = jTextField3.getText();
-        if(s.length()==0)
-            JOptionPane.showMessageDialog(null, "Please Enter Element to insert into array");
-        else if(tmp_a==0)
-        {
-            JOptionPane.showMessageDialog(null, "First please initialize array to insert element");
-            jTextField3.setText(null);
-        }
-        else if(a_inc==a.length)
-            JOptionPane.showMessageDialog(null, "Array is now full");
-        else
-        {
-            a[a_inc++] = Integer.parseInt(s);
-            String str = "";
-            for(int i=0; i<a_inc; i++)
-            {
-                String k = Integer.toString(a[i]);
-                str += "\n" + k;
-            }
-            jTextArea1.setText(str);
-            jTextField3.setText(null);
-        }
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String s = jTextField1.getText();
         int size;
         if(s.length()==0)
-            JOptionPane.showMessageDialog(null, "Please enter array size");
+        JOptionPane.showMessageDialog(null, "Please enter array size");
         else
         {
             size = Integer.parseInt(s);
@@ -351,7 +323,7 @@ public class MergeOneAfterAnother extends javax.swing.JFrame {
             tmp_a++;
             m1++;
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -363,7 +335,7 @@ public class MergeOneAfterAnother extends javax.swing.JFrame {
         String s = jTextField2.getText();
         int size;
         if(s.length()==0)
-            JOptionPane.showMessageDialog(null, "Please enter array size");
+        JOptionPane.showMessageDialog(null, "Please enter array size");
         else
         {
             size = Integer.parseInt(s);
@@ -376,30 +348,46 @@ public class MergeOneAfterAnother extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        jTextArea1.setText(null);
-        jTextArea2.setText(null);
-        jTextArea3.setText(null);
-        jTextField1.setText(null);
-        jTextField2.setText(null);
-        jTextField3.setText(null);
-        jTextField4.setText(null);
-                
-    }//GEN-LAST:event_jButton5ActionPerformed
+
+        String s = jTextField3.getText();
+        if(s.length()==0)
+        JOptionPane.showMessageDialog(null, "Please Enter Element to insert into array");
+        else if(tmp_a==0)
+        {
+            JOptionPane.showMessageDialog(null, "First please initialize array to insert element");
+            jTextField3.setText(null);
+        }
+        else if(a_inc==a.length)
+        JOptionPane.showMessageDialog(null, "Array is now full");
+        else
+        {
+            a[a_inc++] = Integer.parseInt(s);
+            String str = "";
+            for(int i=0; i<a_inc; i++)
+            {
+                String k = Integer.toString(a[i]);
+                str += "\n" + k;
+            }
+            jTextArea1.setText(str);
+            jTextField3.setText(null);
+        }
+
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         String s = jTextField4.getText();
         if(s.length()==0)
-            JOptionPane.showMessageDialog(null, "Please Enter Element to insert into array");
+        JOptionPane.showMessageDialog(null, "Please Enter Element to insert into array");
         else if(tmp_b==0)
         {
             JOptionPane.showMessageDialog(null, "First please initialize array to insert element");
             jTextField4.setText(null);
         }
         else if(b_inc==b.length)
-            JOptionPane.showMessageDialog(null, "Array is now full");
+        JOptionPane.showMessageDialog(null, "Array is now full");
         else
         {
             b[b_inc++] = Integer.parseInt(s);
@@ -414,32 +402,45 @@ public class MergeOneAfterAnother extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        jTextArea1.setText(null);
+        jTextArea2.setText(null);
+        jTextArea3.setText(null);
+        jTextField1.setText(null);
+        jTextField2.setText(null);
+        jTextField3.setText(null);
+        jTextField4.setText(null);
+
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        int pos1 = 0;
+        int pos2 = 0;
         int pos = 0;
         if(m1==0||m2==0)
-            JOptionPane.showMessageDialog(null, "First Please Initialize Both The Arrays");
+        JOptionPane.showMessageDialog(null, "First Please Initialize Both The Arrays");
         else if(b_inc!=b.length||a_inc!=a.length)
-            JOptionPane.showMessageDialog(null, "Please insert elements in both the arrays");
+        JOptionPane.showMessageDialog(null, "Please insert elements in both the arrays");
         else
         {
             int merge[] = new int[a.length+b.length];
             String str = "";
-            
+
             for(int i=0; i<merge.length; i++)
             {
                 if(a.length>i)
-                    merge[i] = a[i];
-                else
-                    merge[i] = b[pos++];
-                
+                merge[pos++] = a[pos1++];
+                if(b.length>i)
+                merge[pos++] = b[pos2++];
+
                 String k = Integer.toString(merge[i]);
                 str += "   "+k;
             }
             jTextArea3.setText(str);
         }
-            
-        
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
@@ -459,20 +460,20 @@ public class MergeOneAfterAnother extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MergeOneAfterAnother.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MergeConsecutively.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MergeOneAfterAnother.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MergeConsecutively.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MergeOneAfterAnother.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MergeConsecutively.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MergeOneAfterAnother.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MergeConsecutively.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MergeOneAfterAnother().setVisible(true);
+                new MergeConsecutively().setVisible(true);
             }
         });
     }

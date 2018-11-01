@@ -3,23 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package set31_3;
+package set31_7;
 
 /**
  *
  * @author abhil
  */
-public class Set31_3 {
+public class Set31_7 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        DeleteFrame ar = new DeleteFrame();
-        ar.setVisible(true);
-        ar.setSize(420,500);
-        ar.setLocation(500, 300);
+        SortAscendingFrm s = new SortAscendingFrm();
+        s.setVisible(true);
+        s.setSize(360,580);
+        s.setLocation(700, 200);
     }
     
 }

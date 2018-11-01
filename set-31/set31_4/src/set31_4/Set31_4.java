@@ -16,6 +16,10 @@ public class Set31_4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        MergeOneAfterAnother m = new MergeOneAfterAnother();
+        m.setVisible(true);
+        m.setSize(450,600);
+        m.setLocation(500,300);
     }
     
 }

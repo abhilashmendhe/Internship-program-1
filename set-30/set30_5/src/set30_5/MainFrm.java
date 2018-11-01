@@ -15,6 +15,7 @@ public class MainFrm extends javax.swing.JFrame {
      * Creates new form MainFrm
      */
     public MainFrm() {
+        super("String Frame");
         initComponents();
     }
 
@@ -205,7 +206,18 @@ public class MainFrm extends javax.swing.JFrame {
         int count_vowel = 0;
         int count_upper = 0;
         int count_lower = 0;
-        String no_char = Integer.toString(str.length());
+        String w[] = str.split(" ");
+        String st1 = "";
+        for(int i=0; i<w.length; i++)
+            st1 +=w[i];
+      
+        String w1[] = st1.split("\n");
+        String st2 = "";
+        for(int i=0; i<w1.length; i++)
+            st2 += w1[i];
+        
+        
+        String no_char = Integer.toString(st2.length());
         jTextField1.setText(no_char);
         for(int i=0; i<str.length(); i++)
         {
