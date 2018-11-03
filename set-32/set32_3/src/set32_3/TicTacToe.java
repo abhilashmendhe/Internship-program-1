@@ -20,7 +20,7 @@ public class TicTacToe extends javax.swing.JFrame {
     boolean p1 = false;
     boolean p2 = false;
     int player1 = 1;
-    int player2 = 0;
+    int player2 = 2;
     boolean start = false;
     public TicTacToe() {
         super("TicTacToe");
@@ -40,21 +40,22 @@ public class TicTacToe extends javax.swing.JFrame {
     public void winnerPlayer1()
     {
         if((mat[0][0]==1&&mat[0][1]==1&&mat[0][2]==1)||(mat[1][0]==1&&mat[1][1]==1&&mat[1][2]==1)||(mat[2][0]==1&&mat[2][1]==1&&mat[2][2]==1))
-            JOptionPane.showConfirmDialog(null, jTextField1.getText()+" won the game");
+            JOptionPane.showMessageDialog(null, jTextField1.getText()+" won the game");
+        else if((mat[0][0]==2&&mat[0][1]==2&&mat[0][2]==2)||(mat[1][0]==2&&mat[1][1]==2&&mat[1][2]==2)||(mat[2][0]==2&&mat[2][1]==2&&mat[2][2]==2))
+            JOptionPane.showMessageDialog(null, jTextField2.getText()+" won the game");
+        
         else if(((mat[2][2]==1&&mat[1][2]==1&&mat[0][2]==1)||(mat[2][1]==1&&mat[1][1]==1&&mat[0][1]==1)||(mat[2][0]==1&&mat[1][0]==1&&mat[0][0]==1)))
-           JOptionPane.showConfirmDialog(null, jTextField1.getText()+" won the game");
+           JOptionPane.showMessageDialog(null, jTextField1.getText()+" won the game");
+        else if(((mat[2][2]==2&&mat[1][2]==2&&mat[0][2]==2)||(mat[2][1]==2&&mat[1][1]==2&&mat[0][1]==2)||(mat[2][0]==2&&mat[1][0]==2&&mat[0][0]==2)))
+           JOptionPane.showMessageDialog(null, jTextField2.getText()+" won the game");
+
         else if(((mat[0][0]==1&&mat[1][1]==1&&mat[2][2]==1)||(mat[2][0]==1&&mat[1][1]==1&&mat[0][2]==1)))
-           JOptionPane.showConfirmDialog(null, jTextField1.getText()+" won the game");   
+           JOptionPane.showMessageDialog(null, jTextField1.getText()+" won the game");   
+        else if(((mat[0][0]==2&&mat[1][1]==2&&mat[2][2]==2)||(mat[2][0]==2&&mat[1][1]==2&&mat[0][2]==2)))
+           JOptionPane.showMessageDialog(null, jTextField2.getText()+" won the game");   
+   
     }
-    public void winnerPlayer2()
-    {
-        if((mat[0][0]==0&&mat[0][1]==0&&mat[0][2]==0)||(mat[1][0]==0&&mat[1][1]==0&&mat[1][2]==0)||(mat[2][0]==0&&mat[2][1]==0&&mat[2][2]==0))
-            JOptionPane.showConfirmDialog(null, jTextField1.getText()+" won the game");
-        else if(((mat[2][2]==0&&mat[1][2]==0&&mat[0][2]==0)||(mat[2][1]==0&&mat[1][1]==0&&mat[0][1]==0)||(mat[2][0]==0&&mat[1][0]==0&&mat[0][0]==0)))
-           JOptionPane.showConfirmDialog(null, jTextField1.getText()+" won the game");
-        else if(((mat[0][0]==0&&mat[1][1]==0&&mat[2][2]==0)||(mat[2][0]==0&&mat[1][1]==0&&mat[0][2]==0)))
-           JOptionPane.showConfirmDialog(null, jTextField1.getText()+" won the game");   
-    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -333,16 +334,17 @@ public class TicTacToe extends javax.swing.JFrame {
             p1 = true;
             jButton7.setEnabled(false);
             mat[2][0] = 1;
-            winnerPlayer1();
-        }
+            }
         else
         {
             jButton7.setText("O");
             p2 = true;
             jButton7.setEnabled(false);
-            mat[2][0] = 0;
-            winnerPlayer2();
+            mat[2][0] = 2;
+            
         }
+        winnerPlayer1();
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -385,16 +387,16 @@ public class TicTacToe extends javax.swing.JFrame {
             p1 = true;
             jButton1.setEnabled(false);
             mat[0][0] = 1;
-            winnerPlayer1();
         }
         else
         {
             jButton1.setText("O");
             p2 = true;
             jButton1.setEnabled(false);
-            mat[0][0] = 0;
-            winnerPlayer2();
+            mat[0][0] = 2;
         }
+        winnerPlayer1();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -409,15 +411,13 @@ public class TicTacToe extends javax.swing.JFrame {
             p1 = true;
             jButton2.setEnabled(false);
             mat[0][1] = 1;
-            winnerPlayer1();
         }
         else
         {
             jButton2.setText("O");
             p2 = true;
             jButton2.setEnabled(false);
-            mat[0][1] = 0;
-            winnerPlayer2();
+            mat[0][1] = 2;
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -433,16 +433,15 @@ public class TicTacToe extends javax.swing.JFrame {
             p1 = true;
             jButton3.setEnabled(false);
             mat[0][2] = 1;
-            winnerPlayer1();
         }
         else
         {
             jButton3.setText("O");
             p2 = true;
             jButton3.setEnabled(false);
-            mat[0][2] = 0;
-            winnerPlayer2();
-        }
+            mat[0][2] = 2;
+        }winnerPlayer1();
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -457,16 +456,16 @@ public class TicTacToe extends javax.swing.JFrame {
             p1 = true;
             jButton4.setEnabled(false);
             mat[1][0] = 1;
-            winnerPlayer1();
         }
         else
         {
             jButton4.setText("O");
             p2 = true;
             jButton4.setEnabled(false);
-            mat[1][0] = 0;
-            winnerPlayer2();
+            mat[1][0] = 2;
         }
+        winnerPlayer1();
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -481,16 +480,16 @@ public class TicTacToe extends javax.swing.JFrame {
             p1 = true;
             jButton5.setEnabled(false);
             mat[1][1] = 1;
-            winnerPlayer1();
         }
         else
         {
             jButton5.setText("O");
             p2 = true;
             jButton5.setEnabled(false);
-            mat[1][1] = 0;
-            winnerPlayer2();
+            mat[1][1] = 2;
         }
+        winnerPlayer1();
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -505,7 +504,6 @@ public class TicTacToe extends javax.swing.JFrame {
             p1 = true;
             jButton6.setEnabled(false);
             mat[1][2] = 1;
-            winnerPlayer1();
             
         }
         else
@@ -513,9 +511,10 @@ public class TicTacToe extends javax.swing.JFrame {
             jButton6.setText("O");
             p2 = true;
             jButton6.setEnabled(false);
-            mat[1][2] = 0;
-            winnerPlayer2();
+            mat[1][2] = 2;
         }
+        winnerPlayer1();
+        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -530,16 +529,16 @@ public class TicTacToe extends javax.swing.JFrame {
             p1 = true;
             jButton9.setEnabled(false);
             mat[2][2] = 1;
-            winnerPlayer1();
         }
         else
         {
             jButton9.setText("O");
             p2 = true;
             jButton9.setEnabled(false);
-            mat[2][2] = 0;
-            winnerPlayer2();
+            mat[2][2] = 2;
         }
+        winnerPlayer1();
+        
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -554,16 +553,16 @@ public class TicTacToe extends javax.swing.JFrame {
             p1 = true;
             jButton8.setEnabled(false);
             mat[2][1] = 1;
-            winnerPlayer1();
         }
         else
         {
             jButton8.setText("O");
             p2 = true;
             jButton8.setEnabled(false);
-            mat[2][1] = 0;
-            winnerPlayer2();
+            mat[2][1] = 2;
         }
+        winnerPlayer1();
+        
     }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
