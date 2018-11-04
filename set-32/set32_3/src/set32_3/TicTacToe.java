@@ -53,7 +53,12 @@ public class TicTacToe extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null, jTextField1.getText()+" won the game");   
         else if(((mat[0][0]==2&&mat[1][1]==2&&mat[2][2]==2)||(mat[2][0]==2&&mat[1][1]==2&&mat[0][2]==2)))
            JOptionPane.showMessageDialog(null, jTextField2.getText()+" won the game");   
-   
+        else if((mat[0][0]!=0&&mat[0][1]!=0&&mat[0][2]!=0&&mat[1][0]!=0&&mat[1][1]!=0&&mat[1][2]!=0&&mat[2][0]!=0&&mat[2][1]!=0&&mat[2][2]!=0))
+            JOptionPane.showMessageDialog(null, "It's a Draw");
+            
+        
+            
+            
     }
    
     /**
@@ -224,13 +229,14 @@ public class TicTacToe extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton10)
@@ -277,7 +283,7 @@ public class TicTacToe extends javax.swing.JFrame {
             
         jRadioButton1.setSelected(true);
         jRadioButton2.setSelected(false);
-        p2 = false;
+        //p1 = true;
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
@@ -285,7 +291,7 @@ public class TicTacToe extends javax.swing.JFrame {
         
         jRadioButton1.setSelected(false);
         jRadioButton2.setSelected(true);
-        p1 = false;
+        //p2 = true;
            // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
@@ -324,24 +330,25 @@ public class TicTacToe extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
 
-        if(p1)
-            JOptionPane.showMessageDialog(null, "Player 2's chance");
-        else if(p2)
-            JOptionPane.showMessageDialog(null, "Player 1's chance");
-        else if(jRadioButton1.isSelected())
+        if(jRadioButton1.isSelected())
         {
             jButton7.setText("X");
             p1 = true;
             jButton7.setEnabled(false);
             mat[2][0] = 1;
-            }
-        else
+            jRadioButton2.setSelected(true);
+            jRadioButton1.setSelected(false);
+       
+        }
+        else if(jRadioButton2.isSelected())
         {
-            jButton7.setText("O");
+         jButton7.setText("O");
             p2 = true;
             jButton7.setEnabled(false);
             mat[2][0] = 2;
-            
+            jRadioButton1.setSelected(true);
+            jRadioButton2.setSelected(false);
+               
         }
         winnerPlayer1();
         
@@ -349,6 +356,7 @@ public class TicTacToe extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+
         jTextField1.setText(null);
         jTextField2.setText(null);
         jRadioButton1.setSelected(false);
@@ -371,29 +379,41 @@ public class TicTacToe extends javax.swing.JFrame {
         jButton7.setEnabled(false);
         jButton8.setEnabled(false);
         jButton9.setEnabled(false);
+        mat[0][0] = 0;
+        mat[0][1] = 0;
+        mat[0][2] = 0;
+        mat[1][0] = 0;
+        mat[1][1] = 0;
+        mat[1][2] = 0;
+        mat[2][0] = 0;
+        mat[2][1] = 0;
+        mat[2][2] = 0;
+        
         start = false;
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        if(p1)
-            JOptionPane.showMessageDialog(null, "Player 2's chance");
-        else if(p2)
-            JOptionPane.showMessageDialog(null, "Player 1's chance");
-        else if(jRadioButton1.isSelected())
+        if(jRadioButton1.isSelected())
         {
             jButton1.setText("X");
             p1 = true;
             jButton1.setEnabled(false);
             mat[0][0] = 1;
+            jRadioButton2.setSelected(true);
+            jRadioButton1.setSelected(false);
+       
         }
-        else
+        else if(jRadioButton2.isSelected())
         {
-            jButton1.setText("O");
+         jButton1.setText("O");
             p2 = true;
             jButton1.setEnabled(false);
             mat[0][0] = 2;
+            jRadioButton1.setSelected(true);
+            jRadioButton2.setSelected(false);
+               
         }
         winnerPlayer1();
         
@@ -401,68 +421,71 @@ public class TicTacToe extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if(p1)
-            JOptionPane.showMessageDialog(null, "Player 2's chance");
-        else if(p2)
-            JOptionPane.showMessageDialog(null, "Player 1's chance");
-        else if(jRadioButton1.isSelected())
+        if(jRadioButton1.isSelected())
         {
             jButton2.setText("X");
             p1 = true;
             jButton2.setEnabled(false);
             mat[0][1] = 1;
+            jRadioButton2.setSelected(true);
+            jRadioButton1.setSelected(false);
         }
-        else
+        else if(jRadioButton2.isSelected())
         {
-            jButton2.setText("O");
+         jButton2.setText("O");
             p2 = true;
             jButton2.setEnabled(false);
             mat[0][1] = 2;
+            jRadioButton1.setSelected(true);
+            jRadioButton2.setSelected(false);
         }
+        winnerPlayer1();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        if(p1)
-            JOptionPane.showMessageDialog(null, "Player 2's chance");
-        else if(p2)
-            JOptionPane.showMessageDialog(null, "Player 1's chance");
-        else if(jRadioButton1.isSelected())
+        if(jRadioButton1.isSelected())
         {
             jButton3.setText("X");
             p1 = true;
             jButton3.setEnabled(false);
             mat[0][2] = 1;
+            jRadioButton2.setSelected(true);
+            jRadioButton1.setSelected(false);
+       
         }
-        else
+        else if(jRadioButton2.isSelected())
         {
-            jButton3.setText("O");
+         jButton3.setText("O");
             p2 = true;
             jButton3.setEnabled(false);
             mat[0][2] = 2;
-        }winnerPlayer1();
+            jRadioButton1.setSelected(true);
+            jRadioButton2.setSelected(false);
+        }
+        winnerPlayer1();
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        if(p1)
-            JOptionPane.showMessageDialog(null, "Player 2's chance");
-        else if(p2)
-            JOptionPane.showMessageDialog(null, "Player 1's chance");
-        else if(jRadioButton1.isSelected())
+        if(p1&&jRadioButton1.isSelected())
         {
             jButton4.setText("X");
             p1 = true;
             jButton4.setEnabled(false);
             mat[1][0] = 1;
+            jRadioButton2.setSelected(true);
+            jRadioButton1.setSelected(false);
         }
-        else
+        else if(p2&&jRadioButton2.isSelected())
         {
-            jButton4.setText("O");
+         jButton4.setText("O");
             p2 = true;
             jButton4.setEnabled(false);
             mat[1][0] = 2;
+            jRadioButton1.setSelected(true);
+            jRadioButton2.setSelected(false);
         }
         winnerPlayer1();
         
@@ -470,23 +493,23 @@ public class TicTacToe extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        if(p1)
-            JOptionPane.showMessageDialog(null, "Player 2's chance");
-        else if(p2)
-            JOptionPane.showMessageDialog(null, "Player 1's chance");
-        else if(jRadioButton1.isSelected())
+        if(p1&&jRadioButton1.isSelected())
         {
             jButton5.setText("X");
             p1 = true;
             jButton5.setEnabled(false);
             mat[1][1] = 1;
+            jRadioButton2.setSelected(true);
+            jRadioButton1.setSelected(false);
         }
-        else
+        else if(p2&&jRadioButton2.isSelected())
         {
-            jButton5.setText("O");
+         jButton5.setText("O");
             p2 = true;
             jButton5.setEnabled(false);
             mat[1][1] = 2;
+            jRadioButton1.setSelected(true);
+            jRadioButton2.setSelected(false);
         }
         winnerPlayer1();
         
@@ -494,48 +517,46 @@ public class TicTacToe extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        if(p1)
-            JOptionPane.showMessageDialog(null, "Player 2's chance");
-        else if(p2)
-            JOptionPane.showMessageDialog(null, "Player 1's chance");
-        else if(jRadioButton1.isSelected())
+        if(p1&&jRadioButton1.isSelected())
         {
             jButton6.setText("X");
             p1 = true;
             jButton6.setEnabled(false);
             mat[1][2] = 1;
-            
+            jRadioButton2.setSelected(true);
+            jRadioButton1.setSelected(false);
         }
-        else
+        else if(p2&&jRadioButton2.isSelected())
         {
-            jButton6.setText("O");
+         jButton6.setText("O");
             p2 = true;
             jButton6.setEnabled(false);
             mat[1][2] = 2;
+            jRadioButton1.setSelected(true);
+            jRadioButton2.setSelected(false);
         }
         winnerPlayer1();
-        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-        if(p1)
-            JOptionPane.showMessageDialog(null, "Player 2's chance");
-        else if(p2)
-            JOptionPane.showMessageDialog(null, "Player 1's chance");
-        else if(jRadioButton1.isSelected())
+        if(p1&&jRadioButton1.isSelected())
         {
             jButton9.setText("X");
             p1 = true;
             jButton9.setEnabled(false);
             mat[2][2] = 1;
+            jRadioButton2.setSelected(true);
+            jRadioButton1.setSelected(false);
         }
-        else
+        else if(p2&&jRadioButton2.isSelected())
         {
-            jButton9.setText("O");
+         jButton9.setText("O");
             p2 = true;
             jButton9.setEnabled(false);
             mat[2][2] = 2;
+            jRadioButton1.setSelected(true);
+            jRadioButton2.setSelected(false);
         }
         winnerPlayer1();
         
@@ -543,23 +564,24 @@ public class TicTacToe extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        if(p1)
-            JOptionPane.showMessageDialog(null, "Player 2's chance");
-        else if(p2)
-            JOptionPane.showMessageDialog(null, "Player 1's chance");
-        else if(jRadioButton1.isSelected())
+        if(p1&&jRadioButton1.isSelected())
         {
             jButton8.setText("X");
             p1 = true;
             jButton8.setEnabled(false);
             mat[2][1] = 1;
+            jRadioButton2.setSelected(true);
+            jRadioButton1.setSelected(false);
+       
         }
-        else
+        else if(p2&&jRadioButton2.isSelected())
         {
-            jButton8.setText("O");
+         jButton8.setText("O");
             p2 = true;
             jButton8.setEnabled(false);
             mat[2][1] = 2;
+            jRadioButton1.setSelected(true);
+            jRadioButton2.setSelected(false);
         }
         winnerPlayer1();
         
