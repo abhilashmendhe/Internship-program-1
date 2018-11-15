@@ -7,7 +7,11 @@ package set32_4;
 
 /**
  *
+<<<<<<< HEAD
  * @author abhilash
+=======
+ * @author abhil
+>>>>>>> a4ed4872da8048698069ee8032fbadea961946ef
  */
 public class Set32_4 {
 
