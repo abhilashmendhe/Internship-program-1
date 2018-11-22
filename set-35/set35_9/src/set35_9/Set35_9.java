@@ -57,8 +57,8 @@ public class Set35_9 {
                 
                 if(n1<n2)
                 {
-                    bigArr.set(j, j+1);
-                    bigArr.set(j+1, j);
+                    bigArr.set(j, temp2);
+                    bigArr.set(j+1, temp1);
                 }
                 
             }
