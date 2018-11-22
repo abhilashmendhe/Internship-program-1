@@ -22,17 +22,17 @@ public class Set35_9 {
         ArrayList arrlist2 = new ArrayList();
         ArrayList arrlist3 = new ArrayList();
                 
-        arrlist1.add(1);
+        arrlist1.add("1");
         arrlist1.add("Abhilash");
-        arrlist1.add(54.3);
+        arrlist1.add("54.3");
                
-        arrlist2.add(2);
+        arrlist2.add("2");
         arrlist2.add("Shreepad");
-        arrlist2.add(73.65);
+        arrlist2.add("73.65");
         
-        arrlist3.add(3);
+        arrlist3.add("3");
         arrlist3.add("Suchit");
-        arrlist3.add(62.99);
+        arrlist3.add("62.99");
         
         ArrayList bigArr = new ArrayList();
         bigArr.add(arrlist1);
@@ -49,7 +49,7 @@ public class Set35_9 {
             {
                 ArrayList temp1 = new ArrayList();
                 temp1 = (ArrayList)bigArr.get(j);
-                double n1 = Double.parseDouble((String)temp1.get(2));
+                double n1 = Double.parseDouble((String) temp1.get(2));
                 
                 ArrayList temp2 = new ArrayList();
                 temp2 = (ArrayList)bigArr.get(j+1);
@@ -57,8 +57,8 @@ public class Set35_9 {
                 
                 if(n1<n2)
                 {
-                    bigArr.set(j, temp2);
-                    bigArr.set(j+1, temp1);
+                    bigArr.set(j, j+1);
+                    bigArr.set(j+1, j);
                 }
                 
             }
