@@ -18,10 +18,31 @@ public class Set35_10 {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        String s = "Hello, World. Hello, I am Baymax. I am your personal health care companion.";
+        ArrayList<String> arrlist = new ArrayList<String>();
         
+        String s = "Hello World. Hi I am Baymax. I am your personal health care companion.";
+        System.out.println(s.length());
+        int first = 0;
+        int last = 9;
+        boolean f = false;
+        String sub="";
+        for(int i=0; i<s.length(); i++)
+        {
+            if(last<s.length())
+                sub = s.substring(first, last);
+            else
+            {
+                sub = s.substring(first, s.length());
+                f = true;
+            }
+            first = last;
+            last = last + 10;
+            arrlist.add(sub);
+            if(f)
+                break;
+        }
         
-                
+        System.out.println(arrlist);
     }
     
 }
