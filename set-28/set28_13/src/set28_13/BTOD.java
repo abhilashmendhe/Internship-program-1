@@ -9,10 +9,19 @@ package set28_13;
  *
  * @author abhil
  */
-public interface BTOD extends Num {
+abstract public class BTOD implements Num {
     
-    void btod(int n)
+    public void btod(int n)
     {
-        
+        int rev = 0;
+        int i = 0;
+        while(n>0)
+        {
+            int rem = n % 10;
+            rev = rev + (int)(Math.pow(2, i++)*rem);
+            n = n / 10;
+        }
+        System.out.println("Decimal is "+rev);
     }
+
 }

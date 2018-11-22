@@ -11,6 +11,6 @@ package set28_13;
  */
 public interface Num {
     
-    abstract void btod(int n);
-    
+    void btod(int n);
+    void dtob(int n);
 }

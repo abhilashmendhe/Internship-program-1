@@ -16,6 +16,9 @@ public class Set28_13 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        DTOB d = new DTOB();
+        d.btod(1111);
+        d.dtob(64);
     }
     
 }
