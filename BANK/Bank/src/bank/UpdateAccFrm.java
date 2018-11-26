@@ -415,6 +415,8 @@ public class UpdateAccFrm extends javax.swing.JFrame {
         
         if(accno.isEmpty())
             JOptionPane.showMessageDialog(null, "Please enter acc. no to update");
+        else if(!(new FetcherUpdateAccMaker().updateaccvalid(accno)))
+            JOptionPane.showMessageDialog(null, "Acc. not found");
         else if(!accno.isEmpty())
         {
             jTextField1.setEditable(false);

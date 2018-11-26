@@ -15,6 +15,32 @@ import java.util.ArrayList;
 import java.sql.*;
 public class FetcherUpdateAccMaker {
     
+    public boolean updateaccvalid(String accno)
+    {
+        boolean f = false;
+        
+        try {
+            // Driver
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            
+            // Connection
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankdb", "root", "root");
+            
+            // Statement
+            Statement st = conn.createStatement();
+            
+            String query = "select accno from accinfo where accno='"+accno+"'";
+            ResultSet rs = st.executeQuery(query);
+            if(rs.next())
+                f = true;
+            
+        } catch (Exception e) {
+            System.out.println("Error in class FetcherUpdateAccMaker");
+            System.out.println("Error in function updateaccvalid: "+e);
+        }
+        
+        return f;
+    }
     public ArrayList fetchupdateacc(String accno)
     {
         ArrayList data = new ArrayList();
@@ -52,7 +78,8 @@ public class FetcherUpdateAccMaker {
             
             
         } catch (Exception e) {
-            System.out.println("Error in class FetcherUpdateAccMaker: "+e);
+            System.out.println("Error in class FetcherUpdateAccMaker");
+            System.out.println("Error in function fetchupdateacc: "+e);
         }
         
         return data;
