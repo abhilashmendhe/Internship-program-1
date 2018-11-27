@@ -17,6 +17,7 @@ public class CreateAccFrm extends javax.swing.JFrame {
      * Creates new form CreateAccFrm
      */
     public CreateAccFrm() {
+        super("Create Account");
         initComponents();
     }
 
@@ -63,7 +64,7 @@ public class CreateAccFrm extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -223,7 +224,7 @@ public class CreateAccFrm extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\western_bank-wallpaper-1920x1080.jpg")); // NOI18N
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(0, 0, 1940, 1080);
+        jLabel8.setBounds(0, -10, 1940, 1100);
 
         jMenu1.setText("Edit Profile");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -388,7 +389,7 @@ public class CreateAccFrm extends javax.swing.JFrame {
         String email = jTextField3.getText();
         String mobile = jTextField4.getText();
         String openbal = jTextField5.getText();
-
+        
         if(accno.isEmpty())
         JOptionPane.showMessageDialog(null, "Please enter account number");
         else if(!(accno.contains("0")||(accno.contains("1"))||(accno.contains("2"))||(accno.contains("3"))||(accno.contains("4"))||(accno.contains("5"))||(accno.contains("6"))||(accno.contains("7"))||(accno.contains("8"))||(accno.contains("9"))))
@@ -449,8 +450,10 @@ public class CreateAccFrm extends javax.swing.JFrame {
                 }
             }
             if(f)
-                 JOptionPane.showMessageDialog(null, "Mobile no. should be numeric integer");   
+                 JOptionPane.showMessageDialog(null, "Balance should be in numeric");   
         }
+        else if(Double.parseDouble(openbal)<1000)
+            JOptionPane.showMessageDialog(null, "Open Account with minimum balance 1000");
         else if(new CreateAccMaker().createacc(accno, custname, dob, address, email, mobile, openbal))
             JOptionPane.showMessageDialog(null, "Created account sucessfully");
         else

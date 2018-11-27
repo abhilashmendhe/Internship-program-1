@@ -18,7 +18,7 @@ public class UpdateProfileFrm extends javax.swing.JFrame {
      * Creates new form UpdateProfileFrm
      */
     public UpdateProfileFrm() {
-        super("Update Profile Frame");
+        super("Update Profile");
         initComponents();
         String username = MainFrm.uname;
         ArrayList<String> data = new FetchProfileMaker().fetchprofile(username);
@@ -80,7 +80,7 @@ public class UpdateProfileFrm extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -333,8 +333,18 @@ public class UpdateProfileFrm extends javax.swing.JFrame {
         String pass = jPasswordField1.getText();
         String confirmpass = jPasswordField2.getText();
 
-        if(new UpdateProfileMaker().updateprofile(name, dob, email, address, uname, pass))
+        if (!pass.equals(confirmpass))
+            JOptionPane.showConfirmDialog(null, "Password does not match");
+        
+        else if(new UpdateProfileMaker().updateprofile(name, dob, email, address, uname, pass))
+        {
             JOptionPane.showMessageDialog(null, "Updated Sucessfully!!");
+            this.dispose();
+            MainFrm main = new MainFrm();
+            main.setVisible(true);
+            main.setSize(1920,1080);   
+        }
+            
         else
             JOptionPane.showMessageDialog(null, "Error while updating");
     }//GEN-LAST:event_jButton2ActionPerformed

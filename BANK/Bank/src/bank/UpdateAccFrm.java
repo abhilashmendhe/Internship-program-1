@@ -19,6 +19,7 @@ public class UpdateAccFrm extends javax.swing.JFrame {
      * Creates new form UpdateAccFrm
      */
     public UpdateAccFrm() {
+        super("Updata Account");
         initComponents();
     }
 
@@ -64,7 +65,7 @@ public class UpdateAccFrm extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -417,7 +418,7 @@ public class UpdateAccFrm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please enter acc. no to update");
         else if(!(new FetcherUpdateAccMaker().updateaccvalid(accno)))
             JOptionPane.showMessageDialog(null, "Acc. not found");
-        else if(!accno.isEmpty())
+        else 
         {
             jTextField1.setEditable(false);
             ArrayList<String> data = new FetcherUpdateAccMaker().fetchupdateacc(accno);
@@ -429,12 +430,9 @@ public class UpdateAccFrm extends javax.swing.JFrame {
             jComboBox3.setSelectedItem(dob[2]);
             jTextArea1.setText(data.get(2));
             jTextField3.setText(data.get(3));
-            jTextField4.setText(data.get(4));
-            
-            
+            jTextField4.setText(data.get(4));  
         }
-        else
-            JOptionPane.showMessageDialog(null, "Error while updating account");
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 

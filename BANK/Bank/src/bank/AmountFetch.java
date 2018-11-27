@@ -5,20 +5,17 @@
  */
 package bank;
 
-import java.sql.DriverManager;
 import java.util.ArrayList;
-
+import java.sql.*;
 /**
  *
  * @author abhil
  */
-import java.sql.*;
-public class FetcherUpdateAccMaker {
+public class AmountFetch {
     
-    public boolean updateaccvalid(String accno)
+    public boolean amtaccvalid(String accno)
     {
         boolean f = false;
-        
         try {
             // Driver
             Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -29,19 +26,21 @@ public class FetcherUpdateAccMaker {
             // Statement
             Statement st = conn.createStatement();
             
-            String query = "select accno from accinfo where accno='"+accno+"'";
+            String query = "select * from accinfo where accno='"+accno+"'";
             ResultSet rs = st.executeQuery(query);
             if(rs.next())
                 f = true;
             
-        } catch (Exception e) {
-            System.out.println("Error in class FetcherUpdateAccMaker");
-            System.out.println("Error in function updateaccvalid: "+e);
         }
-        
+        catch(Exception e)
+        {
+            System.out.println("Error in class DepositFetch");
+            System.out.println("Error in function depositvalid: "+e);
+        }
+            
         return f;
     }
-    public ArrayList fetchupdateacc(String accno)
+    public ArrayList amountF(String accno)
     {
         ArrayList data = new ArrayList();
         
@@ -60,29 +59,15 @@ public class FetcherUpdateAccMaker {
             
             if(rs.next())
             {
-                String custname = rs.getString("custname");
-                String dob = rs.getString("dob");
-                String address = rs.getString("address");
-                String email = rs.getString("email");
-                String mobile = rs.getString("mobile");
-                String bal = rs.getString("openbal");
-                
-                data.add(custname);
-                data.add(dob);
-                data.add(address);
-                data.add(email);
-                data.add(mobile);
-                data.add(bal);
-                
-            }    
-                
-            
-            
+                String openbal = rs.getString("openbal");
+                data.add(openbal);
+            }
             
         } catch (Exception e) {
-            System.out.println("Error in class FetcherUpdateAccMaker");
-            System.out.println("Error in function fetchupdateacc: "+e);
+            System.out.println("Error in class DepositFetch");
+            System.out.println("Error in function deposit: "+e);
         }
+        
         
         return data;
     }
