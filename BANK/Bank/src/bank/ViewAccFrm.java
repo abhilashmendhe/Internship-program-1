@@ -211,7 +211,7 @@ public class ViewAccFrm extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\western_bank-wallpaper-1920x1080.jpg")); // NOI18N
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(1, -4, 1940, 1070);
+        jLabel5.setBounds(10, -10, 1940, 1070);
 
         jMenu1.setText("Edit Profile");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
