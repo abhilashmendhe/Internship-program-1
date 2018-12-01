@@ -22,7 +22,7 @@ public class Product {
                 for(int j=0; j<mat2[0].length; j++)
                 {
                     for(int k=0; k<mat1[0].length; k++)
-                        mat3[i][j] += Math.round(mat1[i][k]*mat2[k][j]);
+                        mat3[i][j] += mat1[i][k]*mat2[k][j];
                        
                 }
             }
