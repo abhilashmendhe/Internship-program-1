@@ -11,10 +11,10 @@ package crypto;
  */
 public class Product {
     
-    public double[][] getProduct(double mat1[][], double mat2[][])
+    public float[][] getProduct(float mat1[][], float mat2[][])
     {
         
-        double mat3[][] = new double[mat1.length][mat2[0].length];
+        float mat3[][] = new float[mat1.length][mat2[0].length];
             
             try{
             for(int i=0; i<mat1.length; i++)
