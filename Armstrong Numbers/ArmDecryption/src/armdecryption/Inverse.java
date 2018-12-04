@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crypto;
 
 /**
  *
  * @author abhil
  */
 public class Inverse {
-    public float[][] getInverse(float mat[][])
+    public double[][] getInverse(double mat[][])
     {
-        float invmat[][] = new float[mat.length][mat[0].length];
+        double invmat[][] = new double[mat.length][mat[0].length];
         int cofact[][]= new int[mat.length][mat[0].length];
         try{
         // Product of Minors
@@ -58,7 +57,7 @@ public class Inverse {
             }
         }
         
-        float determinant = (mat[0][0] * ((mat[1][1] * mat[2][2]) - (mat[1][2] * mat[2][1])) - mat[0][1] * ((mat[1][0] * mat[2][2]) - (mat[1][2] * mat[2][0])) + mat[0][2] * ((mat[1][0] * mat[2][1]) - (mat[1][1] * mat[2][0])));
+        double determinant = (mat[0][0] * ((mat[1][1] * mat[2][2]) - (mat[1][2] * mat[2][1])) - mat[0][1] * ((mat[1][0] * mat[2][2]) - (mat[1][2] * mat[2][0])) + mat[0][2] * ((mat[1][0] * mat[2][1]) - (mat[1][1] * mat[2][0])));
         
         // Inverse
         for(int i=0; i<invmat.length; i++)

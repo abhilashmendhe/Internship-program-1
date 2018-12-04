@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 package crypto;
-
+import Encrytion.*;
 import java.awt.Color;
 import java.io.File;
+import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -19,6 +20,12 @@ public class EncryptFrame extends javax.swing.JFrame {
     /**
      * Creates new form EncryptFrame
      */
+    public String stcolor = "";
+    public String optimizedKey = "";
+    public static String finalstr = "";
+    public static String filename = "";
+    public static String foldername = "";
+    public static String path = "";
     public EncryptFrame() {
         initComponents();
     }
@@ -49,7 +56,6 @@ public class EncryptFrame extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -73,7 +79,6 @@ public class EncryptFrame extends javax.swing.JFrame {
         jButton17 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -89,7 +94,6 @@ public class EncryptFrame extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setLayout(null);
 
         jButton1.setBackground(new java.awt.Color(240, 26, 47));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -97,8 +101,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(58, 54, 60, 60);
 
         jButton2.setBackground(new java.awt.Color(43, 83, 74));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -106,8 +108,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(136, 54, 60, 60);
 
         jButton3.setBackground(new java.awt.Color(234, 7, 240));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -115,8 +115,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3);
-        jButton3.setBounds(214, 54, 60, 60);
 
         jButton4.setBackground(new java.awt.Color(96, 240, 77));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -124,8 +122,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4);
-        jButton4.setBounds(292, 54, 60, 60);
 
         jButton5.setBackground(new java.awt.Color(0, 0, 0));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -133,8 +129,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5);
-        jButton5.setBounds(58, 132, 60, 60);
 
         jButton6.setBackground(new java.awt.Color(254, 93, 5));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -142,8 +136,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6);
-        jButton6.setBounds(136, 132, 60, 60);
 
         jButton7.setBackground(new java.awt.Color(29, 168, 255));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -151,8 +143,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7);
-        jButton7.setBounds(214, 132, 60, 60);
 
         jButton8.setBackground(new java.awt.Color(255, 119, 195));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -160,8 +150,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8);
-        jButton8.setBounds(292, 132, 60, 60);
 
         jButton9.setBackground(new java.awt.Color(1, 111, 53));
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -169,8 +157,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton9);
-        jButton9.setBounds(58, 210, 60, 60);
 
         jButton10.setBackground(new java.awt.Color(236, 251, 1));
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -178,8 +164,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton10);
-        jButton10.setBounds(136, 210, 60, 60);
 
         jButton11.setBackground(new java.awt.Color(180, 129, 37));
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -187,8 +171,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton11ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton11);
-        jButton11.setBounds(214, 210, 60, 60);
 
         jButton12.setBackground(new java.awt.Color(137, 3, 243));
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -196,8 +178,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton12ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton12);
-        jButton12.setBounds(292, 210, 60, 60);
 
         jButton13.setBackground(new java.awt.Color(122, 150, 97));
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -205,8 +185,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton13ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton13);
-        jButton13.setBounds(58, 288, 60, 60);
 
         jButton14.setBackground(new java.awt.Color(236, 130, 98));
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -214,8 +192,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton14ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton14);
-        jButton14.setBounds(136, 288, 60, 60);
 
         jButton15.setBackground(new java.awt.Color(251, 83, 137));
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -223,8 +199,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton15ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton15);
-        jButton15.setBounds(214, 288, 60, 60);
 
         jButton16.setBackground(new java.awt.Color(15, 245, 252));
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -232,33 +206,131 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton16ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton16);
-        jButton16.setBounds(292, 288, 60, 60);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\anon1.jpg")); // NOI18N
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(0, 0, 410, 400);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(292, 292, 292)
+                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(292, 292, 292)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(292, 292, 292)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(292, 292, 292)
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(58, 58, 58))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(288, 288, 288)
+                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(288, 288, 288)
+                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(288, 288, 288)
+                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(288, 288, 288)
+                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(52, 52, 52))
+        );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(346, 351, 411, 401);
+        jPanel1.setBounds(346, 351, 412, 402);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel1.setText("R");
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(153, 34, 30, 58);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel2.setText("G");
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(310, 34, 32, 58);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel3.setText("B");
-        jPanel2.add(jLabel3);
-        jLabel3.setBounds(463, 34, 28, 58);
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -266,38 +338,22 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(135, 110, 65, 50);
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jPanel2.add(jTextField2);
-        jTextField2.setBounds(291, 110, 65, 50);
 
         jTextField3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jPanel2.add(jTextField3);
-        jTextField3.setBounds(443, 110, 65, 50);
 
         jTextField4.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jPanel2.add(jTextField4);
-        jTextField4.setBounds(135, 205, 65, 50);
 
         jTextField5.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jPanel2.add(jTextField5);
-        jTextField5.setBounds(291, 205, 65, 50);
 
         jTextField6.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jPanel2.add(jTextField6);
-        jTextField6.setBounds(443, 205, 65, 50);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("KEY");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(29, 220, 41, 29);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Operations");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(29, 299, 115, 29);
 
         jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jRadioButton1.setText("+");
@@ -306,8 +362,6 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jRadioButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jRadioButton1);
-        jRadioButton1.setBounds(230, 295, 45, 37);
 
         jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jRadioButton2.setText("-");
@@ -316,34 +370,20 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jRadioButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jRadioButton2);
-        jRadioButton2.setBounds(356, 295, 37, 37);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel6.setText("Optimized Key");
-        jPanel2.add(jLabel6);
-        jLabel6.setBounds(29, 375, 152, 29);
 
         jTextField7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jPanel2.add(jTextField7);
-        jTextField7.setBounds(221, 360, 65, 55);
 
         jTextField8.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jPanel2.add(jTextField8);
-        jTextField8.setBounds(344, 360, 65, 55);
 
         jTextField9.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jPanel2.add(jTextField9);
-        jTextField9.setBounds(465, 360, 65, 55);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setText("Select File");
-        jPanel2.add(jLabel7);
-        jLabel7.setBounds(29, 457, 107, 29);
 
         jTextField10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jPanel2.add(jTextField10);
-        jTextField10.setBounds(154, 454, 327, 35);
 
         jButton17.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton17.setText("SELECT");
@@ -352,13 +392,14 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton17ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton17);
-        jButton17.setBounds(488, 453, 111, 37);
 
         jButton18.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton18.setText("ENCRYP");
-        jPanel2.add(jButton18);
-        jButton18.setBounds(130, 550, 150, 37);
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
 
         jButton19.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton19.setText("CLEAR");
@@ -367,19 +408,124 @@ public class EncryptFrame extends javax.swing.JFrame {
                 jButton19ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton19);
-        jButton19.setBounds(360, 550, 130, 37);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\anon2.jpg")); // NOI18N
-        jPanel2.add(jLabel10);
-        jLabel10.setBounds(-350, 0, 970, 680);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(jLabel1)
+                        .addGap(82, 82, 82)
+                        .addComponent(jLabel2)
+                        .addGap(98, 98, 98)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(114, 114, 114)
+                        .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGap(177, 177, 177)
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGap(140, 140, 140)
+                                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(47, 47, 47)
+                                        .addComponent(jRadioButton1)
+                                        .addGap(79, 79, 79)
+                                        .addComponent(jRadioButton2))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(55, 55, 55)
+                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(25, 25, 25)
+                                .addComponent(jButton17))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(44, 44, 44)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(59, 59, 59)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(45, 45, 45)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jRadioButton1)
+                                .addComponent(jRadioButton2)))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(453, 453, 453)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)
+                            .addComponent(jButton17)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(550, 550, 550)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton19)
+                            .addComponent(jButton18)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(jLabel4)))
+                .addGap(93, 93, 93))
+        );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(858, 225, 600, 612);
+        jPanel2.setBounds(950, 270, 690, 650);
 
         jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\anonymous1.jpg")); // NOI18N
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(0, 0, 1960, 1060);
+        jLabel8.setBounds(0, 0, 1920, 1050);
 
         jMenu1.setText("Manage Profile");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -473,15 +619,6 @@ public class EncryptFrame extends javax.swing.JFrame {
         mf.setSize(1920, 1080);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        Color color = jButton1.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         
         
@@ -491,7 +628,7 @@ public class EncryptFrame extends javax.swing.JFrame {
         String box2 = jTextField2.getText();
         String box3 = jTextField3.getText();
         String box4 = jTextField4.getText();
-        String box5 = jTextField6.getText();
+        String box5 = jTextField5.getText();
         String box6 = jTextField6.getText();
         
         int sub1 = 0, sub2 = 0, sub3 = 0;
@@ -526,7 +663,8 @@ public class EncryptFrame extends javax.swing.JFrame {
             String s1 = Integer.toString(sub1);
             String s2 = Integer.toString(sub2);
             String s3 = Integer.toString(sub3);
-        
+            optimizedKey = s1+","+s2+","+s3+"#"+"S";
+            
             jTextField7.setText(s1);
             jTextField8.setText(s2);
             jTextField9.setText(s3);
@@ -542,141 +680,6 @@ public class EncryptFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Color color = jButton2.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Color color = jButton3.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Color color = jButton4.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Color color = jButton5.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        Color color = jButton6.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        Color color = jButton7.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        Color color = jButton8.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        Color color = jButton9.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        Color color = jButton10.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        Color color = jButton11.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        Color color = jButton12.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        Color color = jButton13.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
-
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        Color color = jButton14.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14ActionPerformed
-
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        Color color = jButton15.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
-
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        Color color = jButton16.getBackground();
-        jTextField1.setText(Integer.toString(color.getRed()));
-        jTextField2.setText(Integer.toString(color.getGreen()));
-        jTextField3.setText(Integer.toString(color.getBlue()));
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton16ActionPerformed
-
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         
         
@@ -686,7 +689,7 @@ public class EncryptFrame extends javax.swing.JFrame {
         String box2 = jTextField2.getText();
         String box3 = jTextField3.getText();
         String box4 = jTextField4.getText();
-        String box5 = jTextField6.getText();
+        String box5 = jTextField5.getText();
         String box6 = jTextField6.getText();
         
         
@@ -720,7 +723,7 @@ public class EncryptFrame extends javax.swing.JFrame {
             String s1 = Integer.toString(sum1);
             String s2 = Integer.toString(sum2);
             String s3 = Integer.toString(sum3);
-        
+            optimizedKey = s1+","+s2+","+s3+"#"+"A";
             jTextField7.setText(s1);
             jTextField8.setText(s2);
             jTextField9.setText(s3);
@@ -733,7 +736,9 @@ public class EncryptFrame extends javax.swing.JFrame {
         JFileChooser fc=new JFileChooser();
         fc.showOpenDialog(fc);
         File sel=fc.getSelectedFile();
-        String path=sel.getPath();
+        path=sel.getPath();
+        filename = sel.getName();
+        foldername = sel.getParent();
         jTextField10.setText(path);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton17ActionPerformed
@@ -753,6 +758,258 @@ public class EncryptFrame extends javax.swing.JFrame {
         jRadioButton2.setSelected(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        Color color = jButton16.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        Color color = jButton15.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        Color color = jButton14.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        Color color = jButton13.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        Color color = jButton12.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        Color color = jButton11.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        Color color = jButton10.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        Color color = jButton9.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        Color color = jButton8.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        Color color = jButton7.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        Color color = jButton6.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        Color color = jButton5.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Color color = jButton4.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Color color = jButton3.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Color color = jButton2.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        Color color = jButton1.getBackground();
+        jTextField1.setText(Integer.toString(color.getRed()));
+        jTextField2.setText(Integer.toString(color.getGreen()));
+        jTextField3.setText(Integer.toString(color.getBlue()));
+        String red = Integer.toString(color.getRed());
+        String green = Integer.toString(color.getGreen());
+        String blue = Integer.toString(color.getBlue());
+        stcolor = red+","+green+","+blue;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        String box1 = jTextField1.getText();
+        String box2 = jTextField2.getText();
+        String box3 = jTextField3.getText();
+        String box4 = jTextField4.getText();
+        String box5 = jTextField5.getText();
+        String box6 = jTextField6.getText();
+        String file = jTextField10.getText();
+        if(box1.isEmpty() || box2.isEmpty() || box3.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please choose colors to genarate Optimized key");
+            jTextField7.setText(null);
+            jTextField8.setText(null);
+            jTextField9.setText(null);
+        }
+        else if(box4.isEmpty() || box5.isEmpty() || box6.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter key to genrate Optimized key");
+            jTextField7.setText(null);
+            jTextField8.setText(null);
+            jTextField9.setText(null);
+        }
+        else if(file.isEmpty())
+            JOptionPane.showMessageDialog(null, "Please select file to encrypt");
+        else
+        {
+            String fcontstr = new TextFileReader().getFileContent(path);
+            ArrayList<String> blockstrings = new BlockMaker().getBlocks(fcontstr);
+            String ciphertext = "";
+            for(int i=0; i<blockstrings.size(); i++)
+            {
+                String tempstr = blockstrings.get(i);
+                String filecontstr = new EncrytionHelper().getEncryptString(tempstr);
+              //  System.out.println(tempstr.length());
+                ciphertext += ","+filecontstr;
+            }
+            ciphertext = ciphertext.substring(1, ciphertext.length());
+            
+            //System.out.println("Ciphertext: "+ciphertext);
+            String cipherstt[] = ciphertext.split(",");
+            //System.out.println(cipherstt.length);
+            String tempfile1 = filename.replace(".txt", "");
+            String writefilepath = foldername+tempfile1+"_enc.txt";
+            
+            finalstr = stcolor+"#"+optimizedKey+"#"+ciphertext+"#"+writefilepath;
+            
+            //System.out.println(writefilepath);
+            boolean writeF = new TextFileWriter().writeFile(writefilepath, ciphertext);
+            if(writeF)
+                JOptionPane.showMessageDialog(null, "File encrypted Sucessfully!!!");
+            else
+                JOptionPane.showMessageDialog(null, "Error in encrypting the file");
+
+            //System.out.println(finalstr);
+                    
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton18ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -779,6 +1036,9 @@ public class EncryptFrame extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(EncryptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -810,7 +1070,6 @@ public class EncryptFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -818,7 +1077,6 @@ public class EncryptFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

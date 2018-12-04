@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crypto;
+
 
 /**
  *
  * @author abhil
  */
 public class Product {
-    
-    public float[][] getProduct(float mat1[][], float mat2[][])
+    public double[][] getProduct(double mat1[][], double mat2[][])
     {
         
-        float mat3[][] = new float[mat1.length][mat2[0].length];
+        double mat3[][] = new double[mat1.length][mat2[0].length];
             
             try{
             for(int i=0; i<mat1.length; i++)
@@ -34,10 +33,4 @@ public class Product {
         }
          return mat3;
     }
-    
-    
-    
-    
-    
-    
 }

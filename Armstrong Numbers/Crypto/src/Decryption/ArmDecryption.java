@@ -3,33 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crypto;
-
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.io.File;
-import java.util.ArrayList;
+package Decryption;
 
 /**
  *
  * @author abhil
  */
-public class Crypto {
+public class ArmDecryption {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-     
-        MainFrame mf = new MainFrame();
-        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        mf.setVisible(true);
-        mf.setSize(d);
-        
-        
         
     }
-
     
 }
