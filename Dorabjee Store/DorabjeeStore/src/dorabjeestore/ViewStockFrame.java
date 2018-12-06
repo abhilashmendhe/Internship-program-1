@@ -9,37 +9,16 @@ package dorabjeestore;
  *
  * @author abhil
  */
-import AdminOperations.FetchAllStaff;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
-public class ViewStaffFrame extends javax.swing.JFrame {
+public class ViewStockFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form ViewStaffFrame
+     * Creates new form ViewStockFrame
      */
-    public ViewStaffFrame() {
-        super("View Staff");
+    public ViewStockFrame() {
+        super("View Stock");
         initComponents();
-        ArrayList data = new FetchAllStaff().getAllStaff();
-        int r = data.size();
-        ArrayList t = (ArrayList) data.get(0);
-        int c = t.size();
-        
-        String str[][] = new String[r][c];
-        
-        for(int i=0; i<str.length; i++)
-        {
-            ArrayList t1 = (ArrayList) data.get(i);
-            for(int j=0; j<str[0].length; j++)
-            {
-                str[i][j] = (String) t1.get(j);
-            }
-        }
-        
-        String col[] = {"FULLNAME","DATE OF BIRTH", "AGE", "CURRENT ADDRESS", "PERMANENT ADDRESS", "MOBILE", "EMAIL-ID", "USERNAME", "PASSWORD"};
-        jTable1.setModel(new DefaultTableModel(str, col));
     }
 
     /**
@@ -51,8 +30,6 @@ public class ViewStaffFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -70,20 +47,6 @@ public class ViewStaffFrame extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jTable1.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -208,22 +171,16 @@ public class ViewStaffFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(401, 401, 401)
+                .addGap(434, 434, 434)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1896, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(442, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(913, Short.MAX_VALUE))
         );
 
         pack();
@@ -283,15 +240,6 @@ public class ViewStaffFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        this.dispose();
-        EmployeeLoginFrame ad = new EmployeeLoginFrame();
-        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        ad.setVisible(true);
-        ad.setSize(d);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         this.dispose();
         ViewStockFrame vs = new ViewStockFrame();
@@ -300,6 +248,15 @@ public class ViewStaffFrame extends javax.swing.JFrame {
         vs.setSize(d);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        this.dispose();
+        EmployeeLoginFrame ad = new EmployeeLoginFrame();
+        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+        ad.setVisible(true);
+        ad.setSize(d);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,20 +275,20 @@ public class ViewStaffFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewStaffFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewStaffFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewStaffFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewStaffFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewStaffFrame().setVisible(true);
+                new ViewStockFrame().setVisible(true);
             }
         });
     }
@@ -352,7 +309,5 @@ public class ViewStaffFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

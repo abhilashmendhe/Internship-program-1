@@ -6,6 +6,7 @@ package dorabjeestore;
  * and open the template in the editor.
  */
 import AdminOperations.*;
+import StockOperations.FetchItemCodeMaker;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Time;
@@ -22,12 +23,12 @@ public class DorabjeeStore {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        AdminLoginFrame ad = new AdminLoginFrame();
+        EmployeeLoginFrame ad = new EmployeeLoginFrame();
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         ad.setVisible(true);
         ad.setSize(d);
         
         
-    }
+           }
     
 }

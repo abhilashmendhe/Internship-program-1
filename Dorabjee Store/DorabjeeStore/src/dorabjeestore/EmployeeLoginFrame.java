@@ -6,6 +6,7 @@
 package dorabjeestore;
 
 import AdminOperations.AdminLoginValidMaker;
+import StaffOperations.StaffLoginValidMaker;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -15,13 +16,14 @@ import javax.swing.JOptionPane;
  *
  * @author abhil
  */
-public class AdminLoginFrame extends javax.swing.JFrame {
+public class EmployeeLoginFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form AdminLoginFrame
+     * Creates new form EmployeeLoginFrame
      */
     public static String username;
-    public AdminLoginFrame() {
+    public boolean f=true;
+    public EmployeeLoginFrame() {
         super("Login");
         initComponents();
     }
@@ -87,6 +89,11 @@ public class AdminLoginFrame extends javax.swing.JFrame {
 
         jComboBox1.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Staff" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
         jButton1.setText("LOGIN");
@@ -188,10 +195,12 @@ public class AdminLoginFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        f = false;
         jTextField1.setText(null);
         jPasswordField1.setText(null);
         jComboBox1.setSelectedIndex(0);
-        // TODO add your handling code here:
+        f = true;
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -205,29 +214,70 @@ public class AdminLoginFrame extends javax.swing.JFrame {
         
         String employee = (String) jComboBox1.getSelectedItem();
         
-        ArrayList<String> creds = new AdminLoginValidMaker().getLogin();
-        String uname = creds.get(0);
-        String pass = creds.get(1);
+        ArrayList<String> admin = new AdminLoginValidMaker().getLogin();
+        String auname = admin.get(0);
+        String apass = admin.get(1);
+        
+        ArrayList<String> staff = new StaffLoginValidMaker().getLogin();
+        String suname = staff.get(0);
+        String spass = staff.get(1);
         
         if(username.isEmpty())
             JOptionPane.showMessageDialog(null, "Please Enter username");
         else if(password.isEmpty())
             JOptionPane.showMessageDialog(null, "Please Enter Password");
-        else if(!username.equals(uname))
-            JOptionPane.showMessageDialog(null, "Username Incorrect!!!");
-        else if(!password.equals(pass))
-            JOptionPane.showMessageDialog(null, "Password Incorrect!!!");
-        else
+        else if(employee.equals("Admin"))
         {
-            JOptionPane.showMessageDialog(null, employee+" login sucessfull!!");
-            this.dispose();
-            AdminOperationsFrame adops = new AdminOperationsFrame(); 
-            Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-            adops.setVisible(true);
-            adops.setSize(d);
+            if(!username.equals(auname))
+                JOptionPane.showMessageDialog(null, "Username Incorrect!!!");
+            else if(!password.equals(apass))
+                JOptionPane.showMessageDialog(null, "Password Incorrect!!!");
+            else
+            {
+                JOptionPane.showMessageDialog(null, employee+" login sucessfull!!");
+                this.dispose();
+                AdminOperationsFrame adops = new AdminOperationsFrame(); 
+                Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+                adops.setVisible(true);
+                adops.setSize(d);
+            }
+        }
+        else if(employee.equals("Staff"))
+        {
+            if(!username.equals(suname))
+                JOptionPane.showMessageDialog(null, "Username Incorrect!!!");
+            else if(!password.equals(spass))
+                JOptionPane.showMessageDialog(null, "Password Incorrect!!!");
+            else
+            {
+                JOptionPane.showMessageDialog(null, employee+" login sucessfull!!");
+                this.dispose();
+                StaffOperationsFrame stops = new StaffOperationsFrame(); 
+                Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+                stops.setVisible(true);
+                stops.setSize(d);
+            }
         }
         // TODO add your handling code her
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        String emp = (String) jComboBox1.getSelectedItem();
+        
+        if(emp.equals("Admin") && f)
+        {
+            JOptionPane.showMessageDialog(null, "Please enter admin username and password");
+            f = true;
+        }
+        else if(emp.equals("Staff") && f)
+        {
+            JOptionPane.showMessageDialog(null, "Please enter staff username and password");
+            f = true;
+        }
+        
+                   // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,20 +296,21 @@ public class AdminLoginFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminLoginFrame().setVisible(true);
+                new EmployeeLoginFrame().setVisible(true);
             }
         });
     }

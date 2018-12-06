@@ -77,6 +77,7 @@ public class UpdateStaffFrame extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
 
@@ -405,6 +406,15 @@ public class UpdateStaffFrame extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem7);
 
+        jMenuItem8.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
+        jMenuItem8.setText("View Stock");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem8);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Exit");
@@ -513,7 +523,7 @@ public class UpdateStaffFrame extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         this.dispose();
-        AdminLoginFrame ad = new AdminLoginFrame();
+        EmployeeLoginFrame ad = new EmployeeLoginFrame();
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         ad.setVisible(true);
         ad.setSize(d);
@@ -624,6 +634,15 @@ public class UpdateStaffFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        this.dispose();
+        ViewStockFrame vs = new ViewStockFrame();
+        vs.setVisible(true);
+        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+        vs.setSize(d);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -689,6 +708,7 @@ public class UpdateStaffFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
