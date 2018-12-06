@@ -330,7 +330,7 @@ public class AddStockItemFrame extends javax.swing.JFrame {
         jMenu3.add(jMenuItem7);
 
         jMenuItem8.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
-        jMenuItem8.setText("View Stock");
+        jMenuItem8.setText("Out Of Stock");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);

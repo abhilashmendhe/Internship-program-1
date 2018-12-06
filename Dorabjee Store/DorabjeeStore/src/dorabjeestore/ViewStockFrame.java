@@ -9,8 +9,12 @@ package dorabjeestore;
  *
  * @author abhil
  */
+import StockOperations.FetchAllStockMaker;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 public class ViewStockFrame extends javax.swing.JFrame {
 
     /**
@@ -19,6 +23,26 @@ public class ViewStockFrame extends javax.swing.JFrame {
     public ViewStockFrame() {
         super("View Stock");
         initComponents();
+        ArrayList stock = new FetchAllStockMaker().fetchallstock();
+        int rowsize = stock.size();
+        ArrayList col = (ArrayList) stock.get(0);
+       
+        int columnsize = col.size();
+        String stockmat[][] = new String[rowsize][columnsize];
+        
+        for(int i=0; i<stockmat.length; i++)
+        {
+            ArrayList temp = (ArrayList) stock.get(i);
+            int ostock = Integer.parseInt((String) temp.get(4));
+            
+            if(ostock < 30)
+            {
+            for(int j=0; j<stockmat[0].length; j++)
+                stockmat[i][j] = (String) temp.get(j);
+            }
+        }
+        String column[] = {"Item Code", "Item Name", "Unit", "Price Per Unit", "Stock", "Date and Time"};
+        jTable1.setModel(new DefaultTableModel(stockmat, column));
     }
 
     /**
@@ -32,6 +56,8 @@ public class ViewStockFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -69,6 +95,20 @@ public class ViewStockFrame extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
+
+        jTable1.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         jMenuBar1.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
 
@@ -140,7 +180,7 @@ public class ViewStockFrame extends javax.swing.JFrame {
         jMenu3.add(jMenuItem7);
 
         jMenuItem8.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
-        jMenuItem8.setText("View Stock");
+        jMenuItem8.setText("Out Of Stock");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);
@@ -174,13 +214,19 @@ public class ViewStockFrame extends javax.swing.JFrame {
                 .addGap(434, 434, 434)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(442, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1896, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(913, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -309,5 +355,7 @@ public class ViewStockFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
