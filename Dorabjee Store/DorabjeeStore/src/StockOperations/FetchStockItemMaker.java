@@ -5,7 +5,6 @@
  */
 package StockOperations;
 
-import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -16,11 +15,12 @@ import java.util.ArrayList;
  *
  * @author abhil
  */
-public class FetchItemCodeMaker {
+public class FetchStockItemMaker {
     
-    public ArrayList fetchIC()
+    public ArrayList<String> fetchStockItem(String itemcode)
     {
-        ArrayList data = new ArrayList();
+        ArrayList<String> items = new ArrayList<String>();
+        
         try {
             // itemc, itemn, unit, price, stock, date_time
             // Driver
@@ -30,24 +30,23 @@ public class FetchItemCodeMaker {
             // Statement
             Statement st = conn.createStatement();
             
-            String query = "select * from stockinfo";
+            String query = "select * from stockinfo where itemc='"+itemcode+"'";
             ResultSet rs = st.executeQuery(query);
             
-            while(rs.next())
+            if(rs.next())
             {
-                ArrayList<String> arr = new ArrayList<String>();
-                String ic = rs.getString("itemc");
-                arr.add(ic);
-                data.add(arr);
+                items.add(rs.getString("itemn"));
+                items.add(rs.getString("unit"));
+                items.add(rs.getString("price"));
+                items.add(rs.getString("stock"));
+                
             }
             
-            
-            
         } catch (Exception e) {
-            System.out.println("Error in class FetchItemCodeMaker");
+            System.out.println("Error in class FetchStockItemMaker");
             System.out.println(e);
         }
         
-        return data;
+        return items;
     }
 }

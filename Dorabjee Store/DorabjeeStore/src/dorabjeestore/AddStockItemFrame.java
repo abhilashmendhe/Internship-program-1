@@ -11,6 +11,7 @@ import TimeDate.CurrentDate;
 import TimeDate.CurrentTime;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,17 +23,18 @@ public class AddStockItemFrame extends javax.swing.JFrame {
     /**
      * Creates new form AddStockItemFrame
      */
-    public static String itemcode = "";
+   // public String itemcode = "";
     public String date;
     public String time;
     public AddStockItemFrame() {
         super("Add Stock Item");
         initComponents();
-        itemcode = new FetchItemCodeMaker().fetchIC();
-        System.out.println(itemcode);
-        if(!itemcode.isEmpty())
+        ArrayList itemc = new FetchItemCodeMaker().fetchIC();
+        
+        if(itemc.size() != 0)
         {
-            int ic = Integer.parseInt(itemcode);
+            
+            int ic = itemc.size();
             ic++;
             
             jTextField1.setText(Integer.toString(ic));
@@ -466,10 +468,10 @@ public class AddStockItemFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        String itemcode = jTextField1.getText();
+        String itemco = jTextField1.getText();
         String itemname = jTextField2.getText();
-        String kg = jRadioButton1.getName();
-        String unit = jRadioButton2.getName();
+        
+        
         String price = jTextField3.getText();
         String stock = jTextField4.getText();
         String date_time = jTextField5.getText();
@@ -484,12 +486,14 @@ public class AddStockItemFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please enter amount of stock");
         else if(jRadioButton1.isSelected())
         {
-            if(new InsertStockItemMaker().insertStock(itemcode, itemname, kg, price, stock, date_time))
+            String kg = jRadioButton1.getText();
+           
+            if(new InsertStockItemMaker().insertStock(itemco, itemname, kg, price, stock, date_time))
                 JOptionPane.showMessageDialog(null, "Item added sucessfully!!!");
             else
                 JOptionPane.showMessageDialog(null, "Error in adding item");
             
-            int ic1 = Integer.parseInt(itemcode);
+            int ic1 = Integer.parseInt(itemco);
             ic1++;
             
             jTextField1.setText(Integer.toString(ic1));
@@ -502,12 +506,13 @@ public class AddStockItemFrame extends javax.swing.JFrame {
         }
         else if(jRadioButton2.isSelected())
         {
-            if(new InsertStockItemMaker().insertStock(itemcode, itemname, unit, price, stock, date_time))
+            String unit = jRadioButton2.getText();
+            if(new InsertStockItemMaker().insertStock(itemco, itemname, unit, price, stock, date_time))
                 JOptionPane.showMessageDialog(null, "Item added sucessfully");
             else
                 JOptionPane.showMessageDialog(null, "Error in adding item");
             
-            int ic2 = Integer.parseInt(itemcode);
+            int ic2 = Integer.parseInt(itemco);
             ic2++;
             
             jTextField1.setText(Integer.toString(ic2));

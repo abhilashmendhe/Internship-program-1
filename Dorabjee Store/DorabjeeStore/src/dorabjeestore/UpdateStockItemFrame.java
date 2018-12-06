@@ -9,8 +9,14 @@ package dorabjeestore;
  *
  * @author abhil
  */
+import StockOperations.FetchStockItemMaker;
+import StockOperations.UpdateStockItemMaker;
+import TimeDate.CurrentDate;
+import TimeDate.CurrentTime;
 import java.awt.Toolkit;
 import java.awt.Dimension;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 public class UpdateStockItemFrame extends javax.swing.JFrame {
 
     /**
@@ -19,6 +25,10 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
     public UpdateStockItemFrame() {
         super("Update Stock Item");
         initComponents();
+        jTextField2.setEditable(false);
+        jTextField3.setEditable(false);
+        jTextField4.setEditable(false);
+        jTextField5.setEditable(false);
     }
 
     /**
@@ -38,6 +48,7 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
@@ -122,6 +133,14 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
+        jButton3.setText("GO");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -129,9 +148,11 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(85, 85, 85)
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jButton3)
+                .addGap(13, 13, 13))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,8 +160,9 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -218,7 +240,7 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
                         .addComponent(jTextField3))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                         .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -265,10 +287,8 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(87, 87, 87)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -276,8 +296,9 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
                         .addGap(100, 100, 100)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
-                            .addComponent(jTextField7))))
-                .addGap(0, 58, Short.MAX_VALUE))
+                            .addComponent(jTextField7)))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 76, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(173, 173, 173)
                 .addComponent(jButton1)
@@ -408,13 +429,14 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(421, 421, 421)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(421, 421, 421)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(614, 614, 614)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(455, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(625, 625, 625))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -423,7 +445,7 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
 
         pack();
@@ -499,7 +521,27 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        // TODO add your handling code her
+        String itemcode = jTextField1.getText();
+        String newprice = jTextField6.getText();
+        String currentstock = jTextField4.getText();
+        String updatestock = jTextField7.getText();
+        
+        if(itemcode.isEmpty())
+            JOptionPane.showMessageDialog(null, "Please enter item code number");
+        else if(newprice.isEmpty())
+            JOptionPane.showMessageDialog(null, "Please enter new price for the stock item");
+        else if(updatestock.isEmpty())
+            JOptionPane.showMessageDialog(null, "Please enter amount of stock to update");
+        else{
+            int cs =  Integer.parseInt(currentstock);
+            int us = Integer.parseInt(updatestock);
+            us = us + cs;
+            updatestock = Integer.toString(us);
+            if(new UpdateStockItemMaker().updateStockItem(newprice, updatestock, itemcode))
+                JOptionPane.showMessageDialog(null, "Stock item updated sucessfully!!!");
+            else
+                JOptionPane.showMessageDialog(null, "Error while updating stock updating!!");
+        }// TODO add your handling code her
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -508,10 +550,18 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
         jTextField2.setText(null);
         jTextField3.setText(null);
         jTextField4.setText(null);
-        jTextField5.setText(null);
+        
+        jTextField6.setText(null);
+        jTextField7.setText(null);
         jRadioButton1.setSelected(false);
         jRadioButton2.setSelected(false);
-
+        jRadioButton1.setEnabled(true);
+        jRadioButton2.setEnabled(true);
+        jTextField1.setEditable(true);
+        String date = new CurrentDate().getDate();
+            String time = new CurrentTime().getTime();
+            String date_time = date+" "+time;
+            jTextField5.setText(date_time);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -540,6 +590,40 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
         vs.setSize(d);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String itemcode = jTextField1.getText();
+        ArrayList<String> items = new FetchStockItemMaker().fetchStockItem(itemcode);
+        if(items.size()!=0)
+        {
+            jTextField2.setText(items.get(0));
+            String unit = items.get(1);
+            if(unit.equals("Kg"))
+            {
+                jRadioButton1.setSelected(true);
+                jRadioButton2.setEnabled(false);
+            }
+            else
+            {
+                jRadioButton2.setSelected(true);
+                jRadioButton1.setEnabled(false);
+            }
+            jTextField3.setText(items.get(2));
+            jTextField4.setText(items.get(3));
+            
+            String date = new CurrentDate().getDate();
+            String time = new CurrentTime().getTime();
+            String date_time = date+" "+time;
+            jTextField5.setText(date_time);
+            
+            
+        }
+        else
+            JOptionPane.showMessageDialog(null, "No item found");
+        
+        jTextField1.setEditable(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -579,6 +663,7 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
