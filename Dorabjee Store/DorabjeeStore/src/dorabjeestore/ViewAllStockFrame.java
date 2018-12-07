@@ -5,23 +5,22 @@
  */
 package dorabjeestore;
 
+import StockOperations.FetchAllStockMaker;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author abhil
  */
-import StockOperations.FetchAllStockMaker;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-public class ViewStockFrame extends javax.swing.JFrame {
+public class ViewAllStockFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form ViewStockFrame
+     * Creates new form ViewAllStockFrame
      */
-    public ViewStockFrame() {
-        super("View Stock");
+    public ViewAllStockFrame() {
         initComponents();
         ArrayList stock = new FetchAllStockMaker().fetchallstock();
         int rowsize = stock.size();
@@ -29,19 +28,18 @@ public class ViewStockFrame extends javax.swing.JFrame {
        
         int columnsize = col.size();
         String stockmat[][] = new String[rowsize][columnsize];
-        
+        //String stockmat[][] = {};
         for(int i=0; i<stockmat.length; i++)
         {
             ArrayList temp = (ArrayList) stock.get(i);
             int ostock = Integer.parseInt((String) temp.get(4));
             
-            if(ostock < 30)
-            {
+            
             for(int j=0; j<stockmat[0].length; j++)
                 stockmat[i][j] = (String) temp.get(j);
-            }
-        }
+        }        
         String column[] = {"Item Code", "Item Name", "Unit", "Price Per Unit", "Stock", "Date and Time"};
+        jTable1.setRowHeight(40);
         jTable1.setModel(new DefaultTableModel(stockmat, column));
     }
 
@@ -68,6 +66,7 @@ public class ViewStockFrame extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -108,6 +107,7 @@ public class ViewStockFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setIntercellSpacing(new java.awt.Dimension(1, 5));
         jScrollPane1.setViewportView(jTable1);
 
         jMenuBar1.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
@@ -179,6 +179,15 @@ public class ViewStockFrame extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem7);
 
+        jMenuItem9.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
+        jMenuItem9.setText("View All Stocks");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem9);
+
         jMenuItem8.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
         jMenuItem8.setText("Out Of Stock");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
@@ -213,10 +222,10 @@ public class ViewStockFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(434, 434, 434)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(442, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1896, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -225,7 +234,7 @@ public class ViewStockFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -286,9 +295,18 @@ public class ViewStockFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        this.dispose();
+        ViewAllStockFrame vas = new ViewAllStockFrame();
+        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+        vas.setVisible(true);
+        vas.setSize(d);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         this.dispose();
-        ViewStockFrame vs = new ViewStockFrame();
+        OutOfStockFrame vs = new OutOfStockFrame();
         vs.setVisible(true);
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         vs.setSize(d);
@@ -321,20 +339,20 @@ public class ViewStockFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAllStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAllStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAllStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAllStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewStockFrame().setVisible(true);
+                new ViewAllStockFrame().setVisible(true);
             }
         });
     }
@@ -354,6 +372,7 @@ public class ViewStockFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

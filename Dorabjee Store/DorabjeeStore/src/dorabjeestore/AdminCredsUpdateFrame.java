@@ -56,6 +56,7 @@ public class AdminCredsUpdateFrame extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -228,6 +229,15 @@ public class AdminCredsUpdateFrame extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem7);
 
+        jMenuItem9.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
+        jMenuItem9.setText("View All Stock");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem9);
+
         jMenuItem8.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
         jMenuItem8.setText("Out Of Stock");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
@@ -377,13 +387,23 @@ public class AdminCredsUpdateFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        
         this.dispose();
-        ViewStockFrame vs = new ViewStockFrame();
+        OutOfStockFrame vs = new OutOfStockFrame();
         vs.setVisible(true);
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         vs.setSize(d);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        this.dispose();
+        ViewAllStockFrame vas = new ViewAllStockFrame();
+        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+        vas.setVisible(true);
+        vas.setSize(d);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -441,6 +461,7 @@ public class AdminCredsUpdateFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;

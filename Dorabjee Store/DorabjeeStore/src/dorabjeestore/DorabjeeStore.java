@@ -6,10 +6,12 @@ package dorabjeestore;
  * and open the template in the editor.
  */
 import AdminOperations.*;
+import SaleOperations.SaleFetchItemCodeMaker;
 import StockOperations.FetchItemCodeMaker;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Time;
+import java.util.ArrayList;
 //import java.awt.Toolkit;
 
 /**

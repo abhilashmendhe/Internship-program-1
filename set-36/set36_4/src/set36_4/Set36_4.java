@@ -20,7 +20,8 @@ public class Set36_4 {
         
         HashSet h1 = new HashSet();
       //  HashSet h2 = new HashSet(Collection c);
-        
+        h1.add(12);
+        h1.add(5);
         h1.add("A");
         h1.add("B");
         h1.add("C");

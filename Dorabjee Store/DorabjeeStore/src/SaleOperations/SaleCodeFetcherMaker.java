@@ -3,25 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package StaffOperations;
+package SaleOperations;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.TreeSet;
 
 /**
  *
  * @author abhil
  */
-public class StaffLoginValidMaker {
-     public ArrayList getLogin()
+public class SaleCodeFetcherMaker {
+    
+    public HashSet fetchSaleCode()
     {
-        ArrayList creds = new ArrayList();
+        HashSet data = new HashSet();
         
         try {
-            // fname, dob, age, caddr, paddr, mobile, email, uname, pass
+            // salecode, itemcode, itemname, unit, price, date_time, saleid, purchaseunit, amount
+            
             // Driver
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             // Connection
@@ -29,24 +33,20 @@ public class StaffLoginValidMaker {
             // Statement
             Statement st = conn.createStatement();
             
-            String query = "select * from staffinfo";
+            String query = "select * from saleinfo";
             ResultSet rs = st.executeQuery(query);
             
             while(rs.next())
             {
-                ArrayList<String> temp = new ArrayList<String>();
-                String uname = rs.getString("uname");
-                String pass = rs.getString("pass");
-                temp.add(uname);
-                temp.add(pass);
-                creds.add(temp);
+                data.add(rs.getString("salecode"));
             }
             
         } catch (Exception e) {
-            System.out.println("Error in class StaffLoginValidMaker");
+            System.out.println("Error in class SaleCodeFetcherMaker");
             System.out.println(e);
         }
         
-        return creds;
+        return data;
+                
     }
 }

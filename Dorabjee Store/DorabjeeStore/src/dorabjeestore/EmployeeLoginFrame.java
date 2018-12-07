@@ -218,9 +218,7 @@ public class EmployeeLoginFrame extends javax.swing.JFrame {
         String auname = admin.get(0);
         String apass = admin.get(1);
         
-        ArrayList<String> staff = new StaffLoginValidMaker().getLogin();
-        String suname = staff.get(0);
-        String spass = staff.get(1);
+        
         
         if(username.isEmpty())
             JOptionPane.showMessageDialog(null, "Please Enter username");
@@ -244,9 +242,23 @@ public class EmployeeLoginFrame extends javax.swing.JFrame {
         }
         else if(employee.equals("Staff"))
         {
-            if(!username.equals(suname))
+            ArrayList staff = new StaffLoginValidMaker().getLogin();
+            
+            boolean staffusername = true;
+            boolean staffpassword = true;
+            
+            for(int i=0; i<staff.size(); i++)
+            {
+                ArrayList sta = (ArrayList) staff.get(i);
+                
+                if(username.equals(sta.get(0)))
+                    staffusername = false;
+                if(password.equals(sta.get(1)))
+                    staffpassword = false;
+            }
+            if(staffusername)
                 JOptionPane.showMessageDialog(null, "Username Incorrect!!!");
-            else if(!password.equals(spass))
+            else if(staffpassword)
                 JOptionPane.showMessageDialog(null, "Password Incorrect!!!");
             else
             {

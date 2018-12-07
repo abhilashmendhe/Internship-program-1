@@ -5,21 +5,64 @@
  */
 package dorabjeestore;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
-
 /**
  *
  * @author abhil
  */
-public class AdminOperationsFrame extends javax.swing.JFrame {
+import StockOperations.FetchAllStockMaker;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+public class OutOfStockFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form AdminOperationsFrame
+     * Creates new form ViewStockFrame
      */
-    public AdminOperationsFrame() {
-        super("Admin Credentials Operations");
+    public OutOfStockFrame() {
+        super("Out of Stock");
         initComponents();
+        ArrayList stock = new FetchAllStockMaker().fetchallstock();
+        int rowsize = stock.size();
+        ArrayList col = (ArrayList) stock.get(0);
+       
+        int columnsize = col.size();
+        String stockmat[][] = new String[rowsize][columnsize];
+        int s = 0;
+        for(int i=0; i<stockmat.length; i++)
+        {
+            ArrayList temp = (ArrayList) stock.get(i);
+            int ostock = Integer.parseInt((String) temp.get(4));
+            for(int j=0; j<stockmat[0].length; j++)
+            if(ostock < 30)
+            {
+                s++;
+                break;
+            }
+        }
+        
+        String stockmatinsert[][]=new String[s][columnsize];
+        int k=0;
+        for(int i=0; i<stockmat.length; i++)
+        {
+            ArrayList temp1 = (ArrayList) stock.get(i);
+            int ostock = Integer.parseInt((String) temp1.get(4));
+            if(ostock < 30)
+            {
+                for(int j=0; j<stockmat[0].length; j++)
+                {
+                    String temppp = (String) temp1.get(j);        
+                    stockmatinsert[k][j] = temppp;     
+                } 
+                k++;
+            } 
+            System.out.println();
+        }
+        String column[] = {"Item Code", "Item Name", "Unit", "Price Per Unit", "Stock", "Date and Time"};
+        
+        jTable1.setRowHeight(40);
+        jTable1.setModel(new DefaultTableModel(stockmatinsert, column));
     }
 
     /**
@@ -31,6 +74,10 @@ public class AdminOperationsFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -47,6 +94,42 @@ public class AdminOperationsFrame extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel1.setFont(new java.awt.Font("Bradley Hand ITC", 3, 52)); // NOI18N
+        jLabel1.setText("Dorabjee Super Market");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(233, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(260, 260, 260))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        jTable1.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         jMenuBar1.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
 
@@ -118,7 +201,7 @@ public class AdminOperationsFrame extends javax.swing.JFrame {
         jMenu3.add(jMenuItem7);
 
         jMenuItem9.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
-        jMenuItem9.setText("View All Stock");
+        jMenuItem9.setText("View All Stocks");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem9ActionPerformed(evt);
@@ -157,11 +240,23 @@ public class AdminOperationsFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1920, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(434, 434, 434)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(442, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1896, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1045, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -221,15 +316,6 @@ public class AdminOperationsFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        this.dispose();
-        EmployeeLoginFrame ad = new EmployeeLoginFrame();
-        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        ad.setVisible(true);
-        ad.setSize(d);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         this.dispose();
         OutOfStockFrame vs = new OutOfStockFrame();
@@ -238,6 +324,15 @@ public class AdminOperationsFrame extends javax.swing.JFrame {
         vs.setSize(d);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        this.dispose();
+        EmployeeLoginFrame ad = new EmployeeLoginFrame();
+        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+        ad.setVisible(true);
+        ad.setSize(d);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         this.dispose();
@@ -265,28 +360,27 @@ public class AdminOperationsFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminOperationsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OutOfStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminOperationsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OutOfStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminOperationsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OutOfStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminOperationsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OutOfStockFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminOperationsFrame().setVisible(true);
+                new OutOfStockFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -301,5 +395,8 @@ public class AdminOperationsFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
