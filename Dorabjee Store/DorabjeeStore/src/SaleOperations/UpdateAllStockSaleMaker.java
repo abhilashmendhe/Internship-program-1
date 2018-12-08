@@ -13,15 +13,14 @@ import java.sql.Statement;
  *
  * @author abhil
  */
-public class DeleteItemMaker {
+public class UpdateAllStockSaleMaker {
     
-    public boolean deleteItem(String itemcode)
+    public boolean updateAllStockSale(String itemcode, String stock)
     {
         boolean f = false;
         
         try {
-            
-            // salecode, itemcode, itemname, unit, price, date_time, saleid, purchaseunit, amount
+            //itemc, itemn, unit, price, stock, date_time
             // Driver
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             // Connection
@@ -29,13 +28,14 @@ public class DeleteItemMaker {
             // Statement
             Statement st = conn.createStatement();
             
-            String query = "delete from saleinfo where itemcode='"+itemcode+"'";
+            String query = "update stockinfo set stock='"+stock+"' where itemc='"+itemcode+"'";
             int x = st.executeUpdate(query);
+            
             if(x>0)
-                f = false;
+                f = true;
             
         } catch (Exception e) {
-            System.out.println("Error in class DeleteItemMaker");
+            System.out.println("Error in class UpdateAllStockSaleMaker");
             System.out.println(e);
         }
         

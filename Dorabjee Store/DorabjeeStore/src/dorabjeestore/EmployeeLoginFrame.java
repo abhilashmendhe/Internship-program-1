@@ -21,6 +21,7 @@ public class EmployeeLoginFrame extends javax.swing.JFrame {
     /**
      * Creates new form EmployeeLoginFrame
      */
+    public static StaffOperationsFrame stops;
     public static String username;
     public boolean f=true;
     public EmployeeLoginFrame() {
@@ -264,7 +265,7 @@ public class EmployeeLoginFrame extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null, employee+" login sucessfull!!");
                 this.dispose();
-                StaffOperationsFrame stops = new StaffOperationsFrame(); 
+                stops = new StaffOperationsFrame(); 
                 Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
                 stops.setVisible(true);
                 stops.setSize(d);
