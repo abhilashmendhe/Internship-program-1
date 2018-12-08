@@ -10,8 +10,10 @@ import SaleOperations.SaleCodeFetcherMaker;
 import SaleOperations.SaleFetchAllMaker;
 import SaleOperations.SaleFetchItemCodeMaker;
 import SaleOperations.SaleInsertMaker;
+import SaleOperations.UpdateSaleItemMaker;
 import SaleOperations.UpdateStockSaleMaker;
 import StaffOperations.StaffCredsUpdateMaker;
+import StockOperations.FetchAllStockMaker;
 import StockOperations.FetchItemCodeMaker;
 import StockOperations.FetchStockItemMaker;
 import StockOperations.UpdateSingleStockItemMaker;
@@ -38,7 +40,7 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
      */
     
     ArrayList<String> fetchItems;
-    public int totalamt=0;
+    public static int totalamt=0;
     public int tempamt=0;
     public int tempstock=0;
     public int fetchstock=0;
@@ -181,7 +183,6 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         jTextField20 = new javax.swing.JTextField();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
         jTextField22 = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
@@ -193,7 +194,7 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         jPanel18 = new javax.swing.JPanel();
         jButton12 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jTabbedPane1.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
 
@@ -847,14 +848,6 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton11.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
-        jButton11.setText("Calculate");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
-
         jTextField22.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
 
         jLabel27.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
@@ -879,13 +872,10 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
                 .addGap(98, 98, 98)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton10)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField22, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE))
-                        .addGap(42, 42, 42)
-                        .addComponent(jButton11)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jTextField22, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)))
+                .addContainerGap(175, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -898,12 +888,11 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27))
-                .addGap(26, 26, 26)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11))
-                .addGap(38, 38, 38)
+                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton9)
                     .addComponent(jButton10))
@@ -1037,9 +1026,7 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1920, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1920, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1228,10 +1215,28 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         ArrayList salerow = new SaleFetchAllMaker().fetchAllSale(salecode);
         if(salerow.size()==0)
             JOptionPane.showMessageDialog(null, "Please enter items!!");
+        else
+        {
+            BillFrame bill = new BillFrame();
+            bill.setVisible(true);
+            bill.setLocation(450,300);
+            
+        }
+        
         
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
-
+    public void afterBillAction()
+    {
+        int gs = Integer.parseInt(globalsalesize);
+            gs++;
+            jTextField2.setText(Integer.toString(gs));
+            jTextField12.setText(Integer.toString(gs));
+            String salemat[][] = new String[0][0];
+            jTable1.setRowHeight(40);
+            jTable1.setModel(new DefaultTableModel(salemat,tcolumn));
+            jTable2.setModel(new DefaultTableModel(salemat,tcolumn));
+    }
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         String itemcode = jTextField13.getText();
         ArrayList<String> data = new SaleFetchItemCodeMaker().fetchItemCode(itemcode, jTextField12.getText());
@@ -1260,6 +1265,122 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField19ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        String salecode = jTextField12.getText();
+        String itemcode = jTextField13.getText();
+        String purchaseunit = jTextField19.getText();
+        String changeunit = jTextField22.getText();
+        String price = jTextField16.getText();
+        if(itemcode.isEmpty())
+            JOptionPane.showMessageDialog(null, "Please enter item code");
+        else if(changeunit.isEmpty())
+            JOptionPane.showMessageDialog(null, "Please enter in change unit");
+        else
+        {
+            int cunit = Integer.parseInt(changeunit);
+            int punit = Integer.parseInt(purchaseunit);
+            int priceint = Integer.parseInt(price);
+            int tempprice = priceint * cunit;
+            jTextField20.setText(Integer.toString(tempprice));
+            String actualstock="";
+            if(cunit<0)
+                JOptionPane.showMessageDialog(null, "Staff cannot add items");
+            else if(cunit==punit)
+            {
+                JOptionPane.showMessageDialog(null, "No Operations performed cause change unit and purcahse unit are same");
+                jTextField13.setText(null);
+                jTextField14.setText(null);
+                jTextField15.setText(null);
+                jTextField16.setText(null);
+                jTextField17.setText(null);
+                jTextField18.setText(null);
+                jTextField19.setText(null);
+                jTextField20.setText(null);
+                jTextField22.setText(null);
+            }
+            else if(cunit<punit)
+            {
+                new UpdateSaleItemMaker().updateSaleItem(salecode, itemcode, changeunit, Integer.toString(tempprice));
+                
+                totalamt -= tempprice;
+                jTextField11.setText(Integer.toString(totalamt));
+                jTextField21.setText(Integer.toString(totalamt));
+            
+                ArrayList items = new FetchAllStockMaker().fetchallstock();
+                for(int i=0; i<items.size(); i++)
+                {
+                    ArrayList data = (ArrayList) items.get(i);
+                    if(itemcode.equals(data.get(0)))
+                        actualstock = (String) data.get(4);
+                }
+                int actualstockint = Integer.parseInt(actualstock);
+                int remainunits = punit - cunit;
+                actualstockint += remainunits;
+                new UpdateStockSaleMaker().updateStock(Integer.toString(actualstockint), itemcode);
+                
+                JOptionPane.showMessageDialog(null, "Items updated Sucessfully!!");
+            }
+            else if(cunit>punit)
+            {
+                
+                
+                totalamt += tempprice;
+                jTextField11.setText(Integer.toString(totalamt));
+                jTextField21.setText(Integer.toString(totalamt));
+                ArrayList items = new FetchAllStockMaker().fetchallstock();
+                for(int i=0; i<items.size(); i++)
+                {
+                    ArrayList data = (ArrayList) items.get(i);
+                    if(itemcode.equals(data.get(0)))
+                        actualstock = (String) data.get(4);
+                }
+                int actualstockint = Integer.parseInt(actualstock);
+                if(actualstockint<cunit)
+                {
+                    JOptionPane.showMessageDialog(null, "Insufficient stock");
+                    
+                }
+                else
+                {
+                    new UpdateSaleItemMaker().updateSaleItem(salecode, itemcode, changeunit, Integer.toString(tempprice));
+                    int remainunits = cunit - punit;
+                    actualstockint -= remainunits;
+                    new UpdateStockSaleMaker().updateStock(Integer.toString(actualstockint), itemcode);
+                    
+                    JOptionPane.showMessageDialog(null, "Items updated Sucessfully!!");
+                }
+            }
+            
+            ArrayList salerow = new SaleFetchAllMaker().fetchAllSale(salecode);
+            int row = salerow.size();
+            ArrayList salecol = (ArrayList) salerow.get(0);
+            int col = salecol.size();
+
+            String viewsalemat[][] = new String[row][col];
+            
+//                if(salecol.get(0).equals(salecode))
+//                {
+            for(int i=0; i<viewsalemat.length; i++)
+            {
+                ArrayList t = (ArrayList) salerow.get(i);
+                for(int j=0; j<viewsalemat[0].length; j++)
+                {
+                    viewsalemat[i][j] = (String) t.get(j);
+                }
+            }
+            jTable1.setModel(new DefaultTableModel(viewsalemat,tcolumn));
+            jTable2.setModel(new DefaultTableModel(viewsalemat,tcolumn));
+        }
+        jTextField13.setText(null);
+        jTextField14.setText(null);
+        jTextField15.setText(null);
+        jTextField16.setText(null);
+        jTextField17.setText(null);
+        jTextField18.setText(null);
+        jTextField19.setText(null);
+        jTextField20.setText(null);
+        jTextField22.setText(null);
+        
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -1342,11 +1463,6 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
-
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
        String salecode = jTextField2.getText();
@@ -1411,7 +1527,6 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

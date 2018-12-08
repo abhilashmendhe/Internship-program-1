@@ -15,7 +15,7 @@ import java.sql.Statement;
  */
 public class UpdateSaleItemMaker {
     
-    public boolean updateSaleItem(String salecode, String itemcode, String unit)
+    public boolean updateSaleItem(String salecode, String itemcode, String punit, String tamt)
     {
         boolean f = false;
         
@@ -28,7 +28,10 @@ public class UpdateSaleItemMaker {
             // Statement
             Statement st = conn.createStatement();
             
-            
+            String query = "update saleinfo set purchaseunit='"+punit+"', amount='"+tamt+"' where salecode='"+salecode+"' and itemcode='"+itemcode+"'";
+            int x = st.executeUpdate(query);
+            if(x>0)
+                f = true;
             
         } catch (Exception e) {
             System.out.println("Error in UpdateSaleItemMaker");
