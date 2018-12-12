@@ -174,6 +174,7 @@ public class Frm extends javax.swing.JFrame {
         try{
         JFileChooser jf = new JFileChooser();
         jf.showOpenDialog(jf);
+        
         File f = jf.getSelectedFile();
         String path = f.getAbsolutePath();
         jTextField1.setText(path);

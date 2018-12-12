@@ -50,10 +50,12 @@ public class BillFrame extends javax.swing.JFrame {
             String priceper = (String)peritem.get(4);
             String punit = (String)peritem.get(7);
             String tpriceu=(String)peritem.get(8);
-            billf = "   "+c+")"+item+"                "+priceper+"                       "+punit+"                            "+tpriceu+"\n"+billf;
+            billf = c+")"+item+"     "+priceper+"                "+punit+"                   "+tpriceu+"\n"+billf;
             c++;
         }
-        jTextArea1.setText(billf);
+        String totalbillprice = "\n\n                                                                           "+Integer.toString(StaffOperationsFrame.totalamt);
+        
+        jTextArea1.setText(billf+totalbillprice);
         
     }
 
@@ -276,12 +278,12 @@ public class BillFrame extends javax.swing.JFrame {
 //        String path=sel.getPath()+"bill.txt";
 //        System.out.println(folder);
 
-        String storename = "                                         "+jLabel1.getText()+"\n";
-        String address = "                                            "+jLabel3.getText()+"\n\n";
-        String head = "   Item                Price Per Unit                       Quantity                            Amount\n";
-        String head2 = "Sale ID: "+jTextField1.getText()+"                                                 Date and Time  "+jTextField2.getText();
+        String storename = "                     "+jLabel1.getText()+"\n";
+        String address = "                       "+jLabel3.getText()+"\n\n";
+        String head = "Item          Price Per Unit          Quantity             Amount\n\n";
+        String head2 = "Sale ID: "+jTextField1.getText()+"             Date and Time  "+jTextField2.getText()+"\n\n";
         String exactbill = storename+address+head2+head+billf;
-            
+            System.out.println(exactbill);
         new FileWriter().writeFile("D:\\bill"+StaffOperationsFrame.globalsalesize+".txt", exactbill);
         JOptionPane.showMessageDialog(null, "Bill Genrated");
         EmployeeLoginFrame.stops.afterBillAction();

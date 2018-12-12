@@ -125,7 +125,7 @@ public class CreateStaffFrame extends javax.swing.JFrame {
         });
 
         jButton1.setFont(new java.awt.Font("Javanese Text", 0, 14)); // NOI18N
-        jButton1.setText("LOGIN");
+        jButton1.setText("CREATE");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

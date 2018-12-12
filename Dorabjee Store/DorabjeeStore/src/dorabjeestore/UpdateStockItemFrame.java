@@ -521,6 +521,7 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+        
         String itemcode = jTextField1.getText();
         String newprice = jTextField6.getText();
         String currentstock = jTextField4.getText();
@@ -541,7 +542,18 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Stock item updated sucessfully!!!");
             else
                 JOptionPane.showMessageDialog(null, "Error while updating stock updating!!");
+            
+            jRadioButton1.setSelected(false);
+            jRadioButton2.setSelected(false);
+            jTextField1.setText(null);
+            jTextField2.setText(null);
+            jTextField3.setText(null);
+            jTextField4.setText(null);
+            jTextField5.setText(null);
+            jTextField6.setText(null);
+            jTextField7.setText(null);
         }// TODO add your handling code her
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -555,8 +567,8 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
         jTextField7.setText(null);
         jRadioButton1.setSelected(false);
         jRadioButton2.setSelected(false);
-        jRadioButton1.setEnabled(true);
-        jRadioButton2.setEnabled(true);
+        jRadioButton1.setEnabled(false);
+        jRadioButton2.setEnabled(false);
         jTextField1.setEditable(true);
         String date = new CurrentDate().getDate();
             String time = new CurrentTime().getTime();
@@ -592,6 +604,7 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
         String itemcode = jTextField1.getText();
         ArrayList<String> items = new FetchStockItemMaker().fetchStockItem(itemcode);
         if(items.size()!=0)

@@ -59,7 +59,7 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         jPanel9.setBackground(EmployeeLoginFrame.p1);
         jPanel14.setBackground(EmployeeLoginFrame.p2);
         //---------------------------------------------------------------------------
-        System.out.println(exit);
+        //(exit);
         if(exit)
             this.dispose();
         // Staff Update Code
@@ -1369,7 +1369,7 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         {
             ArrayList fetchStock = new FetchStockItemMaker().fetchStockItem(itemcode);
             String stock = (String) fetchStock.get(3);
-            System.out.println(stock);
+            //System.out.println(stock);
             int stockint = Integer.parseInt(stock);
             int purchaseint = Integer.parseInt(purchase);
             stockint += purchaseint;
@@ -1408,7 +1408,7 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
                     amt = (String) t.get(8);
                 
             }
-            System.out.println("amt:"+amt);
+            //System.out.println("amt:"+amt);
                     
             totalamt = totalamt - Integer.parseInt(amt);
             jTextField11.setText(Integer.toString(totalamt));
@@ -1441,7 +1441,7 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
        String salecode = jTextField2.getText();
        ArrayList fsaleitem = new SaleFetchAllMaker().fetchAllSale(salecode);
-        System.out.println(fsaleitem.size());
+        //System.out.println(fsaleitem.size());
         
         if(fsaleitem.size()!=0)
         {
