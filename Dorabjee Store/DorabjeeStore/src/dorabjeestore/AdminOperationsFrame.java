@@ -50,7 +50,7 @@ public class AdminOperationsFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\superstore.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/Dorabjee Store/superstore.jpg")); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1920, 1040);
 

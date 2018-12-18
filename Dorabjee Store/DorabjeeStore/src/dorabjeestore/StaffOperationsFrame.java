@@ -237,7 +237,7 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel5);
-        jPanel5.setBounds(472, 15, 1044, 119);
+        jPanel5.setBounds(472, 15, 1178, 115);
 
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -315,9 +315,9 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel6);
-        jPanel6.setBounds(648, 180, 621, 370);
+        jPanel6.setBounds(648, 180, 639, 290);
 
-        jLabel28.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\superstore.jpg")); // NOI18N
+        jLabel28.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/Dorabjee Store/superstore.jpg")); // NOI18N
         jPanel4.add(jLabel28);
         jLabel28.setBounds(0, 0, 1920, 1030);
 
@@ -361,7 +361,7 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel7);
-        jPanel7.setBounds(399, 13, 1044, 119);
+        jPanel7.setBounds(399, 13, 1178, 115);
 
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -581,7 +581,7 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel8);
-        jPanel8.setBounds(212, 150, 585, 654);
+        jPanel8.setBounds(212, 150, 623, 454);
 
         jPanel10.setBackground(new java.awt.Color(255, 228, 210));
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -648,8 +648,6 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
 
         jPanel2.add(jPanel10);
         jPanel10.setBounds(820, 150, 1007, 540);
-
-        jLabel29.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\superstore.jpg")); // NOI18N
         jPanel2.add(jLabel29);
         jLabel29.setBounds(0, 0, 1910, 990);
 
@@ -680,7 +678,7 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel9);
-        jPanel9.setBounds(402, 13, 1044, 119);
+        jPanel9.setBounds(402, 13, 1178, 115);
 
         jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -897,7 +895,7 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel14);
-        jPanel14.setBounds(216, 150, 585, 719);
+        jPanel14.setBounds(216, 150, 623, 494);
 
         jPanel17.setBackground(new java.awt.Color(255, 228, 210));
         jPanel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -945,13 +943,11 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel26)
                     .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel17);
-        jPanel17.setBounds(819, 150, 1007, 547);
-
-        jLabel30.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\superstore.jpg")); // NOI18N
+        jPanel17.setBounds(819, 150, 1007, 475);
         jPanel3.add(jLabel30);
         jLabel30.setBounds(0, 0, 1910, 990);
 
@@ -988,9 +984,7 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         );
 
         jPanel13.add(jPanel18);
-        jPanel18.setBounds(1696, 13, 183, 140);
-
-        jLabel31.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\superstore.jpg")); // NOI18N
+        jPanel18.setBounds(1696, 13, 186, 121);
         jPanel13.add(jLabel31);
         jLabel31.setBounds(0, 0, 1910, 990);
 
@@ -1000,7 +994,7 @@ public class StaffOperationsFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 842, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

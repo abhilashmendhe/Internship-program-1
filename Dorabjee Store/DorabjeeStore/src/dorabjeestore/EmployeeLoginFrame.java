@@ -85,7 +85,7 @@ public class EmployeeLoginFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(470, 13, 1044, 119);
+        jPanel1.setBounds(470, 13, 1178, 115);
 
         jPanel2.setBackground(new java.awt.Color(247, 232, 205));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -182,9 +182,9 @@ public class EmployeeLoginFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(655, 178, 629, 393);
+        jPanel2.setBounds(655, 178, 640, 318);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\superstore.jpg")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/Dorabjee Store/superstore.jpg")); // NOI18N
         getContentPane().add(jLabel5);
         jLabel5.setBounds(0, 0, 2040, 1090);
 

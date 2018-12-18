@@ -100,7 +100,7 @@ public class ViewAllStockFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(434, 13, 1044, 119);
+        jPanel1.setBounds(434, 13, 1178, 115);
 
         jTable1.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -120,7 +120,7 @@ public class ViewAllStockFrame extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(210, 150, 1466, 660);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\superstore.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/Dorabjee Store/superstore.jpg")); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 1920, 1040);
 

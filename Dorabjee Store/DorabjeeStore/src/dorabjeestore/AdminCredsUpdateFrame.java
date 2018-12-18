@@ -89,7 +89,7 @@ public class AdminCredsUpdateFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(470, 13, 1044, 119);
+        jPanel1.setBounds(470, 13, 1178, 115);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -167,9 +167,9 @@ public class AdminCredsUpdateFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(655, 178, 621, 370);
+        jPanel2.setBounds(655, 178, 639, 290);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\superstore.jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/Dorabjee Store/superstore.jpg")); // NOI18N
         getContentPane().add(jLabel4);
         jLabel4.setBounds(0, 0, 1920, 970);
 

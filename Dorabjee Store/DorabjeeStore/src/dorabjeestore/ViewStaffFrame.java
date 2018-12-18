@@ -117,9 +117,9 @@ public class ViewStaffFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(401, 13, 1044, 119);
+        jPanel1.setBounds(401, 13, 1178, 115);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\superstore.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/Dorabjee Store/superstore.jpg")); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 1920, 1020);
 

@@ -110,7 +110,7 @@ public class CreateStaffFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(460, 13, 1044, 119);
+        jPanel1.setBounds(460, 13, 1178, 115);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -310,9 +310,9 @@ public class CreateStaffFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(628, 150, 634, 805);
+        jPanel2.setBounds(628, 150, 650, 642);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\superstore.jpg")); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/Dorabjee Store/superstore.jpg")); // NOI18N
         getContentPane().add(jLabel11);
         jLabel11.setBounds(0, 0, 1920, 1050);
 

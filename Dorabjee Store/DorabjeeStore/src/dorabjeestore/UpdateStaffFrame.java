@@ -280,7 +280,7 @@ public class UpdateStaffFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(816, 150, 648, 795);
+        jPanel2.setBounds(816, 150, 667, 632);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -305,7 +305,7 @@ public class UpdateStaffFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(460, 13, 1044, 119);
+        jPanel1.setBounds(460, 13, 1178, 115);
 
         jPanel3.setBackground(new java.awt.Color(223, 247, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -349,9 +349,9 @@ public class UpdateStaffFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(263, 400, 519, 137);
+        jPanel3.setBounds(263, 400, 545, 118);
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\superstore.jpg")); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/Dorabjee Store/superstore.jpg")); // NOI18N
         getContentPane().add(jLabel12);
         jLabel12.setBounds(0, 0, 1920, 1040);
 

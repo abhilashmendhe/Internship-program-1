@@ -109,7 +109,7 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(433, 13, 1044, 119);
+        jPanel1.setBounds(433, 13, 1178, 115);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -337,9 +337,9 @@ public class UpdateStockItemFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(626, 145, 681, 746);
+        jPanel2.setBounds(626, 145, 695, 555);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\superstore.jpg")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/Dorabjee Store/superstore.jpg")); // NOI18N
         getContentPane().add(jLabel10);
         jLabel10.setBounds(0, 0, 1920, 1040);
 
