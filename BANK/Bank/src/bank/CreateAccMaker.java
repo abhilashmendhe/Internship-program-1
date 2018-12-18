@@ -25,7 +25,7 @@ public class CreateAccMaker {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             
             // Connection
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankdb","root","root");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankdb","root","Asimov@1234");
             
             // Statement
             Statement st = conn.createStatement();

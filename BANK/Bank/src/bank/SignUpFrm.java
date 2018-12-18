@@ -5,6 +5,8 @@
  */
 package bank;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -288,7 +290,14 @@ public class SignUpFrm extends javax.swing.JFrame {
             jPasswordField2.setText(null);
         }
         else if(new SignUpMaker().signup(name, dob, email, address, uname, pass))
+        {
             JOptionPane.showMessageDialog(null, "Signed Up successfully!!");
+            this.dispose();
+            MainFrm mf = new MainFrm();
+            mf.setVisible(true);
+            Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+            mf.setSize(d);
+        }
         else
             JOptionPane.showMessageDialog(null, "Error while inserting in database");
         
