@@ -147,9 +147,9 @@ public class DecryptFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(656, 286, 580, 500);
+        jPanel1.setBounds(656, 286, 608, 501);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\anonymous1.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/Armstrong Numbers/anonymous.jpg")); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 0, 1920, 1050);
 

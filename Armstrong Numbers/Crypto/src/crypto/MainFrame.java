@@ -54,16 +54,16 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Username");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(70, 50, 108, 29);
+        jLabel1.setBounds(70, 50, 121, 29);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Password");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(70, 114, 101, 29);
+        jLabel2.setBounds(70, 114, 111, 29);
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jPanel1.add(jTextField1);
-        jTextField1.setBounds(236, 47, 225, 35);
+        jTextField1.setBounds(236, 47, 225, 33);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton1.setText("LOGIN");
@@ -73,7 +73,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(50, 220, 100, 31);
+        jButton1.setBounds(50, 220, 100, 32);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2.setText("SIGNUP");
@@ -83,7 +83,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(170, 220, 100, 31);
+        jButton2.setBounds(170, 220, 100, 32);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton3.setText("CLEAR");
@@ -93,7 +93,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(290, 220, 100, 31);
+        jButton3.setBounds(290, 220, 100, 32);
 
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton4.setText("EXIT");
@@ -103,20 +103,18 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton4);
-        jButton4.setBounds(410, 220, 100, 31);
+        jButton4.setBounds(410, 220, 100, 32);
 
         jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jPanel1.add(jPasswordField1);
-        jPasswordField1.setBounds(236, 111, 225, 35);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\anon2.jpg")); // NOI18N
+        jPasswordField1.setBounds(236, 111, 225, 33);
         jPanel1.add(jLabel5);
         jLabel5.setBounds(0, 0, 530, 310);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(700, 373, 532, 307);
+        jPanel1.setBounds(700, 373, 0, 0);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\anonymous1.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/Armstrong Numbers/anonymous.jpg")); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 0, 1920, 1080);
 

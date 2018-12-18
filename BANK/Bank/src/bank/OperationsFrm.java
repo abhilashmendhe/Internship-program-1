@@ -45,7 +45,7 @@ public class OperationsFrm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\western_bank-wallpaper-1920x1080.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/BANK/western_bank-wallpaper-1920x1080.jpg")); // NOI18N
 
         jMenu1.setText("Edit Profile");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N

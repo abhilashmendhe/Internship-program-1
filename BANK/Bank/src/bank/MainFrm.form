@@ -177,7 +177,7 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\abhil\Desktop\western_bank-wallpaper-1920x1080.jpg"/>
+          <Image iconType="2" name="/home/abhilash/Internship-program-1/BANK/western_bank-wallpaper-1920x1080.jpg"/>
         </Property>
       </Properties>
       <Constraints>

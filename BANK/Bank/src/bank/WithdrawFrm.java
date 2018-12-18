@@ -155,7 +155,7 @@ public class WithdrawFrm extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(600, 270, 680, 370);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\western_bank-wallpaper-1920x1080.jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/BANK/western_bank-wallpaper-1920x1080.jpg")); // NOI18N
         getContentPane().add(jLabel4);
         jLabel4.setBounds(1, -4, 1940, 1050);
 

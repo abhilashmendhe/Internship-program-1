@@ -117,7 +117,7 @@ public class DepositFrm extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 162, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jButton2)
                                 .addGap(122, 122, 122))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -160,7 +160,7 @@ public class DepositFrm extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(600, 270, 680, 370);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\western_bank-wallpaper-1920x1080.jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/BANK/western_bank-wallpaper-1920x1080.jpg")); // NOI18N
         getContentPane().add(jLabel4);
         jLabel4.setBounds(1, -4, 1940, 1070);
 

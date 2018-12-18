@@ -530,7 +530,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="13" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -790,7 +790,7 @@
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\abhil\Desktop\anonymous1.jpg"/>
+          <Image iconType="2" name="/home/abhilash/Internship-program-1/Armstrong Numbers/anonymous.jpg"/>
         </Property>
       </Properties>
       <Constraints>

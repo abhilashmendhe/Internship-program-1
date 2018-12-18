@@ -223,9 +223,9 @@ public class SignUpFrm extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(620, 150, 633, 703);
+        jPanel1.setBounds(620, 150, 684, 675);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\western_bank-wallpaper-1920x1080.jpg")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/BANK/western_bank-wallpaper-1920x1080.jpg")); // NOI18N
         getContentPane().add(jLabel8);
         jLabel8.setBounds(0, 0, 1920, 1080);
 

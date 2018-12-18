@@ -225,7 +225,7 @@ public class SignUpUpdateFrame extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(680, 270, 600, 550);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\anonymous1.jpg")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/Armstrong Numbers/anonymous.jpg")); // NOI18N
         getContentPane().add(jLabel5);
         jLabel5.setBounds(1, -4, 1920, 1060);
 

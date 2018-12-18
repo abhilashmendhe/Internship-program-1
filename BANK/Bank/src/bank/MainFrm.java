@@ -139,7 +139,7 @@ public class MainFrm extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(600, 270, 590, 370);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\western_bank-wallpaper-1920x1080.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/BANK/western_bank-wallpaper-1920x1080.jpg")); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 0, 1920, 1080);
 

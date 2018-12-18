@@ -209,7 +209,7 @@ public class ViewAccFrm extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(620, 150, 640, 700);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\abhil\\Desktop\\western_bank-wallpaper-1920x1080.jpg")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("/home/abhilash/Internship-program-1/BANK/western_bank-wallpaper-1920x1080.jpg")); // NOI18N
         getContentPane().add(jLabel5);
         jLabel5.setBounds(10, -10, 1940, 1070);
 
