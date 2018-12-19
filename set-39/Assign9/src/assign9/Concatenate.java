@@ -10,13 +10,35 @@ package assign9;
  * @author abhilash
  */
 public class Concatenate extends Thread{
-    public static String con;
+    
     public void run()
     {
+        //System.out.println(con);
+       
         while(true)
         {
-            con += Frame.getst;
-            System.out.println(con);
+            
+            {   
+                try {
+                    if(!Frame.jTextField1.getText().isEmpty())
+                    {
+                    Thread.sleep(3000);
+                    String a = Frame.jTextField1.getText();
+                    String b = Frame.jTextArea1.getText();
+                    String con = b+a+"\n";
+                    Frame.jTextArea1.setText(con);
+                    Frame.jTextField1.setText(null);
+                    }
+                    
+            } catch (Exception e) {
+                
+                    System.out.println("Error in class Concatenate.java");
+            }
+                
+                    
+                 
+            }
+       
         }
         
         

@@ -3,30 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assign6;
+package assign10;
 
 /**
  *
  * @author abhilash
  */
-public class Assign6 {
+public class Assign10 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        One o = new One();
-        Two t = new Two();
-        Three tt = new Three();
-        
-        o.setPriority(2);
-        t.setPriority(1);
-        tt.setPriority(3);
-        o.start();
-        t.start();
-        tt.start();
-        
+        Frame f = new Frame();
+        f.setVisible(true);
+        f.setLocation(700, 300);
     }
     
 }
