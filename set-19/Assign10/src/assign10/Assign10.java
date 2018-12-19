@@ -14,20 +14,28 @@ public class Assign10 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        int n = 5;
-    }
-    public static int getFib(int n)
+   
+    public static void main(String args[])
     {
-        int n1 = 0, n2 = 1;
-        if(n==0)
+        int num = 5;
+        int ii = getF(num);
+        System.out.println(ii);
+    }
+    
+    public static int getF(int num)
+    {
+        int fib = 0;
+        if(num==1)
             return 0;
+        else if(num==2)
+            return 1;
+        
         else
         {
-            return n1 + getFib(n-1);
+            return (getF(num-1)+getF(num-2));
+            
         }
-        
+  
     }
     
 }
