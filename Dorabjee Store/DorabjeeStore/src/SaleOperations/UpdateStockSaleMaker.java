@@ -24,7 +24,8 @@ public class UpdateStockSaleMaker {
             // Driver
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             // Connection
-            Connection conn =  DriverManager.getConnection("jdbc:mysql://localhost:3306/rashandb", "root", "root");
+            Connection conn =  DriverManager.getConnection("jdbc:mysql://localhost:3306/rashandb", "myadm", "Myadm@123");
+            //Connection conn =  DriverManager.getConnection("jdbc:mysql://localhost:3306/rashandb", "root", "root");
             // Statement
             Statement st = conn.createStatement();
             String query = "update stockinfo set stock='"+actualstock+"' where itemc='"+itemcode+"'";
