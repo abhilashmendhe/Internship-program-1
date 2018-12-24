@@ -23,7 +23,8 @@ public class SignUpMaker {
             // Driver
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             // Connection
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/armstrongdb", "root", "root");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/armstrongdb", "myadm", "Myadm@123");
+            //Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/armstrongdb", "root", "root");
             // Statement
             Statement st = conn.createStatement();
             
