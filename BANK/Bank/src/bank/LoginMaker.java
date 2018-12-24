@@ -23,7 +23,8 @@ public class LoginMaker {
             
             // Connection
             String url = "jdbc:mysql://localhost:3306/bankdb";
-            Connection conn = DriverManager.getConnection(url, "root", "Asimov@1234");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankdb", "myadm", "Myadm@123");
+            //Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankdb", "root", "root");
             
             // Statement
             Statement st = conn.createStatement();

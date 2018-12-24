@@ -24,7 +24,8 @@ public class UpdateProfileMaker {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             
             // Connection
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankdb","root","Asimov@1234");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankdb", "myadm", "Myadm@123");
+            //Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankdb", "root", "root");
             
             // Statement
             
