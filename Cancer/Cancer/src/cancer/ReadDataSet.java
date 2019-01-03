@@ -26,12 +26,12 @@ public class ReadDataSet {
             int column = s.getColumns();
             
             
-            for(int i=0; i<column; i++)
+            for(int i=1; i<row; i++)
             {
                 ArrayList temp = new ArrayList();
-                for(int j=1; j<row; j++)
+                for(int j=0; j<column; j++)
                 {
-                    Cell c = s.getCell(i, j);
+                    Cell c = s.getCell(j, i);
                     temp.add(c.getContents());
 //                    System.out.println(c.getContents());
                 }

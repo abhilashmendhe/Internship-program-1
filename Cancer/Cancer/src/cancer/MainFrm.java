@@ -5,9 +5,13 @@
  */
 package cancer;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.TreeSet;
+import javax.swing.JOptionPane;
+import jdk.nashorn.internal.objects.NativeRegExp;
 
 /**
  *
@@ -264,31 +268,113 @@ public class MainFrm extends javax.swing.JFrame {
         data.add(irradiat);
         data.add(clas);
         ArrayList all = new ReadDataSet().readData();
+        
+//        for(int i=0; i<all.size(); i++)
+//        {
+//            System.out.println(all.get(i));
+//            System.out.println("-------------------------------------------------------------------------------");
+//        }
+//        System.out.println();
+          double total = all.size();
+            
         for(int i=0; i<data.size(); i++)
         {
-            ArrayList temp = (ArrayList) all.get(i);
-            double total = temp.size();
             double FPcount = 0;
-            for(int j=0; j<temp.size(); j++)
+            for(int j=0; j<all.size(); j++)
             {
-                if(data.get(i).equals(temp.get(j)))
+                
+                ArrayList temp = (ArrayList) all.get(j);
+                if(data.get(i).equals(temp.get(i)))
                     FPcount++;
             }
             double FNcount = total - FPcount;
-            //System.out.println(FPcount+" "+FNcount);
             double si = - (FPcount/total)*Math.log10(FPcount/total) - (FNcount/total)*Math.log10(FNcount/total);
-            shannonarr.add(si);
+            ArrayList t=new ArrayList();
+            t.add(i);
+            t.add(si);
+            shannonarr.add(t);
+                
         }
-        TreeSet sortshannon = new TreeSet();
-        sortshannon.addAll(shannonarr);
-        shannonarr.clear();
-        shannonarr.addAll(sortshannon);
+
+//        for(int i=0; i<shannonarr.size(); i++)
+//        {
+//            System.out.println(shannonarr.get(i));
+//        }
+        ArrayList sorted = new ArrayList();
+        sorted.addAll(shannonarr);
+        for(int i=0; i<sorted.size(); i++)
+        {
+            for(int j=0; j<sorted.size()-1; j++)
+            {
+                ArrayList temp1 = new ArrayList();
+                temp1 = (ArrayList)sorted.get(j);
+                double n1 = (double) temp1.get(1);
+                
+                ArrayList temp2 = new ArrayList();
+                temp2 = (ArrayList)sorted.get(j+1);
+                double n2 = (double) temp2.get(1);
+                
+                if(n1<n2)
+                {
+                    sorted.set(j, temp2);
+                    sorted.set(j+1, temp1);
+                }
+            }
+        }
+//        System.out.println("Sorted list now");
+        ArrayList top3 = new ArrayList();
         
-        double t1 = (double) shannonarr.get(shannonarr.size()-1);
-        double t2 = (double) shannonarr.get(shannonarr.size()-2);
-        double t3 = (double) shannonarr.get(shannonarr.size()-3);
+        for(int i=0; i<3; i++)
+        {
+            top3.add(i, sorted.get(i));
+        }
         
-        System.out.println(t1+" "+t2+" "+t3);
+//        System.out.println(top3);
+
+        int c2 = 0;
+        for(int i=0; i<top3.size(); i++)
+        {
+            ArrayList t = (ArrayList) top3.get(i);
+            double val = (double) t.get(1);
+            if(val>=0.5)
+                c2++;
+        }
+  //      System.out.println(c2);
+    
+        if(c2>=2)
+            JOptionPane.showMessageDialog(null, "Probabily of having breast cancer!!!!");
+        else
+            JOptionPane.showMessageDialog(null, "Your are safe");
+//        TreeSet sortshannon = new TreeSet();
+//        sortshannon.addAll(shannonarr);
+//        ArrayList sorted = new ArrayList();
+//        sorted.addAll(sortshannon);
+//        System.out.println(shannonarr);
+        //int i1 = sorted.indexOf(shannonarr);
+        
+//        double t1 = (double) sorted.get(sorted.size()-1);
+//        double t2 = (double) sorted.get(sorted.size()-2);
+//        double t3 = (double) sorted.get(sorted.size()-3);
+//        ArrayList top3 = new ArrayList(); 
+//        top3.add(t1);
+//        top3.add(t2);
+//        top3.add(t3);
+//        ArrayList getindex = new ArrayList();
+//        for(int i=0; i<top3.size(); i++)
+//        {
+//            double t = (double) top3.get(i);
+//            for(int j=0; j<shannonarr.size(); j++)
+//            {
+//                if(t==(double)shannonarr.get(j))
+//                    getindex.add(j);
+//            }
+//        }
+//        System.out.println(getindex.get(0)+": "+t1);
+//        
+//        System.out.println(getindex.get(1)+": "+t2);
+//        
+//        System.out.println(getindex.get(2)+": "+t3);
+        //System.out.println(t1+" "+t2+" "+t3);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
