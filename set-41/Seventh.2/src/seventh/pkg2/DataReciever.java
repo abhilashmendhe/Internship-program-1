@@ -7,6 +7,8 @@ package seventh.pkg2;
 
 import java.io.DataInputStream;
 import java.io.InputStream;
+import java.net.Inet4Address;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -19,7 +21,7 @@ public class DataReciever extends Thread {
     public void run()
     {
         try {
-            ServerSocket ss = new ServerSocket(1221);
+            ServerSocket ss = new ServerSocket(1254);
             while(true)
             {
                 Socket s = ss.accept();
@@ -29,9 +31,11 @@ public class DataReciever extends Thread {
                 if(data.contains("#"))
                 {
                     String ip_msg[] = data.split("#");
-                    System.out.println(ip_msg[0]+"#"+ip_msg[1]);
-                    new AckSender().AckDataSend("Data sucessfully sent "+ip_msg[0], "127.0.0.1");
-                    System.out.println("Data successuflly recieved");
+                    String ip[] = InetAddress.getLocalHost().toString().split("/");
+                    
+                    System.out.println(ip[1]+"#"+ip_msg[1]);
+                    new AckSender().AckDataSend("Thanks suchit", ip_msg[0]);
+                    
                 }
             }
         } catch (Exception e) {

@@ -3,32 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package seventh.pkg1;
+package ninth_2;
 
 import java.io.DataOutputStream;
 import java.io.OutputStream;
-import java.net.Inet4Address;
 import java.net.Socket;
-import java.util.Scanner;
 
 /**
  *
  * @author abhilash
  */
-public class DataSender {
-    public void SendData(String msg, String ip)
+public class SendAck {
+    
+    public void AckDataSend(String msg, String ip)
     {
         try {
-            
-            Socket s = new Socket(ip, 1254);
+            Socket s = new Socket(ip, 3000);
             OutputStream os = s.getOutputStream();
             DataOutputStream dos = new DataOutputStream(os);
             dos.writeUTF(msg);
-            AckReciever a = new AckReciever();
-            a.run();
-            
         } catch (Exception e) {
-            System.out.println("Error in class DataSender: "+e);
+            System.out.println("Error in class SendAck: "+e);
         }
     }
 }

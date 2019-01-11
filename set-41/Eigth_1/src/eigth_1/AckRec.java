@@ -3,19 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package seventh.pkg1;
+package eigth_1;
 
 import java.io.DataInputStream;
 import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
 
 /**
  *
  * @author abhilash
  */
-public class AckReciever {
+public class AckRec extends Thread{
     public void run()
     {
         try {
@@ -26,15 +25,11 @@ public class AckReciever {
                 InputStream is = s.getInputStream();
                 DataInputStream dis = new DataInputStream(is);
                 String data = dis.readUTF();
+                Eigth_1.str = data;
                 System.out.println(data);
-                
-//                Scanner sc = new Scanner(System.in);
-//        String msgg = sc.nextLine();
-//        new DataSender().SendData("192.168.1.65"+"#"+msgg, "192.168.1.32");
             }
         } catch (Exception e) {
-            System.out.println("Error in class AckReciever "+e);
+            System.out.println("Error in class Recieved "+e);
         }
-            
-        }
+    }
 }

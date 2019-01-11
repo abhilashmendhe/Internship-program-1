@@ -7,6 +7,7 @@ package seventh.pkg1;
 
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
+import java.util.Scanner;
 
 /**
  *
@@ -22,10 +23,12 @@ public class Seventh1 {
         
         DataSender d = new DataSender();
         String ip_name[] = Inet4Address.getLocalHost().toString().split("/");
-        //String ipp = ip_name[1];
-        String ipp = "192.168.1.40";
-        String msgg = ipp+"#"+"Ayla jaduu!!!?";
-        d.SendData(msgg, ipp);
+        String ipp = ip_name[1];
+        
+        //String msgg = ipp+"#"+"Hii abhilash here";
+        Scanner sc = new Scanner(System.in);
+        String msgg = sc.nextLine();
+        d.SendData(ipp+"#"+msgg, "192.168.1.32");
     }
     
 }
