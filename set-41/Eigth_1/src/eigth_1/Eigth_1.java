@@ -17,8 +17,9 @@ public class Eigth_1 {
     public static void main(String[] args) {
         // TODO code application logic here
         long st = System.currentTimeMillis();
-        new Sender().sendData("hey", "127.0.0.1");
-        
+        String msg = "hey";
+        new Sender().sendData(msg, "127.0.0.1");
+         byte[] len = msg.getBytes();
         
         while(true)
         {
@@ -30,6 +31,7 @@ public class Eigth_1 {
         long end = System.currentTimeMillis();
         long t = end-st;
         
+        System.out.println("Size of msg: ");
         System.out.println("Delay: "+t+" ms");
         
     }

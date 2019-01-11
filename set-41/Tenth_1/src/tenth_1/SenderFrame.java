@@ -5,6 +5,8 @@
  */
 package tenth_1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author abhilash
@@ -17,8 +19,11 @@ public class SenderFrame extends javax.swing.JFrame {
     public SenderFrame() {
         super("LAN Messanger 1");
         initComponents();
-        AckReciever a = new AckReciever();
-        a.start();
+        
+            AckReciever a = new AckReciever();
+            a.start();
+        
+        
     }
 
     /**
@@ -106,6 +111,11 @@ public class SenderFrame extends javax.swing.JFrame {
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jTextArea2.setRows(5);
+        jTextArea2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextArea2KeyTyped(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTextArea2);
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -181,14 +191,26 @@ public class SenderFrame extends javax.swing.JFrame {
         String msg = jTextArea2.getText();
         
         //allmsg = allmsg + name + ": " + msg + "\n";
-        
+        if(ip.isEmpty())
+            JOptionPane.showMessageDialog(null, "Please enter IP to chat");
+        else if(name.isEmpty())
+            JOptionPane.showMessageDialog(null, "Enter your name");
+        else
+        {
         jTextArea1.setText(jTextArea1.getText()+name+": "+msg.trim()+"\n");
         
         new DataSender().sendData(name+": "+msg, ip);
         
         
         jTextArea2.setText(null);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextArea2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea2KeyTyped
+        String ip = jTextField1.getText();
+        new TypeAckSend1().typesend("typing...", ip);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextArea2KeyTyped
 
     /**
      * @param args the command line arguments

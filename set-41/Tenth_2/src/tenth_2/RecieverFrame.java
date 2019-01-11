@@ -5,6 +5,8 @@
  */
 package tenth_2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author abhilash
@@ -17,8 +19,12 @@ public class RecieverFrame extends javax.swing.JFrame {
     public RecieverFrame() {
         super("LAN Messanger 2");
         initComponents();
-        DataReciever d = new DataReciever();
-        d.start();
+       
+            DataReciever d = new DataReciever();
+            d.start();
+            
+            TypeAckRecieve2 ta = new TypeAckRecieve2();
+            ta.start();
         
     }
 
@@ -55,11 +61,21 @@ public class RecieverFrame extends javax.swing.JFrame {
         jLabel1.setText("IP");
 
         jTextField1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel2.setText("Name");
 
         jTextField2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -107,6 +123,11 @@ public class RecieverFrame extends javax.swing.JFrame {
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jTextArea2.setRows(5);
+        jTextArea2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextArea2KeyTyped(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTextArea2);
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -180,12 +201,33 @@ public class RecieverFrame extends javax.swing.JFrame {
         String name = jTextField2.getText();
         String msg = jTextArea2.getText();
         
+        if(ip.isEmpty())
+            JOptionPane.showMessageDialog(null, "Please enter IP to chat");
+        else if(name.isEmpty())
+            JOptionPane.showMessageDialog(null, "Enter your name");
+        else
+        {
         jTextArea1.setText(jTextArea1.getText()+name+": "+msg.trim()+"\n");
         new AckSender().AckDataSend(name+": "+msg, ip);
         
         jTextArea2.setText(null);
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+        System.out.println("hiii");
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextArea2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea2KeyTyped
+        // TODO add your handling code here:
+        //jTextArea1.setText("typing....");
+    }//GEN-LAST:event_jTextArea2KeyTyped
 
     /**
      * @param args the command line arguments
@@ -234,7 +276,7 @@ public class RecieverFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
+    public static javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
