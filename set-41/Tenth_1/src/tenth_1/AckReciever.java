@@ -27,7 +27,7 @@ public class AckReciever extends Thread{
                 DataInputStream dis = new DataInputStream(is);
                 String data = dis.readUTF().trim();
                 String get = SenderFrame.jTextArea1.getText();
-                SenderFrame.jTextArea1.setText(get+data+"\n");
+                SenderFrame.jTextArea1.setText(get.replace("typing...", "")+data+"\n");
             }
         } catch (Exception e) {
             System.out.println("Error in class AckReciever "+e);

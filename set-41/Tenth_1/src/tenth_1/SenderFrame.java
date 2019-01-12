@@ -22,7 +22,9 @@ public class SenderFrame extends javax.swing.JFrame {
         
             AckReciever a = new AckReciever();
             a.start();
-        
+            
+            TypeAckRecieve1 t = new TypeAckRecieve1();
+            t.start();
         
     }
 
@@ -208,7 +210,10 @@ public class SenderFrame extends javax.swing.JFrame {
 
     private void jTextArea2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea2KeyTyped
         String ip = jTextField1.getText();
-        new TypeAckSend1().typesend("typing...", ip);
+        if(jTextArea2.getText().length()>0)
+            new TypeAckSend1().typesend(jTextArea1.getText().trim()+"\n"+"typing...", ip);
+        else
+            new TypeAckSend1().typesend(jTextArea1.getText().trim()+"\n"+"", ip);
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextArea2KeyTyped
 

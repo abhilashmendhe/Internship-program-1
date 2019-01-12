@@ -22,7 +22,7 @@ public class SendFile {
             OutputStream os = s.getOutputStream();
             DataOutputStream dos = new DataOutputStream(os);
             dos.writeUTF(msg);
-            RecieveAck r = new RecieveAck();
+            Reciever r = new Reciever();
             r.start();
         } catch (Exception e) {
             System.out.println("Error in class SendFile: "+e);

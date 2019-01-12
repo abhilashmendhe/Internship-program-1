@@ -4,8 +4,11 @@
  * and open the template in the editor.
  */
 package lanserverfileserverclient;
+import DBoperations.FileinfoInsertMaker;
 import FileOps.ReadFile;
 import SocketOPS.SendFile;
+import date_time.CurrentDate;
+import date_time.CurrentTime;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.File;
@@ -21,6 +24,7 @@ import javax.swing.JOptionPane;
  */
 public class UploadDataFrame extends javax.swing.JFrame {
 
+    public static String rec="";
     /**
      * Creates new form UploadDataFrame
      */
@@ -55,6 +59,7 @@ public class UploadDataFrame extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
 
@@ -198,6 +203,15 @@ public class UploadDataFrame extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem5);
 
+        jMenuItem7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jMenuItem7.setText("Search File");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem7);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Logout");
@@ -322,12 +336,32 @@ public class UploadDataFrame extends javax.swing.JFrame {
                 String ip_name[] = Inet4Address.getLocalHost().toString().split("/"); 
                 String msg = "store" +"#"+ ip_name[1] +"#"+ f.getName() +"#"+ cont;
                 new SendFile().transferFile(msg, ip);
-                       
+                while(true)
+                {
+                    if(rec.length()>0)
+                        break;
+                    System.out.print(rec);
+                    
+                    
+                }
+                String date = new CurrentDate().getDate();
+                String time = new CurrentTime().getTime();
+                JOptionPane.showMessageDialog(null, rec);
+                if(new FileinfoInsertMaker().insertintoFileinfo(LoginFrame.jTextField1.getText(), date+" "+time, f.getName()))
+                    JOptionPane.showMessageDialog(null, "Inserted sucesfully in fileinfo");
         }catch (UnknownHostException ex) {
                 System.out.println("Error in getting address: "+ex);
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        SearchFrame s = new SearchFrame();
+        s.setVisible(true);
+        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+        s.setSize(d);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -381,6 +415,7 @@ public class UploadDataFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

@@ -18,6 +18,7 @@ public class FileServerFrame extends javax.swing.JFrame {
      * Creates new form FileServerFrame
      */
     public FileServerFrame() {
+        super("File Server");
         initComponents();
     }
 

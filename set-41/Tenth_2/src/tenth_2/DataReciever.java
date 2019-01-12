@@ -29,7 +29,8 @@ public class DataReciever extends Thread {
                 DataInputStream dis = new DataInputStream(is);
                 String data = dis.readUTF().trim();
                 String get = RecieverFrame.jTextArea1.getText();
-                RecieverFrame.jTextArea1.setText(get+data+"\n");
+                
+                RecieverFrame.jTextArea1.setText(get.replace("typing...", "")+data+"\n");
                 
                 //new AckSender().AckDataSend(msg1, "192.168.1.30");
 

@@ -10,12 +10,13 @@ import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import javax.swing.JOptionPane;
+import lanserverfileserverclient.UploadDataFrame;
 
 /**
  *
  * @author abhilash
  */
-public class RecieveAck extends Thread{
+public class Reciever extends Thread{
     public void run()
     {
         
@@ -30,7 +31,7 @@ public class RecieveAck extends Thread{
                 if(data.contains("received"))
                 {
                     String sss[] = data.split("#");
-                    JOptionPane.showMessageDialog(null, sss[1]);
+                   UploadDataFrame.rec=sss[1];
             
                 }
                 

@@ -4,43 +4,20 @@
  * and open the template in the editor.
  */
 package lanserverfileserverclient;
-import DBoperations.FetchFileInfo;
-import java.awt.Dimension;
+
 import java.awt.Toolkit;
-import java.util.ArrayList;
-import javax.swing.plaf.basic.DefaultMenuLayout;
-import javax.swing.table.DefaultTableModel;
+import java.awt.Dimension;
 /**
  *
  * @author abhilash
  */
-public class ViewUploadHistoryFrame extends javax.swing.JFrame {
+public class SearchFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form ViewUploadHistoryFrame
+     * Creates new form SearchFrame
      */
-    public ViewUploadHistoryFrame() {
-        super("Upload History");
+    public SearchFrame() {
         initComponents();
-        ArrayList all = new FetchFileInfo().fetchFilein();
-        System.out.println(all);
-        int row = all.size();
-        ArrayList c = (ArrayList)all.get(0);
-        int col = c.size();
-        
-        String filemat[][] = new String[row][col];
-        
-        for(int i=0; i<filemat.length; i++)
-        {
-            ArrayList temp = (ArrayList) all.get(i);
-            
-            for(int j=0; j<filemat[0].length; j++)
-                filemat[i][j] = (String) temp.get(j);
-        }
-        String column[] = {"UID","Date - Time","File Name"};
-        jTable1.setRowHeight(30);
-        
-        jTable1.setModel(new DefaultTableModel(filemat,column));
     }
 
     /**
@@ -52,8 +29,6 @@ public class ViewUploadHistoryFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -68,19 +43,6 @@ public class ViewUploadHistoryFrame extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
 
         jMenu1.setText("Manage Profile");
         jMenu1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -171,17 +133,11 @@ public class ViewUploadHistoryFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(741, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(726, 726, 726))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(623, Short.MAX_VALUE))
+            .addGap(0, 277, Short.MAX_VALUE)
         );
 
         pack();
@@ -232,6 +188,14 @@ public class ViewUploadHistoryFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        SearchFrame s = new SearchFrame();
+        s.setVisible(true);
+        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+        s.setSize(d);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         this.dispose();
         LoginFrame l = new LoginFrame();
@@ -240,14 +204,6 @@ public class ViewUploadHistoryFrame extends javax.swing.JFrame {
         l.setSize(d);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem6ActionPerformed
-
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        SearchFrame s = new SearchFrame();
-        s.setVisible(true);
-        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        s.setSize(d);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,20 +222,20 @@ public class ViewUploadHistoryFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewUploadHistoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SearchFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewUploadHistoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SearchFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewUploadHistoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SearchFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewUploadHistoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SearchFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewUploadHistoryFrame().setVisible(true);
+                new SearchFrame().setVisible(true);
             }
         });
     }
@@ -297,7 +253,5 @@ public class ViewUploadHistoryFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

@@ -25,6 +25,10 @@ public class TypeAckRecieve1 extends Thread{
                 InputStream is = s.getInputStream();
                 DataInputStream dis = new DataInputStream(is);
                 String data = dis.readUTF().trim();
+                if(data.isEmpty())
+                    SenderFrame.jTextArea1.setText("");
+                else
+                    SenderFrame.jTextArea1.setText(data);
 //                String get = SenderFrame.jTextArea1.getText();
 //                SenderFrame.jTextArea1.setText(get+data+"\n");
             }

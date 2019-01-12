@@ -225,8 +225,11 @@ public class RecieverFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextArea2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea2KeyTyped
-        // TODO add your handling code here:
-        //jTextArea1.setText("typing....");
+        String ip = jTextField1.getText();
+        if(jTextArea2.getText().length()>0)
+            new TypeAckSend2().typesend(jTextArea1.getText().trim()+"\n"+"typing...", ip);
+        else
+            new TypeAckSend2().typesend(jTextArea1.getText().trim()+"\n"+"", ip);
     }//GEN-LAST:event_jTextArea2KeyTyped
 
     /**
