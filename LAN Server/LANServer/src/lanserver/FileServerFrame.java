@@ -17,6 +17,7 @@ public class FileServerFrame extends javax.swing.JFrame {
     /**
      * Creates new form FileServerFrame
      */
+    public static RecieveFile r;
     public FileServerFrame() {
         super("File Server");
         initComponents();
@@ -85,9 +86,10 @@ public class FileServerFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-        RecieveFile r = new RecieveFile();
+        r = new RecieveFile();
+        //r.stop();
         r.start();
-       
+        
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 

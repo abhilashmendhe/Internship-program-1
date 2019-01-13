@@ -28,7 +28,7 @@ public class TypeAckRecieve1 extends Thread{
                 if(data.isEmpty())
                     SenderFrame.jTextArea1.setText("");
                 else
-                    SenderFrame.jTextArea1.setText(data);
+                    SenderFrame.jTextArea1.setText(data.trim());
 //                String get = SenderFrame.jTextArea1.getText();
 //                SenderFrame.jTextArea1.setText(get+data+"\n");
             }
