@@ -27,8 +27,12 @@ public class Seventh1 {
         
         //String msgg = ipp+"#"+"Hii abhilash here";
         Scanner sc = new Scanner(System.in);
-        String msgg = sc.nextLine();
-        d.SendData(ipp+"#"+msgg, "192.168.1.32");
+        
+        while(true)
+        {
+            String msgg = sc.nextLine();
+            d.SendData(ipp+"#"+msgg, "192.168.1.65");
+        }
     }
     
 }

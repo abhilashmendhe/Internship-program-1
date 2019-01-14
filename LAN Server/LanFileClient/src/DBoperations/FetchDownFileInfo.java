@@ -40,7 +40,7 @@ public class FetchDownFileInfo {
             ArrayList data = new ArrayList();
             data.add(rs.getString("uid"));
             data.add(rs.getString("date_time"));
-            data.add("keyword");
+            data.add(rs.getString("keyword"));
             data.add(rs.getString("filename"));
             
             all.add(data);

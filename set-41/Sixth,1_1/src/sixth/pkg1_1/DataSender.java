@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package seventh.pkg2;
+package sixth.pkg1_1;
 
 import java.io.DataOutputStream;
 import java.io.OutputStream;
@@ -13,17 +13,16 @@ import java.net.Socket;
  *
  * @author abhilash
  */
-public class AckSender {
-    public void AckDataSend(String msg, String ip)
+public class DataSender {
+    public void SendData(String msg, String ip)
     {
         try {
-            Socket s = new Socket(ip, 3000);
+            Socket s = new Socket(ip, 1254);
             OutputStream os = s.getOutputStream();
             DataOutputStream dos = new DataOutputStream(os);
             dos.writeUTF(msg);
-            s.close();
         } catch (Exception e) {
-            System.out.println("Error in class AckSender: "+e);
+            System.out.println("Error in class DataSender: "+e);
         }
     }
 }

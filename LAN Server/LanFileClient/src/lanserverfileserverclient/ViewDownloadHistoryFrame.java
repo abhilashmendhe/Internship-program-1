@@ -23,7 +23,7 @@ public class ViewDownloadHistoryFrame extends javax.swing.JFrame {
         initComponents();
         
         ArrayList all = new FetchDownFileInfo().fetchFilein();
-        
+        //System.out.println(all);
         int row = all.size();
         ArrayList c = (ArrayList)all.get(0);
         int col = c.size();

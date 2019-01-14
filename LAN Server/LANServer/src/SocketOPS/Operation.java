@@ -66,22 +66,23 @@ public class Operation
         }
         if(data.contains("download"))
             {
+                
                 //System.out.println(data);
                 String filess[] = data.split("#");
                 //System.out.println(filess[2]);
                 String filename[] = filess[2].split(",");
                 //System.out.println(filename.length);
-                       
+                // System.out.println(data);
                 String filecontent = "";
                 for(int i=0; i<filename.length; i++)
                 {
-                    //System.out.println(" "+filename[i]);
+                    System.out.println(" "+filename[i]);
                             
                     String ss = new ReadFile().getContent("/home/abhilash/rec_file/"+filename[i].trim());
                     String files_content = filename[i] +"@"+ ss.trim();
                     filecontent += files_content+"/";
                 }
-                
+                System.out.println(filecontent);
                 new SendAck().AckDataSend("downloadfiles#"+filecontent, filess[1]);
             }
          

@@ -33,6 +33,7 @@ public class Reciever extends Thread{
                 {
                     String sss[] = data.split("#");
                    UploadDataFrame.rec=sss[1];
+                  
             
                 }
                 if(data.contains("result"))
@@ -40,7 +41,7 @@ public class Reciever extends Thread{
                     String files[] = data.split("#");
                     //System.out.println(files[1]);
                     DownloadDataFrame.recfilename = files[1];
-                    
+                   
                 }
                 if(data.contains("downloadfiles"))
                 {

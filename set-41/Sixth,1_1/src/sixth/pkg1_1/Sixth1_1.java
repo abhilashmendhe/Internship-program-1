@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sixth.pkg1;
+package sixth.pkg1_1;
 
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author abhilash
  */
-public class Sixth1 {
+public class Sixth1_1 {
 
     /**
      * @param args the command line arguments

@@ -445,60 +445,69 @@ public class DownloadDataFrame extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
     
-        ListModel<String> filess = jList2.getModel();
-        //System.out.println(filess);
-        String allfiles = "";
-        //System.out.println(jList2.getModel().getSize());
-        for(int i=0; i<jList2.getModel().getSize(); i++)
-        {
-            allfiles += filess.getElementAt(i)+",";
-            
-            allfiles = allfiles.substring(0, allfiles.length());
-            //System.out.println(allfiles);
+        try {
+            ListModel<String> filess = jList2.getModel();
+            //System.out.println(filess);
+            String ip_name []= InetAddress.getLocalHost().toString().split("/");
+            String ip = ip_name[1];
+            String allfiles = "";
+            //System.out.println(jList2.getModel().getSize());
+            for(int i=0; i<jList2.getModel().getSize(); i++)
+            {
+                allfiles += filess.getElementAt(i)+",";
+                
+                allfiles = allfiles.substring(0, allfiles.length());
+                //System.out.println(allfiles);
 //System.out.println(filess.getElementAt(i));
-        }
-        //System.out.println(allfiles);
-        String msg = "download#"+jTextField2.getText()+"#"+allfiles;
-        
-        new SendFile().transferFile(msg, jTextField2.getText());
-        while(true)
-        {
-            if(receivecontent.length()>0)
-                break;
+            }
+            //System.out.println(allfiles);
+            String msg = "download#"+ip+"#"+allfiles;
+            System.out.println(msg);
+            new SendFile().transferFile(msg, jTextField2.getText());
+            while(true)
+            {
+                if(receivecontent.length()>0)
+                    break;
+                
+                System.out.println(receivecontent);
+                
+            }
+            //System.out.println(receivecontent);
+            String date = new date_time.CurrentDate().getDate();
+            String time = new date_time.CurrentTime().getTime();
+            String date_time = date+"_"+time;
             
+            
+            receivecontent = receivecontent.trim();
             System.out.println(receivecontent);
-                        
-        }
-        System.out.println(receivecontent);
-        String date = new date_time.CurrentDate().getDate();
-        String time = new date_time.CurrentTime().getTime();
-        String date_time = date+"_"+time;
-        String keyword = jTextField1.getText();
-        receivecontent = receivecontent.trim();
-        String f1[] = receivecontent.split("/");
-        for(int i=0; i<f1.length; i++)
-        {
-            //System.out.println(f1[i]);
-            String temp[] = f1[i].split("@");
-            
+            String f1[] = receivecontent.split("/");
+            for(int i=0; i<f1.length; i++)
+            {
+                //System.out.println(f1[i]);
+                String temp[] = f1[i].split("@");
+                
                 //System.out.println(temp[0]);
                 if(new WriteFile().writeFile("/home/abhilash/down_file/"+temp[0], temp[1]))
                 {
-                    if(new InsertDownFileinfo().insertinto(LoginFrame.jTextField1.getText(), date_time, keyword, temp[0]));
-                        JOptionPane.showMessageDialog(null, "File recieved");
+                    JOptionPane.showMessageDialog(null, "File downloaded");
+//                    if(new InsertDownFileinfo().insertinto(LoginFrame.jTextField1.getText(), date_time, jTextField1.getText(), temp[0]));
+//                        JOptionPane.showMessageDialog(null, "File recieved");
                 }
                 else
                     JOptionPane.showMessageDialog(null, "Error!!");
+                
+            }
             
-        }
-        
-        
-        
-        
-        
-        
+            
+            
+            
+            
+            
 //System.out.println(msg);
-        // TODO add your handling code here:
+// TODO add your handling code here:
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(DownloadDataFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

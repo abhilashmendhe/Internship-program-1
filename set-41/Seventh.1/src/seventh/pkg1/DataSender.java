@@ -24,6 +24,7 @@ public class DataSender {
             OutputStream os = s.getOutputStream();
             DataOutputStream dos = new DataOutputStream(os);
             dos.writeUTF(msg);
+            
             AckReciever a = new AckReciever();
             a.run();
             

@@ -28,15 +28,23 @@ public class DataReciever extends Thread {
                 InputStream is = s.getInputStream();
                 DataInputStream dis = new DataInputStream(is);
                 String data = dis.readUTF();
+                //System.out.println(data);
+                
                 if(data.contains("#"))
                 {
-                    String ip_msg[] = data.split("#");
-                    String ip[] = InetAddress.getLocalHost().toString().split("/");
-                    
-                    System.out.println(ip[1]+"#"+ip_msg[1]);
-                    new AckSender().AckDataSend("Thanks suchit", ip_msg[0]);
-                    
+                    System.out.println(data);
+                    new AckSender().AckDataSend("Thanks#", "192.168.1.65");
                 }
+//new AckSender().AckDataSend(data, "192.168.1.65");
+//                if(data.contains("#"))
+//                {
+//                    String ip_msg[] = data.split("#");
+//                    String ip[] = InetAddress.getLocalHost().toString().split("/");
+//                    
+//                    System.out.println(ip[1]+"#"+ip_msg[1]);
+//                    //new AckSender().AckDataSend("Thanks ", ip_msg[0]);
+//                    
+//                }
             }
         } catch (Exception e) {
             System.out.println("Error in class DataReciever "+e);

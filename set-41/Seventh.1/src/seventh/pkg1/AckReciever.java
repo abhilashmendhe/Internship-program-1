@@ -26,11 +26,12 @@ public class AckReciever {
                 InputStream is = s.getInputStream();
                 DataInputStream dis = new DataInputStream(is);
                 String data = dis.readUTF();
-                System.out.println(data);
-                
-//                Scanner sc = new Scanner(System.in);
-//        String msgg = sc.nextLine();
-//        new DataSender().SendData("192.168.1.65"+"#"+msgg, "192.168.1.32");
+                if(data.contains("#"))
+                {
+                    System.out.println(data);
+                    
+                }
+                //ss.close();
             }
         } catch (Exception e) {
             System.out.println("Error in class AckReciever "+e);
