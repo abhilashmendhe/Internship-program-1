@@ -65,7 +65,7 @@ public class LinkGenerator implements SpiderReporter {
    * Perform the background thread operation. This method
    * actually starts the background thread.
    */
-  public void getData(String url) throws MalformedURLException
+  public void getData(String url) throws MalformedURLException, InterruptedException, IOException
   {
     this.url=url;
       spider = new Spider(this);

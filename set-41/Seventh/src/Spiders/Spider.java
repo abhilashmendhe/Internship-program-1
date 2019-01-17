@@ -14,6 +14,7 @@ import javax.swing.text.MutableAttributeSet;
 import javax.swing.text.html.HTML;
 import javax.swing.text.html.HTMLEditorKit;
 import parsedContent.LinkProvider;
+import seventh.CleanData;
 import seventh.MineDataFrame;
 /**
  *
@@ -259,16 +260,20 @@ public class Spider {
 
              
 
-        System.out.println(" URL IS : "+entry.length() );
-        if(!entry.contains(".css"))
+        //System.out.println(" URL IS : "+entry);
+       
+        
+        if(!entry.contains(".css") && !entry.contains("php?") && !entry.contains(".xml") && !entry.contains(".ico"))
         {
-            String content = new LinkProvider().linking(entry);
-            if(new InsertIntoSearchTable().insert(entry, content))
-                System.out.println(content);
+            //System.out.println(entry);
+            String cleancontent = new CleanData().cleanData(entry);
+            System.out.println(entry);
+            if(new InsertIntoSearchTable().insert(entry,cleancontent))
+                System.out.println("Sucessfull!!");
             else
                 System.out.println("Error inserting!!");
         }
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
 
              
 

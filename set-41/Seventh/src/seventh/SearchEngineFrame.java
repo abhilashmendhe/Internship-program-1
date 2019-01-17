@@ -5,6 +5,11 @@
  */
 package seventh;
 
+import dbops.FetchSearchContent;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
+
 /**
  *
  * @author abhilash
@@ -15,7 +20,9 @@ public class SearchEngineFrame extends javax.swing.JFrame {
      * Creates new form SearchEngine
      */
     public SearchEngineFrame() {
+        super("Search Engine");
         initComponents();
+        jTextArea1.setVisible(false);
     }
 
     /**
@@ -46,14 +53,24 @@ public class SearchEngineFrame extends javax.swing.JFrame {
         jTextField1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
 
         jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Clear");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton3.setText("MINE");
+        jButton3.setText("Settings");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -127,9 +144,70 @@ public class SearchEngineFrame extends javax.swing.JFrame {
         this.dispose();
         MineDataFrame md = new MineDataFrame();
         md.setVisible(true);
-        md.setLocation(600, 400);
+        md.setLocation(600, 200);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        String keyword = jTextField1.getText();
+        jTextArea1.setText(null);
+        ArrayList actual = new ArrayList();
+        if(keyword.isEmpty())
+            JOptionPane.showMessageDialog(null, "Please enter keyword");
+        else
+        {
+            
+            jTextArea1.setVisible(true);
+            ArrayList fetch_all = new FetchSearchContent().fetchContent();
+            //System.out.println(fetch_all.get(0));
+            for(int i=0; i<fetch_all.size(); i++)
+            {
+                ArrayList t = (ArrayList) fetch_all.get(i);
+                //System.out.println(t.get(1));
+                String contents[] = t.get(1).toString().split(" ");
+                
+                for(int j=0; j<contents.length; j++)
+                {
+                    String lowercont = contents[j].toLowerCase();
+                    if(lowercont.contains(keyword) )
+                    {
+                        actual.add(t.get(0));
+                        break;
+                    }
+                }
+                
+                
+            }
+            
+            String tempcont = "";
+            for(int i=0; i<actual.size(); i++)
+            {
+                tempcont = tempcont + actual.get(i) + "\n";
+            }
+            if(!tempcont.isEmpty())
+            {
+                jTextArea1.setText(tempcont);
+                
+            }
+            else
+            {
+                
+                jTextArea1.setText(null);
+                JOptionPane.showMessageDialog(null, "No urls found!!");
+            }
+        }
+        
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        jTextArea1.setText(null);
+        jTextField1.setText(null);
+        jTextArea1.setVisible(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
