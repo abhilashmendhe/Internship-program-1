@@ -51,7 +51,25 @@ public class Home extends JApplet {
         g.drawLine(1050, 190, 1050, 258);
         
         g.setColor(Color.red);
-        g.drawRect(990, 180, 170, 20);
+        g.drawRect(990, 170, 80, 20);
+        
+        g.setColor(Color.blue);
+        g.drawRect(710, 467, 80, 30);
+    
+        g.setColor(Color.blue);
+        g.drawRect(950, 467, 80, 30);
+        
+        g.setColor(Color.blue);
+        g.drawRect(710, 497, 40, 60);
+        
+        g.setColor(Color.blue);
+        g.drawRect(950, 497, 40, 60);
+        
+        g.setColor(Color.blue);
+        g.drawRect(990, 497, 40, 60);
+        
+        g.setColor(Color.blue);
+        g.drawRect(750, 497, 40, 60);
     }
     // TODO overwrite start(), stop() and destroy() methods
 }
