@@ -5,8 +5,6 @@
  */
 package Networkops;
 
-import attack.NPMFrame;
-import attack.SendDataFrame;
 import java.io.DataInputStream;
 import java.io.InputStream;
 import java.net.ServerSocket;
@@ -14,33 +12,23 @@ import java.net.Socket;
 
 /**
  *
- * @author abhilash
+ * @author abhil
  */
-public class Receiver extends Thread{
+public class ReceiverFromNode extends Thread{
     
     public void run()
     {
         try {
-            ServerSocket ss = new ServerSocket(3000);
+            ServerSocket ss = new ServerSocket(3001);
             while(true)
             {
                 Socket s = ss.accept();
                 InputStream is = s.getInputStream();
                 DataInputStream dis = new DataInputStream(is);
                 String data = dis.readUTF();
-                if(data.contains("Received!!!"))
-                {
-                    NPMFrame.recmsg = data;
-                }
-               
-                if(data.contains("recallip"))
-                {
-                    
-                    SendDataFrame.getallip = data;
-                }
             }
         } catch (Exception e) {
-            System.out.println("Error in class Receiver: "+e);
+            System.out.println("Error in class ReceiverFromNode: "+e);
         }
     }
 }

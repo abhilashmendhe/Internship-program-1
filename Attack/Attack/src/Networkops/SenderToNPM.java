@@ -13,7 +13,7 @@ import java.net.Socket;
  *
  * @author abhilash
  */
-public class Sender {
+public class SenderToNPM {
     public void send(String ip, String msg)
     {
         try {
@@ -21,10 +21,10 @@ public class Sender {
             OutputStream os = s.getOutputStream();
             DataOutputStream dos = new DataOutputStream(os);
             dos.writeUTF(msg);
-            Receiver r = new Receiver();
+            ReceiverFromNPM r = new ReceiverFromNPM();
             r.start();
         } catch (Exception e) {
-            System.out.println("Error in class Sender: "+e);
+            System.out.println("Error in class SenderToNPM: "+e);
         }
     }
 }

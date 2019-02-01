@@ -5,12 +5,12 @@
  */
 package DBops;
 
-import com.mysql.cj.protocol.Resultset;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import sun.awt.OSInfo;
 
 /**
  *
@@ -21,14 +21,18 @@ public class FetchAllMaker {
     public ArrayList fetch(String uname)
     {
         ArrayList all = new ArrayList();
-        
+        OSInfo.OSType o = OSInfo.getOSType();
         try {
             // Driver
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             // Connection
-            Connection conn =  DriverManager.getConnection("jdbc:mysql://localhost:3306/networknode", "myadm", "Myadm@123");
-            //Connection conn =  DriverManager.getConnection("jdbc:mysql://localhost:3306/rashandb", "root", "root");
+            Connection conn = null;
             
+            if(o.toString().equals("WINDOWS"))
+                conn =  DriverManager.getConnection("jdbc:mysql://localhost:3306/networknode", "root", "root");
+            else
+                conn =  DriverManager.getConnection("jdbc:mysql://localhost:3306/networknode", "myadm", "Myadm@123");
+           
             // Statement
             Statement st = conn.createStatement();
             

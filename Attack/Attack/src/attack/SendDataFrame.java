@@ -5,13 +5,17 @@
  */
 package attack;
 
-import Networkops.Sender;
+import Networkops.SenderToNPM;
+import Networkops.SenderToNode;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +27,7 @@ public class SendDataFrame extends javax.swing.JFrame {
      * Creates new form SendDataFrame
      */
     public static String getallip = "";
+    public static String hashack = "";
     public SendDataFrame() {
         super("Send Data");
         try {
@@ -30,7 +35,7 @@ public class SendDataFrame extends javax.swing.JFrame {
             String ip_name[] = InetAddress.getLocalHost().toString().split("/");
             jTextField1.setText(ip_name[1]);
             jTextField1.setEditable(false);
-            new Sender().send(getallip, getallip);
+            new SenderToNPM().send(getallip, getallip);
         } catch (UnknownHostException ex) {
             Logger.getLogger(SendDataFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -57,8 +62,9 @@ public class SendDataFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -95,6 +101,11 @@ public class SendDataFrame extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Jomolhari", 1, 18)); // NOI18N
         jButton1.setText("SEND");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Jomolhari", 1, 18)); // NOI18N
         jButton2.setText("CLEAR");
@@ -107,8 +118,6 @@ public class SendDataFrame extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Jomolhari", 1, 18)); // NOI18N
         jLabel4.setText("Network Manager IP");
 
-        jTextField3.setFont(new java.awt.Font("Jomolhari", 0, 18)); // NOI18N
-
         jButton3.setFont(new java.awt.Font("Jomolhari", 1, 18)); // NOI18N
         jButton3.setText("GO");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +126,11 @@ public class SendDataFrame extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Javanese Text", 0, 18)); // NOI18N
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -124,29 +138,31 @@ public class SendDataFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(jButton1)
-                        .addGap(109, 109, 109)
-                        .addComponent(jButton2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(110, 110, 110)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(118, 118, 118)
-                                .addComponent(jTextField3))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
-                                .addGap(117, 117, 117)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel1)
+                                            .addComponent(jLabel2))
+                                        .addGap(117, 117, 117))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(121, 121, 121)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextField1)
-                                    .addComponent(jComboBox1, 0, 190, Short.MAX_VALUE)
-                                    .addComponent(jTextField2))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextField2)
+                                    .addComponent(jScrollPane1))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(jButton1)
+                        .addGap(131, 131, 131)
+                        .addComponent(jButton2)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -165,15 +181,15 @@ public class SendDataFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(46, 46, 46)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addGap(43, 43, 43))
         );
 
         jMenu1.setText("Manage Profiles");
@@ -282,12 +298,12 @@ public class SendDataFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(631, 631, 631)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(663, Short.MAX_VALUE))
+                .addContainerGap(547, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(192, Short.MAX_VALUE)
+                .addContainerGap(72, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(360, 360, 360))
         );
@@ -367,30 +383,81 @@ this.dispose();
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         jTextField2.setText(null);
-        jTextField3.setText(null);
+        jTextArea1.setText(null);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
+        String sourceip = jTextField1.getText();
         String npm_ip = jTextField2.getText();
-        new Sender().send(npm_ip, "recnpm#"+jTextField1.getText());
-        while(true)
+        if(npm_ip.isEmpty())
+            JOptionPane.showMessageDialog(null, "Please enter Network manager ip");
+        else
         {
-            if(getallip.length()>0)
-                break;
+            new SenderToNPM().send(npm_ip, "recnpm#"+jTextField1.getText());
+            jComboBox1.removeAllItems();
+            while(true)
+            {
+                if(getallip.length()>0)
+                    break;
+
+                System.out.println(getallip);
+            }
+            //System.out.println(getallip);
+            String splmsg[] = getallip.split("#");
             
-            System.out.println(getallip);
-        }
-        System.out.println(getallip);
-        String splmsg[] = getallip.split("#");
-        
-        for(int i=1; i<splmsg.length; i++)
-        {
-            jComboBox1.addItem(splmsg[i]);
+            HashSet u = new HashSet();
+            ArrayList un = new ArrayList();
+            for(int i=1; i<splmsg.length; i++)
+            {
+                u.add(splmsg[i]);
+            }
+            un.addAll(u);
+            System.out.println(un);
+            for(int i=0; i<un.size(); i++)
+            {
+               
+                if(!sourceip.equals(un.get(i)))
+                {
+                    jComboBox1.addItem((String) un.get(i));
+                }
+            }
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        
+        String npmip = jTextField2.getText();
+        String textmessage = jTextArea1.getText();
+        
+        String nodeip = (String) jComboBox1.getSelectedItem();
+        if(npmip.isEmpty())
+            JOptionPane.showMessageDialog(null, "Please enter NPM IP");
+        else if(textmessage.isEmpty())
+            JOptionPane.showMessageDialog(null, "Please enter message");
+        else
+        {
+            String hashtext = new MessageDigest.MD().getHash(textmessage);
+            System.out.println(hashtext);
+            String msg = "npmtohash#"+jTextField1.getText()+"#"+hashtext;
+            new SenderToNPM().send(jTextField2.getText(), msg);
+            
+            while(true)
+            {
+                if(hashack.length()>0)
+                    break;
+                System.out.println(hashack);
+            }
+            String msg1 = "nodetohash#"+jTextField1.getText()+"#"+jTextArea1.getText();
+            new SenderToNode().send(nodeip, msg);
+        }
+            
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -451,8 +518,9 @@ this.dispose();
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

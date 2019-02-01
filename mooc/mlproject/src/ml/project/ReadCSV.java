@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import sun.awt.OSInfo;
 
 /**
  *
@@ -20,7 +21,13 @@ public class ReadCSV {
     
     public ArrayList readdataset() throws FileNotFoundException, IOException
     {
-        BufferedReader readcsv = new BufferedReader(new FileReader("/home/abhilash/Internship-program-1/mooc/mlproject/gameplay.csv"));
+        BufferedReader readcsv;
+        if(OSInfo.getOSType().toString().equals("WINDOWS"))
+            readcsv = new BufferedReader(new FileReader("D:\\Internship-program-1\\mooc\\mlproject\\gameplay.csv"));
+        else
+        {
+            readcsv = new BufferedReader(new FileReader("/home/abhilash/Internship-program-1/mooc/mlproject/gameplay.csv"));
+        }
         ArrayList alldata = new ArrayList();
         
         String line = null;

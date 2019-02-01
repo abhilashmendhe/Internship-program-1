@@ -5,7 +5,8 @@
  */
 package attack;
 
-import Networkops.Sender;
+import Networkops.ReceiverFromNode;
+import Networkops.SenderToNPM;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -119,7 +120,7 @@ public class NPMFrame extends javax.swing.JFrame {
                 String hostname = ip_name[0];
                 String source_ip = ip_name[1];
                 String msg = hostname+"#"+source_ip+"#"+"store";
-                new Sender().send(npm_ip,msg);
+                new SenderToNPM().send(npm_ip,msg);
                 
                 while(true)
                 {
@@ -128,7 +129,11 @@ public class NPMFrame extends javax.swing.JFrame {
                     
                     System.out.println(recmsg);
                 }
-                JOptionPane.showMessageDialog(null, recmsg);
+                //JOptionPane.showMessageDialog(null, recmsg);
+                
+                ReceiverFromNode r  = new ReceiverFromNode();
+                r.start();
+                
             } catch (UnknownHostException ex) {
                 Logger.getLogger(NPMFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
