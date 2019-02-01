@@ -20,7 +20,7 @@ public class ReadCSV {
     
     public ArrayList readdataset() throws FileNotFoundException, IOException
     {
-        BufferedReader readcsv = new BufferedReader(new FileReader("/home/abhilash/mlproject/gameplay.csv"));
+        BufferedReader readcsv = new BufferedReader(new FileReader("/home/abhilash/Internship-program-1/mooc/mlproject/gameplay.csv"));
         ArrayList alldata = new ArrayList();
         
         String line = null;
