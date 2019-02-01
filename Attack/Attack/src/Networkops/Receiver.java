@@ -6,6 +6,7 @@
 package Networkops;
 
 import attack.NPMFrame;
+import attack.SendDataFrame;
 import java.io.DataInputStream;
 import java.io.InputStream;
 import java.net.ServerSocket;
@@ -29,8 +30,13 @@ public class Receiver extends Thread{
                 String data = dis.readUTF();
                 if(data.contains("Received!!!"))
                 {
-                    System.out.println(data);
                     NPMFrame.recmsg = data;
+                }
+               
+                if(data.contains("recallip"))
+                {
+                    
+                    SendDataFrame.getallip = data;
                 }
             }
         } catch (Exception e) {
