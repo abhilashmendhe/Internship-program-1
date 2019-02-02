@@ -18,9 +18,11 @@ public class GetTree {
     {
         
         ArrayList sortednodes = new DescendingOrder().descendSort(new ECalforRoot().calculate(tattr,ti));
-        System.out.println(sortednodes);
+        //System.out.println(sortednodes);
         ArrayList topnodes = (ArrayList) sortednodes.get(0);
+       // System.out.println(topnodes);
         ArrayList subnodes = new ECalforSub().getSubNodes(sortednodes);
+       // System.out.println(subnodes);
         new ECalforSub().calSubRootE(topnodes,subnodes,ti);
     }
 }

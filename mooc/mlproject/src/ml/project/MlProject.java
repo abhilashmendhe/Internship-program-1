@@ -25,6 +25,8 @@ public class MlProject {
     public static int targetindex = 0;
     public static void main(String[] args) throws IOException {
        
+        
+           
   //      ArrayList all = new readCSV().readdataset();  
 //        new EntropyCal().cal();
             //new ECalforSub().cal("play");
@@ -32,5 +34,6 @@ public class MlProject {
             int ind = new TargetIndex().getindex(tattr);
             targetindex = ind;
             new GetTree().getNodes(tattr, ind);
+            
     }
 }

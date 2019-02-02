@@ -19,7 +19,7 @@ import sun.awt.OSInfo;
  */
 public class ReadCSV {
     
-    public ArrayList readdataset() throws FileNotFoundException, IOException
+    public ArrayList readD() throws FileNotFoundException, IOException
     {
         BufferedReader readcsv;
         if(OSInfo.getOSType().toString().equals("WINDOWS"))

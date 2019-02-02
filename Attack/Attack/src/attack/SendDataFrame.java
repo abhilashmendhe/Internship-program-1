@@ -28,6 +28,7 @@ public class SendDataFrame extends javax.swing.JFrame {
      */
     public static String getallip = "";
     public static String hashack = "";
+    public static String getack = "";
     public SendDataFrame() {
         super("Send Data");
         try {
@@ -414,7 +415,7 @@ this.dispose();
                 u.add(splmsg[i]);
             }
             un.addAll(u);
-            System.out.println(un);
+            //System.out.println(un);
             for(int i=0; i<un.size(); i++)
             {
                
@@ -434,6 +435,9 @@ this.dispose();
         String textmessage = jTextArea1.getText();
         
         String nodeip = (String) jComboBox1.getSelectedItem();
+        
+        
+        
         if(npmip.isEmpty())
             JOptionPane.showMessageDialog(null, "Please enter NPM IP");
         else if(textmessage.isEmpty())
@@ -451,8 +455,47 @@ this.dispose();
                     break;
                 System.out.println(hashack);
             }
-            String msg1 = "nodetohash#"+jTextField1.getText()+"#"+jTextArea1.getText();
-            new SenderToNode().send(nodeip, msg);
+            String splmsg[] = getallip.split("#");
+            
+        HashSet u = new HashSet();
+            ArrayList un = new ArrayList();
+            for(int i=1; i<splmsg.length; i++)
+            {
+                u.add(splmsg[i]);
+            }
+            un.addAll(u);
+            //System.out.println(un);
+            String midip = "";
+            for(int i=0; i<un.size(); i++)
+            {
+                if(!un.get(i).equals(nodeip) && !un.get(i).equals(jTextField1.getText()))
+                    midip = midip + un.get(i)+",";
+            }
+            
+            String msg1 = "nodetomsg#"+jTextArea1.getText()+"#"+jTextField1.getText()+","+midip+nodeip;
+            System.out.println(msg1);
+            String midtonode = midip+nodeip;
+            String mn[] = midtonode.split(",");
+            String mii = "";
+            nodeip = mn[0];
+            for(int i=0; i<mn.length; i++)
+            {
+                mii = mii + mn[i]+",";
+            }
+            mii = mii.substring(0, mii.length()-1);
+            String message = "nodetomsg#"+jTextArea1.getText()+"#"+mii;
+               // System.out.println(mn[i]);
+            System.out.println(message);
+            //new SenderToNode().send(nodeip, msg1);
+            
+//            while(true)
+//            {
+//                if(getack.length()>0)
+//                    break;
+//                System.out.println(getack);
+//            }
+//            String sss[] = getack.split("#");
+//            JOptionPane.showMessageDialog(null, sss[1]);
         }
             
         

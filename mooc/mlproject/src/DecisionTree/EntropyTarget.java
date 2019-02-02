@@ -17,7 +17,7 @@ public class EntropyTarget {
     
     public double calIGft(String tattr) throws IOException
     {
-        ArrayList all = new ReadCSV().readdataset();
+        ArrayList all = new ReadCSV().readD();
         int yc = 0;
         int nc = 0;
         

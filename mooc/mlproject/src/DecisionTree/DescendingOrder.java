@@ -17,16 +17,18 @@ public class DescendingOrder {
     {
         ArrayList sort = all;
         
-        for(int i=0; i<all.size()-1; i++)
+        for(int i=0; i<all.size(); i++)
         {
-            for(int j=0; j<all.size()-2; j++)
+            for(int j=0; j<all.size()-1; j++)
             {
                 ArrayList t1 = (ArrayList) sort.get(j);
-                double d1 = (double) t1.get(t1.size()-1);
+                String spl1[] = t1.get(0).toString().split("#");
+                double d1 = Double.parseDouble(spl1[1]);
                 //System.out.println(d1);
                 
                 ArrayList t2 = (ArrayList) sort.get(j+1);
-                double d2 = (double) t2.get(t2.size()-1);
+                String spl2[] = t2.get(0).toString().split("#");
+                double d2 = Double.parseDouble(spl2[1]);
                // System.out.println(d2);
                 if(d1<d2)
                 {

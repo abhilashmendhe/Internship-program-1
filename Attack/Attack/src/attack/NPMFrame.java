@@ -5,6 +5,7 @@
  */
 package attack;
 
+import Networkops.ReceiverFromAllNode;
 import Networkops.ReceiverFromNode;
 import Networkops.SenderToNPM;
 import java.net.Inet4Address;
@@ -131,7 +132,7 @@ public class NPMFrame extends javax.swing.JFrame {
                 }
                 //JOptionPane.showMessageDialog(null, recmsg);
                 
-                ReceiverFromNode r  = new ReceiverFromNode();
+                ReceiverFromAllNode r  = new ReceiverFromAllNode();
                 r.start();
                 
             } catch (UnknownHostException ex) {

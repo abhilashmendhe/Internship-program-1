@@ -17,7 +17,7 @@ public class TargetIndex {
     public int getindex(String tattr) throws IOException
     {
         int ind = 0;
-        ArrayList all = new ReadCSV().readdataset();
+        ArrayList all = new ReadCSV().readD();
         ArrayList t = (ArrayList) all.get(0);
         for(int i=0; i<t.size();i++)
         {

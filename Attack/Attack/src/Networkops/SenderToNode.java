@@ -21,8 +21,7 @@ public class SenderToNode {
             OutputStream os = s.getOutputStream();
             DataOutputStream dos = new DataOutputStream(os);
             dos.writeUTF(msg);
-            ReceiverFromNode r = new ReceiverFromNode();
-            r.start();
+            
         } catch (Exception e) {
             System.out.println("Error in class SenderToNode: "+e);
         }
