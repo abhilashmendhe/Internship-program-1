@@ -473,7 +473,7 @@ this.dispose();
             }
             
             String msg1 = "nodetomsg#"+jTextArea1.getText()+"#"+jTextField1.getText()+","+midip+nodeip;
-            System.out.println(msg1);
+            //System.out.println(msg1);
             String midtonode = midip+nodeip;
             String mn[] = midtonode.split(",");
             String mii = "";
@@ -486,16 +486,9 @@ this.dispose();
             String message = "nodetomsg#"+jTextArea1.getText()+"#"+mii;
                // System.out.println(mn[i]);
             System.out.println(message);
-            //new SenderToNode().send(nodeip, msg1);
+            //System.out.println(nodeip);
+            new SenderToNode().send(nodeip, message);
             
-//            while(true)
-//            {
-//                if(getack.length()>0)
-//                    break;
-//                System.out.println(getack);
-//            }
-//            String sss[] = getack.split("#");
-//            JOptionPane.showMessageDialog(null, sss[1]);
         }
             
         
@@ -563,7 +556,7 @@ this.dispose();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    public static javax.swing.JTextField jTextField1;
+    public static javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

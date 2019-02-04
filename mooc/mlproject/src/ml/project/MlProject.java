@@ -27,7 +27,8 @@ public class MlProject {
        
         
            
-  //      ArrayList all = new readCSV().readdataset();  
+        ArrayList all = new ReadCSV().readD();
+        //System.out.println(all);
 //        new EntropyCal().cal();
             //new ECalforSub().cal("play");
             String tattr = "play";
