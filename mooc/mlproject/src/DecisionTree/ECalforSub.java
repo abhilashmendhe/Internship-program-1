@@ -23,71 +23,89 @@ public class ECalforSub {
     // 1 - arraylist of entries present with entropy of an single attribute
     // 2 - final gain of that single attribute
     
-    public void calSubRootE(ArrayList top, ArrayList sub, int tindex) throws IOException
+    public void calSubRootE(ArrayList top, int tindex) throws IOException
     {
         String featureT_entropy[] = top.get(0).toString().split("#");
         String subfeaturesT_subentropy[] = top.get(1).toString().split("/");
-//        System.out.println(top);
-//        System.out.println(sub);
-        String featureT = featureT_entropy[0];
-        double entropyT = Double.parseDouble(featureT_entropy[1]);
-        //System.out.println(entropyT);
+
         ArrayList fetchall = new ReadCSV().readD();
         ArrayList firstRcol = (ArrayList)fetchall.get(0);
+        int featureTindex  = 0;
+        for(int i=0; i<firstRcol.size(); i++)
+        {
+            if(firstRcol.get(i).toString().toLowerCase().equals(featureT_entropy[0]))
+                featureTindex = i;
+        }
         
-//        for(int i=0; i<subfeaturesT_subentropy.length; i++)
-//        {
-//            double total = 0;
-//            ArrayList uniq = new ArrayList();
-//            int featureTind = 0;
-//            
-//            for(int j=0; j<firstRcol.size(); j++)
-//            {
-//                for(int k=0; k<fetchall.size(); k++)
-//                {
-//                    ArrayList t1 = (ArrayList)fetchall.get(k);
-//                    if(featureT.equals(t1.get(j).toString().toLowerCase()))
-//                        featureTind = j;
-//                    if(subfeaturesT_subentropy[i].contains(t1.get(j).toString().toLowerCase()))
-//                    {
-//                        uniq.add(t1);
-//                        total++;
-//                    }
-//                }
-//                HashSet u = new HashSet();
-//                ArrayList uniq1 = new ArrayList();
-//                for(int l=0; l<uniq.size(); l++)
-//                {
-//                    ArrayList t1 = (ArrayList)uniq.get(l);
-//                    if(featureTind!=j && tindex!=j)
-//                    {
-//                        u.add(t1.get(j));
-//                    }
-//                    
-//                }
-//                uniq1.addAll(u);
-//                
-//                for(int m=0; m<uniq1.size(); m++)
-//                {
-//                    String s1 = (String) uniq1.get(m);
-//                    double yes = 0;
-//                    double no = 0;
-//                   // System.out.println(s1);
-//                }
-//                
-//            }
-//            
-//            for(int z=0; z<uniq.size(); z++)
-//            {
-//                System.out.println(uniq.get(z));
-//            }
-//            //System.out.println(total);
-//        }
-//    }
+        ArrayList branch = new Branch().getBranch(top, tindex);
+        
+        for(int i=0; i<subfeaturesT_subentropy.length; i++)
+        {
+            double total = 0;
+            String spl[] = subfeaturesT_subentropy[i].split("#");
+            double ent = Double.parseDouble(spl[1]);
+            for(int z=0; z<branch.size(); z++)
+            {
+                ArrayList t1 = (ArrayList)branch.get(z);
+                if(subfeaturesT_subentropy[i].contains(t1.get(0).toString()))
+                    total++;
+            }
+            for(int j=0; j<firstRcol.size(); j++)
+            {
+                if(j!=featureTindex && j!=tindex)
+                {
+                ArrayList uniq = new ArrayList();
+                HashSet u = new HashSet();
+                for(int k=0; k<branch.size(); k++)
+                {
+                    ArrayList t1 = (ArrayList)branch.get(k);
+                    if(subfeaturesT_subentropy[i].contains(t1.get(0).toString()) && j!=tindex)
+                    {   
+                        u.add(t1.get(j));
+                    }
+
+                }
+                uniq.addAll(u);
+                //System.out.println(uniq);
+                double gain=0;
+                for(int l=0; l<uniq.size(); l++)
+                {
+                    double yes = 0;
+                    double no = 0;
+                    for(int y=1; y<firstRcol.size(); y++)
+                    for(int m=0; m<branch.size(); m++)
+                    {
+                        ArrayList t1 = (ArrayList) branch.get(m);
+                        if(subfeaturesT_subentropy[i].contains(t1.get(0).toString()))
+                        if(uniq.get(l).equals(t1.get(y)))
+                        {
+                            if(t1.get(tindex).equals("yes"))
+                                yes++;
+                            else
+                                no++;
+                            
+                        }
+                    }
+                    //System.out.println(yes+" "+no);
+                    double eee = new Entropy().infoG(yes, no)*((yes+no)/total);
+                    if(!Double.toString(eee).equals("NaN"))
+                        gain += eee;
+                    //System.out.println(eee);
+                    //System.out.println("==============");
+                }
+                gain = ent - gain;
+                
+                System.out.println(firstRcol.get(j)+"  "+gain);
+                //System.out.println("------------------------");
+            
+                }
+            
+            }
+            
+            
+            //System.out.println(total);
+            //System.out.println("---------------------------");
+        }
     }   
     
-    public void getBranch()
-    {
-        
-    }
 }

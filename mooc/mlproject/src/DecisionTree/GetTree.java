@@ -17,9 +17,11 @@ public class GetTree {
     public void getNodes(String tattr, int ti) throws IOException
     {
         
-        ArrayList sortednodes = new DescendingOrder().descendSort(new ECalforRoot().calculate(tattr,ti));
+        //ArrayList sortednodes = new DescendingOrder().descendSort(new ECalforRoot().calculate(tattr,ti));
         //System.out.println(sortednodes);
-        ArrayList topnodes = (ArrayList) sortednodes.get(0);
+        
+        ArrayList topnodes = (ArrayList) new ECalforRoot().calculate(tattr, ti);
+        //System.out.println(topnodes);
         String subfeatures = topnodes.get(1).toString();
         //System.out.println(subfeatures);
         String impure_node = "";
@@ -42,9 +44,7 @@ public class GetTree {
         impure_node = impure_node.substring(0, impure_node.length()-1);
         topnodes.set(1, impure_node);
         
-        ArrayList subnodes = sortednodes;
-        subnodes.remove(0);
-        new ECalforSub().calSubRootE(topnodes,subnodes,ti);
-        System.out.println(subnodes);
+        new ECalforSub().calSubRootE(topnodes, ti);
+        
     }
 }
