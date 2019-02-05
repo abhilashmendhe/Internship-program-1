@@ -30,6 +30,8 @@ public class ReceiverFromAllNode extends Thread{
                 DataInputStream dis = new DataInputStream(is);
                 String data = dis.readUTF();
                 MaliciousFrame m = new MaliciousFrame();
+                System.out.println(data);
+                        
                 if(data.contains("nodetomsg"))
                 {
                    //System.out.println(data);
