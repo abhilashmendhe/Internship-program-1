@@ -24,6 +24,10 @@ public class GetTree {
         //System.out.println(topnodes);
         String subfeatures = topnodes.get(1).toString();
         //System.out.println(subfeatures);
+        String rootnode_ent[] = topnodes.get(0).toString().split("#");
+        
+        String rootnode = rootnode_ent[0];
+        
         String impure_node = "";
         String pure_node = "";
         
@@ -40,11 +44,14 @@ public class GetTree {
                     pure_node = subfeatures_split[i];
             }
         }
-        
+        System.out.println(rootnode+"->"+pure_node);
         impure_node = impure_node.substring(0, impure_node.length()-1);
         topnodes.set(1, impure_node);
         
-        new ECalforSub().calSubRootE(topnodes, ti);
+        ArrayList moresubnodes = new ECalforSub().calSubRootE(topnodes, ti);
+        new Subbranches().getSubBranch((ArrayList) moresubnodes.get(0), ti);
+       
+        
         
     }
 }

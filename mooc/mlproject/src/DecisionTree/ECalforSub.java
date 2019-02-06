@@ -23,8 +23,10 @@ public class ECalforSub {
     // 1 - arraylist of entries present with entropy of an single attribute
     // 2 - final gain of that single attribute
     
-    public void calSubRootE(ArrayList top, int tindex) throws IOException
+    public ArrayList calSubRootE(ArrayList top, int tindex) throws IOException
     {
+        
+        ArrayList subnodes = new ArrayList();
         String featureT_entropy[] = top.get(0).toString().split("#");
         String subfeaturesT_subentropy[] = top.get(1).toString().split("/");
 
@@ -38,9 +40,10 @@ public class ECalforSub {
         }
         
         ArrayList branch = new Branch().getBranch(top, tindex);
-        
+        //System.out.println(branch);
         for(int i=0; i<subfeaturesT_subentropy.length; i++)
         {
+            ArrayList add = new ArrayList();
             double total = 0;
             String spl[] = subfeaturesT_subentropy[i].split("#");
             double ent = Double.parseDouble(spl[1]);
@@ -50,6 +53,8 @@ public class ECalforSub {
                 if(subfeaturesT_subentropy[i].contains(t1.get(0).toString()))
                     total++;
             }
+            double biggest = 0;
+            String biggestnodename = "";
             for(int j=0; j<firstRcol.size(); j++)
             {
                 if(j!=featureTindex && j!=tindex)
@@ -95,17 +100,29 @@ public class ECalforSub {
                 }
                 gain = ent - gain;
                 
-                System.out.println(firstRcol.get(j)+"  "+gain);
+                //System.out.println(firstRcol.get(j)+"  "+gain);
                 //System.out.println("------------------------");
+                if(biggest<gain)
+                {
+                    biggest = gain;
+                    biggestnodename = firstRcol.get(j).toString();
+                }   
             
                 }
+                
             
             }
             
+                //System.out.println(subfeaturesT_subentropy[i]+"    "+biggestnodename+"#"+biggest);
             
             //System.out.println(total);
             //System.out.println("---------------------------");
+            add.add(subfeaturesT_subentropy[i].toLowerCase());
+            add.add(biggestnodename+"#"+biggest);
+            subnodes.add(add);
         }
+        
+        return subnodes;
     }   
     
 }
