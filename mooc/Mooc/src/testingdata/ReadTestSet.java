@@ -3,34 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mooc;
+package testingdata;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.stream.Stream;
-import jxl.*;
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
 import jxl.read.biff.BiffException;
 import sun.awt.OSInfo;
+
 /**
  *
- * @author abhilash
+ * @author abhil
  */
-public class ReadDataSet {
-    public ArrayList readcsv() throws IOException, BiffException 
+public class ReadTestSet {
+    public ArrayList readcsv(String path) throws IOException, BiffException 
     {
-        Workbook wb;
-        if(OSInfo.getOSType().toString().equals("WINDOWS"))
-            wb = Workbook.getWorkbook(new File("D:\\Internship-program-1\\mooc\\Mooc\\train_mooc.xls"));
-        else
-            wb = Workbook.getWorkbook(new File("/home/abhilash/Internship-program-1/mooc/Mooc/mooc.xls"));
-        
+        Workbook wb = Workbook.getWorkbook(new File(path));
         Sheet s = wb.getSheet(0);
         int row = s.getRows();
         int col = s.getColumns();

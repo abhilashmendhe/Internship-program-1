@@ -5,10 +5,12 @@
  */
 package mooc;
 
+import traingdata.ReadTrainSet;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import jxl.read.biff.BiffException;
+import testingdata.ReadTestSet;
 
 /**
  *
@@ -22,10 +24,9 @@ public class Mooc {
     public static void main(String[] args) throws IOException, BiffException {
         // TODO code application logic here
      
-        ArrayList all = new ReadDataSet().readcsv();
-        for(int i=0; i<all.size(); i++)
-            System.out.println(all.get(i));
-        
+        Frame f = new Frame();
+        f.setVisible(true);
+        f.setLocation(600,300);
     }
     
 }
