@@ -32,11 +32,15 @@ public class ECalforRoot {
 //        System.out.println(tattrindex);
         ArrayList allnodes = new ArrayList();
         
+        double rootnodeentropy = 0;
+        String rootnodename = "";
+        String rootbranches = "";
         for(int i=0; i<col.size(); i++)
         {
             ArrayList t = (ArrayList)alldata.get(0);
             String s = t.get(i).toString().toLowerCase();
-            ArrayList getnodes = new ArrayList();
+            //ArrayList getnodes = new ArrayList();
+            
             if(i!=tindex || !s.equals(tattr))
             {
                 //System.out.println(s);
@@ -110,15 +114,28 @@ public class ECalforRoot {
                 conall = conall.substring(0, conall.length()-1);
                 //System.out.println(conall);
                 //System.out.println(adduniqwithE);
+                
                 double gain = ig - e;
                // System.out.println(gain);
-                getnodes.add(s+"#"+Double.toString(gain));
-                getnodes.add(conall);
-                
-                
-                allnodes.add(getnodes);
+               
+               if(rootnodeentropy<gain)
+               {
+                   rootnodeentropy = gain;
+                   rootnodename = s;
+                   rootbranches = conall;
+               }
+//                getnodes.add(s+"#"+Double.toString(gain));
+//                getnodes.add(conall);
+//                
+//                
+//                allnodes.add(getnodes);
             }
         }
+        
+//                System.out.println("Root: "+"----"+rootnodename+"#"+Double.toString(rootnodeentropy));
+//                System.out.println("Branches: "+"----"+rootbranches);
+                allnodes.add(rootnodename+"#"+Double.toString(rootnodeentropy));
+                allnodes.add(rootbranches);
         //System.out.println(allnodes);
         return allnodes;
     }    
