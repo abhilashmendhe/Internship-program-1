@@ -15,19 +15,22 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
-import jxl.Cell;
-import jxl.Sheet;
-import jxl.Workbook;
+import jxl.*;
 import jxl.read.biff.BiffException;
-
+import sun.awt.OSInfo;
 /**
  *
  * @author abhilash
  */
 public class ReadDataSet {
-    public ArrayList readcsv() throws IOException, BiffException
+    public ArrayList readcsv() throws IOException, BiffException 
     {
-        Workbook wb = Workbook.getWorkbook(new File("/home/abhilash/Internship-program-1/mooc/Mooc/mooc.xls"));
+        Workbook wb;
+        if(OSInfo.getOSType().toString().equals("WINDOWS"))
+            wb = Workbook.getWorkbook(new File("D:\\Internship-program-1\\mooc\\Mooc\\train_mooc.xls"));
+        else
+            wb = Workbook.getWorkbook(new File("/home/abhilash/Internship-program-1/mooc/Mooc/mooc.xls"));
+        
         Sheet s = wb.getSheet(0);
         int row = s.getRows();
         int col = s.getColumns();

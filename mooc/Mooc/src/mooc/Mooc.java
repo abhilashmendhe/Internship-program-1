@@ -5,9 +5,6 @@
  */
 package mooc;
 
-import DecisionTree.Calc;
-import DecisionTree.ECalforRoot;
-import DecisionTree.IGforT;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
@@ -25,7 +22,9 @@ public class Mooc {
     public static void main(String[] args) throws IOException, BiffException {
         // TODO code application logic here
      
-       new Calc().cal("certified");
+        ArrayList all = new ReadDataSet().readcsv();
+        for(int i=0; i<all.size(); i++)
+            System.out.println(all.get(i));
         
     }
     
