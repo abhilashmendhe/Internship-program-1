@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package traingdata;
+package preprocess;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,8 +22,8 @@ import sun.awt.OSInfo;
  *
  * @author abhilash
  */
-public class ReadTrainSet {
-    public ArrayList readcsv(String path) throws IOException, BiffException 
+public class ReadDataSet {
+    public ArrayList readAllData(String path) throws IOException, BiffException 
     {
         Workbook wb = Workbook.getWorkbook(new File(path));
         
@@ -31,7 +31,7 @@ public class ReadTrainSet {
         int row = s.getRows();
         int col = s.getColumns();
         
-        ArrayList addall = new ArrayList();
+        ArrayList all = new ArrayList();
         
         for(int i=0; i<row; i++)
         {
@@ -43,9 +43,38 @@ public class ReadTrainSet {
                 temp.add(c.getContents());
             }
             //System.out.println(temp);
-            addall.add(temp);
+            all.add(temp);
         }
         
-        return addall;
+        return all;
     }
+    
+    public ArrayList readCertified(ArrayList all) throws IOException, BiffException
+    {
+        ArrayList getdata = all;
+        ArrayList certified = new ArrayList();
+        
+        for(int i=0; i<getdata.size(); i++)
+        {
+            ArrayList t = (ArrayList) getdata.get(i);
+            if(t.get(4).equals("1"))
+                certified.add(t);
+        }
+        return certified;
+    }
+    
+    public ArrayList readNotCertified(ArrayList all) throws IOException, BiffException
+    {
+        ArrayList getdata = all;
+        ArrayList notcertified = new ArrayList();
+        
+        for(int i=0; i<getdata.size(); i++)
+        {
+            ArrayList t = (ArrayList) getdata.get(i);
+            if(t.get(4).equals("0"))
+                notcertified.add(t);
+        }
+        return notcertified;
+    }
+    
 }

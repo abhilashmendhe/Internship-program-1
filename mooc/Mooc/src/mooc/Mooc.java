@@ -5,12 +5,11 @@
  */
 package mooc;
 
-import traingdata.ReadTrainSet;
+import preprocess.ReadDataSet;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import jxl.read.biff.BiffException;
-import testingdata.ReadTestSet;
 
 /**
  *

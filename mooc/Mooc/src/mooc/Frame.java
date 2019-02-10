@@ -12,7 +12,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import jxl.read.biff.BiffException;
-import traingdata.ReadTrainSet;
+import preprocess.Datakeeper;
+import preprocess.ReadDataSet;
 
 /**
  *
@@ -48,7 +49,7 @@ public class Frame extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Select dataset:-");
+        jLabel1.setText("Test Data:-");
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
@@ -84,7 +85,7 @@ public class Frame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(261, 261, 261)
                         .addComponent(jButton2)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,54 +139,11 @@ public class Frame extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
         try {
-            String path = jTextField1.getText();
-            
-            ArrayList alldata = new ReadTrainSet().readcsv(path);
-            
-            if(path.contains("test"))
-            {
-                System.out.println("\n\n\n\n\n\n");
-                System.out.println("Test data: ");
-                for(int i=0; i<alldata.size(); i++)
-                {
-                    ArrayList t = (ArrayList) alldata.get(i);
+            // trainmooc.xls
+            String path = Datakeeper.path;
+            File f = new File(path);
+            new ProcessInitiator().initProcess(f.getAbsolutePath());
 
-                    System.out.println(t);
-
-                }
-            }
-            
-            if(path.contains("train"))
-            {
-                System.out.println("Train data: For Certified 1");
-                for(int i=0; i<alldata.size(); i++)
-                {
-                    ArrayList t = (ArrayList) alldata.get(i);
-                    
-                    for(int j=0; j<t.size(); j++)
-                    {
-                        if(t.get(4).equals("1"))
-                            System.out.println(t);
-                    }
-
-                }
-                System.out.println("\n\n");
-                System.out.println("\n\n");
-                System.out.println("Train data: For Certified 0");
-                for(int i=0; i<alldata.size(); i++)
-                {
-                    ArrayList t = (ArrayList) alldata.get(i);
-                    
-                    for(int j=0; j<t.size(); j++)
-                    {
-                        if(t.get(4).equals("0"))
-                            System.out.println(t);
-                    }
-
-                }
-            }
-            
-            // TODO add your handling code here:
         } catch (IOException ex) {
             Logger.getLogger(Frame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (BiffException ex) {
