@@ -5,10 +5,18 @@
  */
 package preprocess;
 
+import java.util.ArrayList;
+import sun.awt.OSInfo;
+
 /**
  *
  * @author abhil
  */
 public class Datakeeper {
-    public static String path = "C:\\Users\\abhil\\Desktop\\moocdata\\traindata\\trainmooc.xls";
+    
+    //public static String path = "C:\\Users\\abhil\\Desktop\\moocdata\\traindata\\trainmooc.xls";
+    public static String path = "/home/abhilash/Internship-program-1/mooc/Mooc/traindata/trainmooc.xls";
+    
+    public static ArrayList certifiedmaster = new ArrayList();
+    public static ArrayList noncertifiedmaster = new ArrayList();
 }

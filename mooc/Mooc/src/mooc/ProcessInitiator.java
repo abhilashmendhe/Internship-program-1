@@ -25,12 +25,7 @@ public class ProcessInitiator
         
         ArrayList labelcerti = new Labeler().getLabelledCertified(certified);
         ArrayList labelnotcerti = new Labeler().getLabelledNotCertified(notcertified);
-        System.out.println("Certified");
-        for(int i=0; i<labelcerti.size(); i++)
-            System.out.println(labelcerti.get(i));
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.println("Not Certified");
-        for(int i=0; i<labelnotcerti.size(); i++)
-            System.out.println(labelnotcerti.get(i));
+        new kmeans.KmeansInit().initialize(labelcerti,labelnotcerti);
+
     }
 }
