@@ -8,8 +8,10 @@ package mooc;
 import java.io.IOException;
 import java.util.ArrayList;
 import jxl.read.biff.BiffException;
-import preprocess.Labeler;
+import linear_regression.LRinit;
+import preprocess.TrainLabeler;
 import preprocess.ReadDataSet;
+import preprocess.TestLabeler;
 
 /**
  *
@@ -17,15 +19,24 @@ import preprocess.ReadDataSet;
  */
 public class ProcessInitiator
 {
-    public void initProcess(String path) throws IOException, BiffException
+    public void initProcess(String trainpath, String testpath) throws IOException, BiffException
     {
-        ArrayList alldata = new ReadDataSet().readAllData(path);
-        ArrayList certified = new ReadDataSet().readCertified(alldata);
-        ArrayList notcertified = new ReadDataSet().readNotCertified(alldata);
+        ArrayList alldata_train = new ReadDataSet().readAllData(trainpath);
+        ArrayList certified = new ReadDataSet().readCertified(alldata_train);
+        ArrayList notcertified = new ReadDataSet().readNotCertified(alldata_train);
+        ArrayList labelcerti = new TrainLabeler().getLabelledCertified(certified);
+        ArrayList labelnotcerti = new TrainLabeler().getLabelledNotCertified(notcertified);
         
-        ArrayList labelcerti = new Labeler().getLabelledCertified(certified);
-        ArrayList labelnotcerti = new Labeler().getLabelledNotCertified(notcertified);
-        new kmeans.KmeansInit().initialize(labelcerti,labelnotcerti);
-
+        ArrayList allclust = new kmeans.KmeansInit().initialize(labelcerti,labelnotcerti);
+        ArrayList certified_cluster = (ArrayList) allclust.get(0);
+        ArrayList certified_non_cluster = (ArrayList) allclust.get(1);
+       
+        ArrayList alldata_test = new ReadDataSet().readAllData(testpath);
+        ArrayList labeltest = new TestLabeler().getLabelledTest(alldata_test);
+        
+        
+        new LRinit().initialize(certified_cluster, certified_non_cluster, labeltest);
+        
+        
     }
 }

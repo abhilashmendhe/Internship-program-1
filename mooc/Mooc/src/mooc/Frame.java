@@ -139,10 +139,16 @@ public class Frame extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
         try {
+            //test
+            String testpath = jTextField1.getText();
+            File ftest = new File(testpath);
             // trainmooc.xls
-            String path = Datakeeper.path;
-            File f = new File(path);
-            new ProcessInitiator().initProcess(f.getAbsolutePath());
+            
+            String path = Datakeeper.train_path;
+            File ftrain = new File(path);
+            new ProcessInitiator().initProcess(ftrain.getAbsolutePath(), ftest.getAbsolutePath());
+            
+            
 
         } catch (IOException ex) {
             Logger.getLogger(Frame.class.getName()).log(Level.SEVERE, null, ex);

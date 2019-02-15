@@ -15,8 +15,8 @@ import sun.awt.OSInfo;
 public class Datakeeper {
     
     //public static String path = "C:\\Users\\abhil\\Desktop\\moocdata\\traindata\\trainmooc.xls";
-    public static String path = "/home/abhilash/Internship-program-1/mooc/Mooc/traindata/trainmooc.xls";
-    
+    public static String train_path = "/home/abhilash/Internship-program-1/mooc/Mooc/traindata/trainmooc.xls";
+    //public static String train_path = "/home/abhilash/Desktop/train.xls";
     public static ArrayList certifiedmaster = new ArrayList();
     public static ArrayList noncertifiedmaster = new ArrayList();
 }

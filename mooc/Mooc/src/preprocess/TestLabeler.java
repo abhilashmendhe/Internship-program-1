@@ -12,11 +12,12 @@ import jxl.read.biff.BiffException;
 
 /**
  *
- * @author abhil
+ * @author abhilash
  */
-public class Labeler {
- 
-    public ArrayList getLabelledCertified(ArrayList certi) throws IOException, BiffException
+public class TestLabeler {
+    
+    
+    public ArrayList getLabelledTest(ArrayList certi) throws IOException, BiffException
     {
         HashSet u1 = new HashSet();
         HashSet u2 = new HashSet();
@@ -26,8 +27,8 @@ public class Labeler {
         for(int i=1; i<certi.size(); i++)
         {
             ArrayList t = (ArrayList) certi.get(i);
-            String loe=(String)t.get(6);
-            String gen=(String)t.get(7);
+            String loe=(String)t.get(5);
+            String gen=(String)t.get(6);
             u1.add(loe);
             u2.add(gen);
         }
@@ -60,18 +61,18 @@ public class Labeler {
             ArrayList t = (ArrayList) certi.get(i);
             
             ArrayList temp=new ArrayList();
-            for(int k=0;k<6;k++)
+            for(int k=0;k<5;k++)
                 temp.add((String)t.get(k));
                 
-            String loe=t.get(6).toString();
-            String gen=t.get(7).toString();
+            String loe=t.get(5).toString();
+            String gen=t.get(6).toString();
             int x1=getLabel(loe,loeindex);
             
             int x2=getLabel(gen,genindex);
             temp.add(Integer.toString(x1));
             temp.add(Integer.toString(x2));
              
-            for(int k=8;k<t.size();k++)
+            for(int k=7;k<t.size();k++)
                 temp.add((String)t.get(k));
             lablledcerti.add(temp);
         }
@@ -97,67 +98,6 @@ public class Labeler {
         return lab;
     }
    
-    public ArrayList getLabelledNotCertified(ArrayList certi) throws IOException, BiffException
-    {
-        HashSet u1 = new HashSet();
-        HashSet u2 = new HashSet();
-        ArrayList uniqloe = new ArrayList();
-        ArrayList uniqgen = new ArrayList();
-        
-        for(int i=1; i<certi.size(); i++)
-        {
-            ArrayList t = (ArrayList) certi.get(i);
-            String loe=(String)t.get(6);
-            String gen=(String)t.get(7);
-            u1.add(loe);
-            u2.add(gen);
-        }
-        
-        uniqloe.addAll(u1);
-        uniqgen.addAll(u2);
-        
-        ArrayList loeindex = new ArrayList();
-        ArrayList genindex = new ArrayList();
-        for(int i=0;i<uniqloe.size();i++)
-        {
-            ArrayList temp=new ArrayList();
-            temp.add(Integer.toString(i));
-            temp.add((String)uniqloe.get(i));
-            loeindex.add(temp);
-        }
-        
-        for(int i=0;i<uniqgen.size();i++)
-        {
-            ArrayList temp=new ArrayList();
-            temp.add(Integer.toString(i));
-            temp.add((String)uniqgen.get(i));
-            genindex.add(temp);
-        }
-
-        ArrayList labllednotcerti=new ArrayList();
-         
-        for(int i=1; i<certi.size(); i++)
-        {
-            ArrayList t = (ArrayList) certi.get(i);
-            
-            ArrayList temp=new ArrayList();
-            for(int k=0;k<6;k++)
-                temp.add((String)t.get(k));
-                
-            String loe=t.get(6).toString();
-            String gen=t.get(7).toString();
-            int x1=getLabel(loe,loeindex);
-            
-            int x2=getLabel(gen,genindex);
-            temp.add(Integer.toString(x1));
-            temp.add(Integer.toString(x2));
-             
-            for(int k=8;k<t.size();k++)
-                temp.add((String)t.get(k));
-            labllednotcerti.add(temp);
-        }
-        
-           return labllednotcerti;
-    }
-
+    
+    
 }
