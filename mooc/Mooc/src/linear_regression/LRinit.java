@@ -13,21 +13,17 @@ import java.util.ArrayList;
  */
 public class LRinit {
     
-    public void initialize(ArrayList cert_cluster, ArrayList non_cert_cluster, ArrayList labeldata)
+    public ArrayList initialize(ArrayList cert_cluster, ArrayList non_cert_cluster, ArrayList labeldata)
     {
+        ArrayList all_cluster = new ArrayList();
         ArrayList cert_cluster_on_testdata = new CalculateED().calculate_cert(cert_cluster,labeldata);
         ArrayList cert_noncluster_on_testdata = new CalculateED().calculate_noncert(non_cert_cluster,labeldata);
         
-//        System.out.println("Test on Certified");
-//        for(int i=0; i<cert_cluster_on_testdata.size(); i++)
-//        {
-//            System.out.println(cert_cluster_on_testdata.get(i));
-//        }
-//        System.out.println("\n\n\n");
-//        System.out.println("Test on Non-Certified");
-//        for(int i=0; i<cert_noncluster_on_testdata.size(); i++)
-//        {
-//            System.out.println(cert_noncluster_on_testdata.get(i));
-//        }
+        all_cluster.add(cert_cluster_on_testdata);
+        all_cluster.add(cert_noncluster_on_testdata);
+        
+        return all_cluster;
+               
+        
     }
 }

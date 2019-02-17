@@ -19,14 +19,14 @@ public class CalculateED {
  
     public ArrayList calculate_cert(ArrayList cert_clust, ArrayList labeldata)
     {
-        System.out.println("Certified Cluster");
+        //System.out.println("Certified Cluster");
         ArrayList ret_certified_cluster = new ArrayList();
-        //for(int i=0; i<cert_clust.size(); i++)
+        double small=0.0;
+        ArrayList<Double> meanval = new ArrayList<Double>();
         for(int i=0; i<cert_clust.size(); i++)
         {
             ArrayList t_cluster = (ArrayList)cert_clust.get(i);
             
-            //TreeSet tree = new TreeSet();
             double mean = 0;
             for(int j=1; j<labeldata.size(); j++)
             {
@@ -85,41 +85,30 @@ public class CalculateED {
                     
                     double total = ed2+ed3+ed5+ed6+ed7+ed10+ed12+ed13+ed14;
                     total = total/9;
-                    //System.out.println(j+") row: "+total+" of cluster: "+k);
                     sum+=total;
                 }
                 sum = sum / t_cluster.size();
                 mean +=sum;
                 
-                //System.out.println(sum);
             }
             mean = mean / (labeldata.size()-1);
+
             
             
-            t_cluster.add(mean);
-            System.out.println(i+") Cluster: "+mean);
+           meanval.add(mean);
         }
-        ArrayList tt = (ArrayList) cert_clust.get(0);
-        double min = (double) tt.get(tt.size()-1);
-        int index = 0;
-        for(int i=0; i<cert_clust.size(); i++)
-        {
-            ArrayList t = (ArrayList) cert_clust.get(i);
-            double temp = (double) t.get(t.size()-1);
-            
-            
-            if(min>temp)
+
+            int index = 0;
+            small = meanval.get(0);
+            for(int i=0; i<meanval.size(); i++)
             {
-                min = temp;
-                index = i;
-                
+                double t = meanval.get(i);
+                if(small>t)
+                {
+                    index = i;
+                }
             }
-        }
-//        System.out.println(index);
-//        System.out.println(min);
-        
-//        ret_certified_cluster = (ArrayList) cert_clust.get(index);
-//        ret_certified_cluster = (ArrayList) ret_certified_cluster.remove(ret_certified_cluster.size()-1);
+
           ret_certified_cluster.addAll((Collection) cert_clust.get(index));
           
         return ret_certified_cluster;
@@ -127,8 +116,11 @@ public class CalculateED {
     
     public ArrayList calculate_noncert(ArrayList noncert_clust, ArrayList labeldata)
     {
-        System.out.println("\n Non Certified Cluster");
+        //System.out.println("\n Non Certified Cluster");
         ArrayList ret_non_certified_cluster = new ArrayList();
+        double small=0.0;
+        ArrayList<Double> meanval = new ArrayList<Double>();
+        
         for(int i=0; i<noncert_clust.size(); i++)
         {
             ArrayList t_cluster = (ArrayList)noncert_clust.get(i);
@@ -197,35 +189,25 @@ public class CalculateED {
                 sum = sum / t_cluster.size();
                 
                 mean += sum;
-                //System.out.println(sum);
             }
             
             mean = mean / (labeldata.size()-1);
-            t_cluster.add(mean);
-            
-        System.out.println(i+") Cluster: "+mean);
+           
+            meanval.add(mean);
         }
-        ArrayList tt = (ArrayList) noncert_clust.get(0);
-        double min = (double) tt.get(tt.size()-1);
+        
         int index = 0;
-        for(int i=0; i<noncert_clust.size(); i++)
+        small = meanval.get(0);
+        for(int i=0; i<meanval.size(); i++)
         {
-            ArrayList t = (ArrayList) noncert_clust.get(i);
-            double temp = (double) t.get(t.size()-1);
-            
-            
-            if(min>temp)
+            double t = meanval.get(i);
+            if(small>t)
             {
-                min = temp;
                 index = i;
-                
             }
         }
-//        System.out.println(index);
-//        System.out.println(min);
         
         ret_non_certified_cluster = (ArrayList) noncert_clust.get(index);
-        //ret_non_certified_cluster = (ArrayList) ret_non_certified_cluster.remove(ret_non_certified_cluster.size()-1);
         return ret_non_certified_cluster;
     }
 }

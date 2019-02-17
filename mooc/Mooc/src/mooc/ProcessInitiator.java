@@ -5,6 +5,7 @@
  */
 package mooc;
 
+import hiddenmarkovmodel.HMMinit;
 import java.io.IOException;
 import java.util.ArrayList;
 import jxl.read.biff.BiffException;
@@ -35,8 +36,65 @@ public class ProcessInitiator
         ArrayList labeltest = new TestLabeler().getLabelledTest(alldata_test);
         
         
-        new LRinit().initialize(certified_cluster, certified_non_cluster, labeltest);
+        ArrayList lr_belonging_cluster = new LRinit().initialize(certified_cluster, certified_non_cluster, labeltest);
+        ArrayList lr_certified_cluster = (ArrayList) lr_belonging_cluster.get(0);
+        ArrayList lr_non_certified_cluster = (ArrayList) lr_belonging_cluster.get(1);
         
         
+//        System.out.println("Certified train labeled set");
+//        for(int i=0; i<labelcerti.size(); i++)
+//            System.out.println(labelcerti.get(i));
+//        
+//        System.out.println("\n\n");
+//        System.out.println("Non Certified train labeled set");
+//        for(int i=0; i<labelnotcerti.size(); i++)
+//            System.out.println(labelnotcerti.get(i));
+//        
+//        System.out.println("\n\n");
+//        System.out.println("Test labeled set");
+//        for(int i=0; i<labeltest.size(); i++)
+//            System.out.println(labeltest.get(i));
+//        
+//        System.out.println("\n\n\n\n");
+//        System.out.println("Certfied Clusters");
+//        for(int i=0; i<certified_cluster.size(); i++)
+//        {
+//            ArrayList t = (ArrayList) certified_cluster.get(i);
+//            System.out.println("Cluster "+i);
+//            for(int j=0; j<t.size(); j++)
+//            {
+//                System.out.println(t.get(j));
+//            }
+//            System.out.println("\n\n");
+//        }
+//        
+//        System.out.println("\n\n\n");
+//        System.out.println("Non Certfied Clusters");
+//        for(int i=0; i<certified_non_cluster.size(); i++)
+//        {
+//            ArrayList t = (ArrayList) certified_non_cluster.get(i);
+//            System.out.println("Cluster "+i);
+//            for(int j=0; j<t.size(); j++)
+//            {
+//                System.out.println(t.get(j));
+//            }
+//            System.out.println("\n\n");
+//        }
+//        
+//        System.out.println("\n\n\n\n\n");
+//        System.out.println("Linear Regression Test on certified cluster");
+//        for(int i=0; i<test_on_certified_cluster.size(); i++)
+//        {
+//            System.out.println(test_on_certified_cluster.get(i));
+//        }
+//        
+//        System.out.println("\n\n");
+//        System.out.println("Linear Regression Test on non_certified cluster");
+//        for(int i=0; i<test_on_non_certified_cluster.size(); i++)
+//        {
+//            System.out.println(test_on_non_certified_cluster.get(i));
+//        }
+
+        new HMMinit().initialize(lr_certified_cluster, lr_non_certified_cluster, labeltest);
     }
 }

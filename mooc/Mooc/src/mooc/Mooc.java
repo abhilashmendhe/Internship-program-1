@@ -28,7 +28,29 @@ public class Mooc {
         f.setVisible(true);
         f.setLocation(600,300);
         
-        //
+//        int a[] = {1,2,3,4,5};
+//        
+//        double mean = 0;
+//        for(int i=0; i<a.length; i++)
+//        {
+//            mean = mean + a[i];
+//        }
+//        mean = mean / a.length; 
+//        
+//        double var = 0;
+//        
+//        for(int i=0; i<a.length; i++)
+//        {
+//            var += Math.pow((a[i]-mean), 2);
+//        }
+//        var = var / a.length;
+//        
+//        double sd = Math.sqrt(var);
+//        
+//        System.out.println("Mean: "+mean);
+//        System.out.println("Variance: "+var);
+//        System.out.println("S.D.: "+sd);
+        
     }
     
 }
