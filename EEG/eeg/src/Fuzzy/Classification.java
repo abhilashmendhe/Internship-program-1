@@ -6,6 +6,7 @@
 package Fuzzy;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import preprocess.Datakeeper;
 
 /**
@@ -97,5 +98,27 @@ public class Classification {
         }
         System.out.println("\n");
                
+        ArrayList getstability = new ArrayList();
+        getstability.add(vh.size()+"#vh");
+        getstability.add(h.size()+"#h");
+        getstability.add(m.size()+"#m");
+        getstability.add(l.size()+"#l");
+        getstability.add(vl.size()+"#vl");
+        ArrayList sortedstability = new DescendOrder().getsort(getstability);
+        
+        System.out.println(sortedstability);
+        //System.out.println(getstability);
+        
+        String s[] = sortedstability.get(0).toString().split("#");
+        if(s[1].equals("vh"))
+            JOptionPane.showMessageDialog(null, "Stability factor for the provided data is very high");
+        else if(s[1].equals("h"))
+            JOptionPane.showMessageDialog(null, "Stability factor for the provided data is high");
+        else if(s[1].equals("m"))
+            JOptionPane.showMessageDialog(null, "Stability factor for the provided data is medium");
+        else if(s[1].equals("l"))
+            JOptionPane.showMessageDialog(null, "Stability factor for the provided data is low");
+        else
+            JOptionPane.showMessageDialog(null, "Stability factor for the provided data is very low");
     }
 }

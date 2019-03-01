@@ -19,12 +19,13 @@ public class DataReciever extends Thread {
     public void run()
     {
         try {
-            ServerSocket ss = new ServerSocket(1254);
+            ServerSocket ss = new ServerSocket(0);
             while(true)
             {
                 Socket s = ss.accept();
                 InputStream is = s.getInputStream();
                 DataInputStream dis = new DataInputStream(is);
+                
                 String data = dis.readUTF();
                 System.out.println("Received data is "+data);
             }
