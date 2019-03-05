@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package NetworkOps;
+package DOSNetworkOps;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,7 +20,7 @@ import java.nio.channels.FileChannel;
  *
  * @author abhilash
  */
-public class Sender {
+public class SenderDOS {
     Socket clientSocket = null;
     String srcDir = null;
     String dstDir = null;
@@ -45,7 +45,7 @@ public class Sender {
     String dirFailedResponse = "Failed";
     File[] opFileList = null;
 
-    public Sender(Socket clientSocket, String srcDir, String dstDir) {
+    public SenderDOS(Socket clientSocket, String srcDir, String dstDir) {
 
         try {
             this.clientSocket = clientSocket;

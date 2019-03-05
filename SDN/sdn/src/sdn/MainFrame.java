@@ -5,12 +5,14 @@
  */
 package sdn;
 
+import CompressionNetworkOps.SenderComp;
 import DateTime.CurrentDate;
 import DateTime.CurrentTime;
 import FileOps.ReadFiles;
 import FileOps.WriteFiles;
-import NetworkOps.Sender;
-import NetworkOps.Sender2;
+import DOSNetworkOps.SenderDOS;
+import DOSNetworkOps.Sender2;
+import ENCNetworkOps.SenderENC;
 import fuzzy.FuzzyClassification;
 import fuzzy.Ranges;
 import java.io.File;
@@ -219,6 +221,19 @@ public class MainFrame extends javax.swing.JFrame {
         addclust.addAll(highcluster);
         addclust.add("endtag");
         
+//        System.out.println("sendfiles to dos");
+//        for(int i=0; i<addclust.size()-1; i++)
+//        {
+//            ArrayList temp = (ArrayList) addclust.get(i);
+//            String filename = (String)temp.get(0);
+//            String path2 = jTextField1.getText()+"/"+filename;
+//            try {
+//                Socket sendtodos = new Socket("10.0.2.8", 3338);
+//                Sender s = new Sender(sendtodos, path2, "/home/root/Desktop/dosfiles/");
+//            } catch (IOException ex) {
+//                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
         File f2 = new File("/home/abhilash/Desktop/dosfiles");
         System.out.println(f2.getAbsolutePath());
         System.out.println("Size added: "+addclust.size());
@@ -239,6 +254,7 @@ public class MainFrame extends javax.swing.JFrame {
                     break;
                 }
             }
+            System.out.println(flag+" "+i);
             if(flag)
             {
 
@@ -256,12 +272,13 @@ public class MainFrame extends javax.swing.JFrame {
             
         }
         
-
+        System.out.println("DOS server connection starts");
         
 //        Socket connectclient;
 //        try {
-//            connectclient = new Socket("192.168.1.44", 3338);
-//            Sender send = new Sender(connectclient, "/home/abhilash/Desktop/dosfiles", "/root/Desktop/dosfiles/");
+//            connectclient = new Socket("10.0.2.8", 3338);
+//            SenderDOS send = new SenderDOS(connectclient, "/home/abhilash/Desktop/dosfiles", "/root/Desktop/dosfiles/");
+//            connectclient.close();
 //        } catch (IOException ex) {
 //            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
 //        }
@@ -273,7 +290,39 @@ public class MainFrame extends javax.swing.JFrame {
             //System.out.println(temps);
         }
             
+//        for(int i=0; i<addclust.size(); i++)
+//        {
+//            String temps = addclust.get(i).toString();
+//            new Sender2().send(temps);
+//            //System.out.println(temps);
+//        }
         
+//        System.out.println("DPI server connection starts");
+//        
+//        try {
+//            connectclient = new Socket("10.0.2.8", 3339);
+//            SenderDOS send = new SenderDOS(connectclient, "/home/abhilash/Desktop/dosfiles", "/root/Desktop/dpifiles/");
+//            connectclient.close();
+//        } catch (IOException ex) {
+//            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//        
+//        System.out.println("Send to Enc server");
+//        try {
+//            Socket send_enc = new Socket("10.0.2.8",3340);
+//            SenderENC se_enc = new SenderENC(send_enc, "/home/abhilash/Desktop/dosfiles", "E:\\EncFiles\\");
+//        } catch (IOException ex) {
+//            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//        System.out.println("Send to Compression server");
+//        try {
+//            Socket send_comp = new Socket("10.0.2.8",3341);
+//            SenderComp se_comp = new SenderComp(send_comp, "/home/abhilash/Desktop/dosfiles", "E:\\EncFiles\\");
+//        } catch (IOException ex) {
+//            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

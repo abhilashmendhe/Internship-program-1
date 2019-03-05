@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package NetworkOps;
+package DOSNetworkOps;
 
 import java.io.DataInputStream;
 import java.io.DataOutput;
@@ -24,7 +24,7 @@ public class Sender2 {
     public void send(String data)
     {
         try {
-            Socket s = new Socket("192.168.1.44",3000);
+            Socket s = new Socket("10.0.2.8",3000);
             OutputStream os = s.getOutputStream();
             DataOutputStream dos = new DataOutputStream(os);
             dos.writeUTF(data);
