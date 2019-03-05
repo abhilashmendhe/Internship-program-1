@@ -5,13 +5,19 @@
  */
 package sdn;
 
+import DateTime.CurrentDate;
+import DateTime.CurrentTime;
+import FileOps.ReadFiles;
+import FileOps.WriteFiles;
 import NetworkOps.Sender;
+import NetworkOps.Sender2;
 import fuzzy.FuzzyClassification;
 import fuzzy.Ranges;
 import java.io.File;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -137,71 +143,137 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
-            String path = jTextField1.getText();
-            Socket connectclient = new Socket("192.168.1.44", 3338);
-            Sender send = new Sender(connectclient, "/home/abhilash/sdnfiles", "/root/Desktop/sdnfiles/");
-                    
+        String path = jTextField1.getText();
+        //Socket connectclient = new Socket("192.168.1.44", 3338);
+        //Sender send = new Sender(connectclient, "/home/abhilash/sdnfiles", "/root/Desktop/sdnfiles/");
+        File f = new File(path);
+        File allfiles[] = f.listFiles();                    
+        ArrayList all = new ArrayList();
+        System.out.println("Files");
+        for(int i=0; i<allfiles.length; i++)
+        {
+            String time = new CurrentTime().getTime();
+            String date = new CurrentDate().getDate();
+            String timespl[] = time.split(":");
+            String hr = timespl[0];
+            String min = timespl[1];
+            String sec = timespl[2];
+            String secspl[] = sec.split(" ");
+            Random r = new Random();
+            int randomsecs = r.nextInt(60);
+            secspl[0] = Integer.toString(randomsecs);
+            //System.out.println(randomsecs);
+            time = hr+":"+min+":"+secspl[0]+"_"+secspl[1];
+            String date_time = time+" "+date;
+            ArrayList temp = new ArrayList();
+            String s = new RandomIp().genrateIp();
             
-            File f = new File(path);
-                    File allfiles[] = f.listFiles();
-                    ArrayList all = new ArrayList();
-                    System.out.println("Files");
-                    for(int i=0; i<allfiles.length; i++)
-                    {
-                        ArrayList temp = new ArrayList();
-                        String s = new RandomIp().genrateIp();
-                        
-                        temp.add(allfiles[i].getName());
-                        temp.add(s);
-                        temp.add(allfiles[i].length());
-                        all.add(temp);
-                        
-                    }
-                    ArrayList sorted = new Sort().getsort(all);
-                    for(int i=0; i<sorted.size(); i++)
-                    {
-                        ArrayList te = (ArrayList) sorted.get(i);
-                        System.out.println(te);
-                    }
-                    ArrayList t1 = (ArrayList) sorted.get(0);
-                    ArrayList t2 = (ArrayList) sorted.get(sorted.size()-1);
-                    long size1 = (long) t1.get(2);
-                    long size2 = (long) t2.get(2);
-                    long distance = size2 - size1;
-                    
-                    System.out.println("\n");
-                    int dist = (int) distance;
-                    
-                    System.out.println("Distance: "+dist);
-                    
-                    System.out.println("\n");
-                    System.out.println("Ranges");
-                    ArrayList ranges = new Ranges().getRanges(dist);
-                    for(int i=0; i<ranges.size(); i++)
-                    {
-                        ArrayList t = (ArrayList) ranges.get(i);
-                        System.out.println(t);
-                    }
-                    
-                    System.out.println("\n");
-                    System.out.println("Fuzzy Clustering");
-                    ArrayList clusterdata = new FuzzyClassification().classify(sorted, ranges);
-                    for(int i=0; i<clusterdata.size(); i++)
-                    {
-                        ArrayList t = (ArrayList) clusterdata.get(i);
-                        System.out.println("Cluster: "+i);
-                        
-                        for(int j=0; j<t.size(); j++)
-                        {
-                            ArrayList temp = (ArrayList) t.get(j);
-                            System.out.println(temp);
-                        }
-                        System.out.println("");
-                    }
-        } catch (IOException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            temp.add(allfiles[i].getName());
+            temp.add(s);
+            temp.add(allfiles[i].length());
+            temp.add(date_time);
+            all.add(temp);
+            
         }
+        ArrayList sorted = new Sort().getsort(all);
+        for(int i=0; i<sorted.size(); i++)
+        {
+            ArrayList te = (ArrayList) sorted.get(i);
+            System.out.println(te);
+        }
+        ArrayList t1 = (ArrayList) sorted.get(0);
+        ArrayList t2 = (ArrayList) sorted.get(sorted.size()-1);
+        long size1 = (long) t1.get(2);
+        long size2 = (long) t2.get(2);
+        long distance = size2 - size1;
+        System.out.println("\n");
+        int dist = (int) distance;
+        System.out.println("Distance: "+dist);
+        System.out.println("\n");
+        System.out.println("Ranges");
+        ArrayList ranges = new Ranges().getRanges(dist);
+        for(int i=0; i<ranges.size(); i++)
+        {
+            ArrayList t = (ArrayList) ranges.get(i);
+            System.out.println(t);
+        }
+        System.out.println("\n");
+        System.out.println("Fuzzy Clustering");
+        ArrayList clusterdata = new FuzzyClassification().classify(sorted, ranges);
+        for(int i=0; i<clusterdata.size(); i++)
+        {
+            ArrayList t = (ArrayList) clusterdata.get(i);
+            System.out.println("Cluster: "+i);
+            
+            for(int j=0; j<t.size(); j++)
+            {
+                ArrayList temp = (ArrayList) t.get(j);
+                System.out.println(temp);
+            }
+            System.out.println("");
+        }
+        ArrayList veryhighcluster = (ArrayList)clusterdata.get(0);
+        ArrayList highcluster = (ArrayList) clusterdata.get(1);
+        ArrayList addclust = new ArrayList();
+        addclust.addAll(veryhighcluster);
+        addclust.addAll(highcluster);
+        addclust.add("endtag");
+        
+        File f2 = new File("/home/abhilash/Desktop/dosfiles");
+        System.out.println(f2.getAbsolutePath());
+        System.out.println("Size added: "+addclust.size());
+        String allfilesindos[] = f2.list();
+        System.out.println("Files: "+allfilesindos.length);
+        for(int i=0; i<addclust.size()-1; i++)
+        {
+            ArrayList temp = (ArrayList) addclust.get(i);
+            String filename = (String) temp.get(0);
+            //System.out.println(filename);
+            boolean flag = true;
+            for(int j=0; j<allfilesindos.length; j++)
+            {
+               
+                if(filename.equals(allfilesindos[j]))
+                {
+                    flag = false;
+                    break;
+                }
+            }
+            if(flag)
+            {
+
+                    String readpath = jTextField1.getText()+"/"+filename;
+                    String writepath = "/home/abhilash/Desktop/dosfiles/"+filename;
+                    
+                    try {
+                        int readby[] = new ReadFiles().file(readpath);
+                        new WriteFiles().write(writepath, readby);
+                    } catch (IOException ex) {
+                        Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+            }
+            
+            
+        }
+        
+
+        
+//        Socket connectclient;
+//        try {
+//            connectclient = new Socket("192.168.1.44", 3338);
+//            Sender send = new Sender(connectclient, "/home/abhilash/Desktop/dosfiles", "/root/Desktop/dosfiles/");
+//        } catch (IOException ex) {
+//            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        
+        for(int i=0; i<addclust.size(); i++)
+        {
+            String temps = addclust.get(i).toString();
+            new Sender2().send(temps);
+            //System.out.println(temps);
+        }
+            
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
