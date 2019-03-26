@@ -6,6 +6,9 @@
 package sdn;
 
 import CompressionNetworkOps.SenderComp;
+import DOSNetworkOps.FetchMaker;
+import DOSNetworkOps.InsertMaker;
+import DOSNetworkOps.Receiver;
 import DateTime.CurrentDate;
 import DateTime.CurrentTime;
 import FileOps.ReadFiles;
@@ -19,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,6 +37,7 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainFrame
      */
+    public static String getfromdos = "";
     public MainFrame() {
         super("SDN");
         initComponents();
@@ -274,14 +279,28 @@ public class MainFrame extends javax.swing.JFrame {
         
         System.out.println("DOS server connection starts");
         
-//        Socket connectclient;
-//        try {
-//            connectclient = new Socket("10.0.2.8", 3338);
-//            SenderDOS send = new SenderDOS(connectclient, "/home/abhilash/Desktop/dosfiles", "/root/Desktop/dosfiles/");
-//            connectclient.close();
-//        } catch (IOException ex) {
-//            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        String filesize = new FetchMaker().fetch();
+        int fetchfilesize = Integer.parseInt(filesize);
+        System.out.println(filesize);
+        int sendfilesize = 0;
+        for(int i=0; i<addclust.size(); i++)
+        {
+            ArrayList temps = (ArrayList) addclust.get(i);
+            int send = (int) temps.get(2);
+            sendfilesize += send;
+        }
+        sendfilesize = sendfilesize/100000;
+        
+        Socket connectclient;
+        try {
+           connectclient = new Socket("192.168.1.35", 3338);
+           SenderDOS send;
+           if(sendfilesize < fetchfilesize)
+               send = new SenderDOS(connectclient, "/home/abhilash/Desktop/dosfiles", "E:\\DOSFiles\\");
+            
+        } catch (IOException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         for(int i=0; i<addclust.size(); i++)
         {
@@ -289,7 +308,35 @@ public class MainFrame extends javax.swing.JFrame {
             new Sender2().send(temps);
             //System.out.println(temps);
         }
-            
+        Receiver r = new Receiver();
+        r.start();
+        String totaltimedate = new CurrentDate().getDate() +" "+ new CurrentTime().getTime();
+        
+        while(true)
+        {
+            if(getfromdos.length() > 0)
+            {
+                r.stop();
+                break;
+            }
+            System.out.println();
+        }
+        System.out.println(getfromdos);
+
+        
+        
+        String splrecdata[]= getfromdos.split("#");
+        try {
+            new InsertMaker().insertOps(splrecdata[0], splrecdata[1], totaltimedate);
+        
+            } catch (Exception e) {
+        }
+        
+//        
+
+          
+           
+
 //        for(int i=0; i<addclust.size(); i++)
 //        {
 //            String temps = addclust.get(i).toString();

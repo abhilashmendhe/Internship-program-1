@@ -29,9 +29,11 @@ public class HMMinit {
         ArrayList noncert_cluster_fp = new ForwardProbabilty().get(LRnoncertified, mean_lr_noncertified, sd_lr_noncertified);
         
         double welchmat[][] = new double[2][2];
+        System.out.println("Welch matrix\n");
+        
         System.out.println(" cert_cluster_fp "+"        cert_cluster_bp");
         System.out.println(" noncert_cluster_fp "+"     noncert_cluster_bp");
-        System.out.println("Welch matrix\n");
+        System.out.println("\n");
         
         for(int i=0; i<labeltest.size(); i++)
         {
