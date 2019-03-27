@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.15, for Linux (x86_64)
 --
--- Host: localhost    Database: npmnode
+-- Host: localhost    Database: networknode
 -- ------------------------------------------------------
 -- Server version	8.0.15
 
@@ -16,26 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `npminfo`
+-- Table structure for table `nodeinfo`
 --
 
-DROP TABLE IF EXISTS `npminfo`;
+DROP TABLE IF EXISTS `nodeinfo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `npminfo` (
-  `ip` varchar(100) DEFAULT NULL,
-  `hostname` varchar(100) DEFAULT NULL
+CREATE TABLE `nodeinfo` (
+  `name` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `mobile` varchar(12) DEFAULT NULL,
+  `uname` varchar(100) NOT NULL,
+  `pass` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`uname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `npminfo`
+-- Dumping data for table `nodeinfo`
 --
 
-LOCK TABLES `npminfo` WRITE;
-/*!40000 ALTER TABLE `npminfo` DISABLE KEYS */;
-INSERT INTO `npminfo` VALUES ('10.0.2.7','base.example.local');
-/*!40000 ALTER TABLE `npminfo` ENABLE KEYS */;
+LOCK TABLES `nodeinfo` WRITE;
+/*!40000 ALTER TABLE `nodeinfo` DISABLE KEYS */;
+INSERT INTO `nodeinfo` VALUES ('Abhilash Mendhe','abhi@localhost.com','9545600797','abhi','abhi123');
+/*!40000 ALTER TABLE `nodeinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-27  8:04:31
+-- Dump completed on 2019-03-27  8:04:14
